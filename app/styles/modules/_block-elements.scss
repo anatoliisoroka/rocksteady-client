@@ -1,0 +1,75 @@
+.block-elements{
+    margin-bottom: $progressBarHeight;
+
+    @media (max-width: $screen-sm-min) {
+        .flexbox &{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    .element{
+        display: block;
+        margin: 15px;
+        zoom: 1.2;
+        height: 142px;
+        width: 142px;
+        box-shadow: 0 0 2px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        float: left;
+        /* background: rgba(200,200,200,0.1); */
+
+        .img-container{
+            height: 100%;
+            display: flex;
+            @include display(flex);
+            @include align-items(center);
+            @include justify-content(center);
+            background-position: center;
+            background-repeat: no-repeat;
+            img{
+                max-width: 100%;
+                max-height: 100%;
+                border-radius: 2px;
+                padding: 5px;
+            }
+        }
+
+        @include transition(all 0.3s);
+
+        @media (max-width: $screen-sm-min) {
+            zoom: 1;
+        }
+
+        @media (max-width: 365px) {
+            margin: 8px;
+            zoom: 0.9;
+        }
+
+        &:hover, &:active, &:focus{
+            opacity: 0.8;
+            @include transform(scale(1.075));
+        }
+        &.selectable{
+            cursor: pointer;
+        }
+        &.tour{
+            visibility: hidden;
+        }
+    }
+
+    .ie10 &, .ie11 & {
+        .element{
+            .img-container{
+                img{
+                    max-width: 140px;
+                }
+            }
+            @include transition(transform none);
+            &:hover, &:active{
+                opacity: 0.8;
+                @include transform(scale(1));
+            }
+        }
+    }
+}

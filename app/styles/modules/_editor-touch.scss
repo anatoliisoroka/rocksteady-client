@@ -1,0 +1,53 @@
+html.touch{
+    .skin-motocal{
+        .back-to-kit-container{
+            position:fixed;
+            font-family: $interfaceFontFamily;
+            letter-spacing: 2px;
+            width: 200px;
+            top:10px;
+            left:0;
+            height: 53px;
+            padding-top: 4px;
+            a.back-to-kit{
+                font-size: $headerFontSizeLargeTouch;
+                .back-logo{ margin-top:7px;}
+                .back-text{ font-weight: bold;}
+            }
+        }
+
+        .navbar-header.editor{
+            .title {
+                left: 20px;
+                font-size: $headerFontSizeMediumTouch;
+                margin-left: 0;
+                min-width:150px;
+            }
+        }
+
+        .editor-canvas-container{
+            margin-right: 214px;
+        }
+
+        .editor-bottom-toolbox-container{
+            .overflow-controller-container{
+                text-align: right;
+                display: inline;
+                margin-bottom: 125px;
+                .overflow-controller{
+                    display: inline-block;
+                    height: 100px;
+                    width: 100px;
+                    position: absolute;
+                    right: 0;
+                    top: -110px;
+                    .nipple{
+                        .back{
+                            box-shadow: 0 0 5px 2px #333;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+html.touch{
+    .skin-motocal{
+        .kit-options{
+            button {
+                height: 41px;
+
+                @media (max-width: $screen-sm) {
+                    &.edit-tab {
+                        position: static;
+                    }
+
+                    > strong, > span.tab-label {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

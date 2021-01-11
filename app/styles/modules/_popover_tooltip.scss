@@ -1,0 +1,159 @@
+.skin-motocal {
+
+    .position .selectmap-single-position-canvas {
+        display: none;
+    }
+
+    .rs-popover-content{
+
+        .btn{
+            padding: 0;
+            color: $white;
+            text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+        }
+
+        .mirror-features-btn {
+            margin-left: 10px;
+        }
+
+        .edit-enabled, .mirror-features-btn {
+            @include linear-gradient(to bottom, #bdc4c1, #98a2a3);
+        }
+
+        .alts-btn svg {
+            @include transform(scale(1.2));
+        }
+
+        .alts-enabled{
+            @include linear-gradient(to bottom, #cac5cc, #c5c3cc);
+	    }
+
+        .remove-enabled{
+            @include linear-gradient(to bottom, #e7e4ee, #b5b6bd);
+	    }
+
+        .disabled-btn{
+            @include linear-gradient(to bottom, #ddd, #ccc);
+        }
+
+        .rs-popover-inner {
+            background-color: $popoverBackgroundColor;
+        }
+    }
+}
+
+.touch .skin-motocal {
+    .position-tooltip {
+        button {
+            min-width: 51px;
+            height: 41px;
+            padding: 5px;
+        }
+    }
+}
+
+.shepherd-active .position-tooltip-container {
+    z-index: 99981;
+}
+
+.position-tooltip-container {
+    position: absolute;
+    top: 0;
+    z-index: 9000;
+    display: none;
+
+    .position-tooltip-backdrop {
+        position: fixed;
+        top: $headerHeight;
+        left: 0;
+        right: 0;
+        bottom: $navbarHeight;
+        background-color: grey;
+        opacity: 0;
+
+        @include transition-property(opacity);
+        @include transition-duration(.2s);
+
+        &.fade {
+            opacity: .2;
+        }
+
+        .position-tooltip-box {
+            left: 0;
+        }
+    }
+
+    &.right-of-center {
+        right: 0;
+
+        .position-tooltip {
+            text-align: right;
+        }
+
+        .position-tooltip-box {
+            right: 0;
+        }
+    }
+
+    &.left-of-center {
+        left: 0;
+    }
+
+    canvas {
+        opacity: 0;
+        z-index: -9999;
+    }
+
+    .position-tooltip {
+        position: absolute;
+        top: 150px;
+        cursor: pointer;
+
+        .position-tooltip-box {
+            position: absolute;
+            top: 0;
+            background-color:rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0 0 20px grey;
+            display: inline-block;
+
+            &.shepherd-target {
+                &.shepherd-enabled {
+                    position: absolute !important;
+                }
+            }
+
+        }
+
+        button {
+            min-width: 30px;
+            height: 30px;
+
+            text-transform: uppercase;
+            font-weight: bold;
+
+            &.edit-enabled {
+                width: 80px;
+            }
+        }
+    }
+
+    .rs-popover-title-container h2 {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-transform: none;
+        font-size: 140%;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+    .rs-popover-content {
+        white-space: nowrap;
+    }
+
+    .rs-popover-icon {
+        width: 20px;
+    }
+}

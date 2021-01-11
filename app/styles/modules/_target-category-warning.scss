@@ -1,0 +1,28 @@
+.shepherd-step[data-id="targetcategorywarning"] {
+    .shepherd-content {
+
+    }
+
+    .target-category-warning {
+        margin-bottom: 1em;
+        
+        p {
+            text-align: center;
+        }
+
+        .step {
+            text-align:center;
+            margin-top:1em;
+
+            div {
+                display:inline-block;
+                margin-right:1em;
+            }
+        }
+    }
+
+    .more-details {
+        padding-top:.5em;
+    }
+}
+

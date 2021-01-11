@@ -1,0 +1,27 @@
+<script type="text/javascript">
+    document.addEventListener('rsReady', function(e) {
+        var config = e.detail,
+            gaConfig = config.google_analytics;
+
+        if (config.mixpanel.enabled) {
+            initMixpanel(config);
+        }
+        if (gaConfig.enabled) {
+            initGA(gaConfig.tracking_id);
+        }
+
+        ////
+
+        function initMixpanel(config) {
+            mixpanel.init(config.mixpanel.token);
+            mixpanel.identify(config.APP.session_id);
+        }
+
+        function initGA(trackingId) {
+            ga('create', trackingId, 'auto');
+            ga('send', 'pageview');
+
+            ga('require', 'ecommerce');
+        }
+    }, false);
+</script>

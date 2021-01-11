@@ -1,0 +1,17 @@
+.skin-motocal{
+    .feature{
+        .back-to-kit-container{
+            background: #4e4e4e;
+
+            a.back-to-kit{
+                color: $white;
+                border-radius: none;
+                font-size: 14px;
+            }
+        }
+
+        .editor-canvas-container{
+            margin-right: 270px;
+        }
+    }
+}

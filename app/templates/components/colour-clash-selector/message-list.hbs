@@ -1,0 +1,13 @@
+{{#each messages as |message index|}}
+    {{colour-clash-selector/message
+        message=message
+        hidden=message.hidden
+        stackOffset=stackOffset
+        topOffset=topOffset
+        leftOffset=leftOffset
+        removeMessage="removeMessage"
+        bringForward="bringForward"
+        hideGroup="hideGroup"
+        selectorView=selectorView
+        designId=designId}}
+{{/each}}

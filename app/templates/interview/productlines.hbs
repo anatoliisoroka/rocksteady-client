@@ -1,0 +1,20 @@
+<div class="interview-step-carousel" data-interview-section="productLine">
+    <h4>{{t 'interview.productline_title'}}</h4>
+
+    {{#if productLines}}
+        <div class="block-elements">
+            {{#each productLine in productLines}}
+                <div class="selectable element"
+                     title="{{productLine.name}}"
+                     data-searchfor="{{productLine.name}}"
+                     data-productline-name="{{productLine.name}}"
+                     data-value="{{productLine.name}}"
+                    {{action "chooseProductLine" productLine}}>
+                    <div class="img-container">
+                        <img src="{{productLine.imageUrl}}">
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+</div>

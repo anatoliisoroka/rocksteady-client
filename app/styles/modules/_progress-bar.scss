@@ -1,0 +1,33 @@
+.rs-progressbar{
+    
+    /*@media screen and (max-width: $screen-sm-min) {*/
+    @media screen and (max-height: 575px) {
+        display: none;
+    }
+
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    bottom: 0;  
+    border-top: solid 1px #CCCCCC;
+
+    z-index: $progressBarZindex;
+    
+    ol{
+        
+        padding:0;
+        margin:0;
+        
+        li{
+            height: $progressBarHeight;
+            line-height: $progressBarHeight;
+            font-size: 22px;
+            display: inline-block;
+            list-style-type: none;  
+            text-align: center;
+            width: 25%;
+        }
+    }        
+}

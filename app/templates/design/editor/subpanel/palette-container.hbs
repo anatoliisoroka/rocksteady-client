@@ -1,0 +1,31 @@
+{{#if view.moreResultsShown }}
+    <div class="fixed-header-container colours">
+        <div class="top-padding-helper fixed-header-element"></div>
+        <div class="filter-container fixed-header-element">
+            {{input value=view.filterValue placeholder=(t 'editor.subpanel.rule_colours.filter') }}
+        </div>
+    </div>
+{{/if}}
+
+<div class="palette-container colours {{if view.moreResultsShown 'more-results-shown'}}">
+
+    {{#if view.moreResultsShown }}
+        {{view "design/editor/colourPalette/colourPalette" value=view.value propertyName=view.propertyName class='palette-fill' content=view.filteredColours location="subPanel" filter=view.filterValue}}
+    {{else}}
+
+        {{#if view.ruleColours}}
+            <h5>{{t 'editor.subpanel_rule_colours_title'}}</h5>
+            {{view "design/editor/colourPalette/colourPalette" value=view.value propertyName=view.propertyName class='palette-fill' content=view.ruleColours location="subPanel"}}
+        {{/if}}
+
+        {{#if view.designerColours}}
+            <h5>{{t 'editor.subpanel_designer_colours_title'}}</h5>
+            {{view "design/editor/colourPalette/colourPalette" value=view.value propertyName=view.propertyName class='palette-fill' content=view.designerColours location="subPanel"}}
+        {{/if}}
+
+        <div class="text-center all-elements-container">
+            <div class="btn btn-primary" {{action 'showAllColours' target=view}}>{{t 'editor.subpanel.rule_colours.show_all'}}</div>
+        </div>
+
+    {{/if}}
+</div>

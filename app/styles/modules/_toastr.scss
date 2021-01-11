@@ -1,0 +1,87 @@
+.skin-motocal{
+
+    #toast-container {
+        font-family: $interfaceFontFamily;
+        letter-spacing: 1px;
+        z-index: $zindexToastr;
+        top: $headerHeight;
+
+        .toast {
+            opacity: 1;
+            box-shadow: none;
+            &:hover{
+                box-shadow: 0 0 12px #999999;
+            }
+        }
+    }
+
+    .toast-container-checkout {
+        top: 30px;
+        right: 25px;
+    }
+
+    #toast-container.toast-container-editor {
+        top: $navbarEditorHeight;
+    }
+
+    #toast-container.toast-container-editor,
+    #toast-container.toast-container-selector
+    {
+        left: 0;
+        width: 100%;
+
+        &.toast-container-editor {
+            padding: 5px #{$propertyPanelWidth + 1}px 5px 5px;
+        }
+
+        .toast-warning, .toast-success, .toast-error, .toast-info {
+            width: 100%;
+            box-sizing: border-box;
+
+            .toast-close-button{
+                top: 0;
+            }
+
+            .toast-message {
+                margin-top: 0.3em;
+                font-style: normal;
+
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    #toast-container.toast-container-selector {
+        top: $headerHeight + 45;
+        width: 450px;
+        right: 30px;
+        left: initial;
+        @media (max-width: $screen-xs) {
+            padding: 0 5px;
+            width: 100%;
+            right: initial;
+            left: initial;
+        }
+    }
+
+    @media (max-width: $screen-xs) {
+        .toast-message {
+            font-size: 16px;
+        }
+    }
+}
+
+.touch .skin-motocal {
+    #toast-container.toast-container-editor,
+    #toast-container.toast-container-selector {
+        &.toast-container-editor {
+            padding-right: #{$propertyPanelWidthTouch}px;
+        }
+    }
+
+    .toast-close-button {
+        display: none;
+    }
+}

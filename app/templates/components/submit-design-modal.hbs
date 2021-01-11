@@ -1,0 +1,158 @@
+{{#rs-modal modalOpen=modalOpen modalClass='submit-design-modal'}}
+    <div class="submit-design-header">
+        <button type="button" class="close" {{action 'closeModal'}}>
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h2 class="submit-design-title">
+            {{#if hasError}}
+                {{t 'submit_design.error.title'}}
+            {{else if hasSubmitted}}
+                {{t 'submit_design.success.title'}}
+            {{else}}
+                {{t 'submit_design.title'}}
+            {{/if}}
+        </h2>
+    </div>
+    <div class="submit-design-body-wrapper">
+        <div class="submit-design-body" {{action 'noop' bubbles=false}}>
+            {{#if hasError}}
+                <div class="submit-design-error">
+                    <div class="image-wrapper">
+                        <img class="submit-design-image" src="images/submit-design-error.svg" alt="">
+                    </div>
+                    <div class="submit-design-text">
+                        <p>{{t 'submit_design.error.body_1'}}</p>
+                        <p>{{t 'submit_design.error.body_2'}}</p>
+
+                    </div>
+                </div>
+            {{else if hasSubmitted}}
+                <div {{bind-attr class=':submit-design-success becomeDesigner:designer'}}>
+                    <div class="image-wrapper">
+                        <img class="submit-design-image" src="{{submitImageUrl}}" alt="">
+                    </div>
+                    <div class="submit-design-text">
+                        <p>{{t 'submit_design.success.body'}}</p>
+                    </div>
+                </div>
+                <div {{bind-attr class='becomeDesigner:designer-section:hidden'}}>
+                    <h1 class="designer-section-title">{{t 'submit_design.success.coming_soon.title'}}</h1>
+                    <h2 class="designer-section-sub-title"> {{t 'submit_design.success.coming_soon.sub_title'}}</h2>
+                    <div class="submit-design-text">
+                        <p>{{t 'submit_design.success.coming_soon.body'}}</p>
+                    </div>
+                </div>
+            {{else}}
+                <div class="submit-design-info">
+                    <h3 class="submit-design-body-title">
+                        {{t 'submit_design.marketing_section.headline'}}
+                        <span class="submit-design__prize-money-currency">{{t 'submit_design.marketing_section.prize_currency'}}</span><span class="submit-design__prize-money">{{t 'submit_design.marketing_section.prize_money'}}</span>
+                    </h3>
+                    <div class="image-wrapper">
+                        <img class="submit-design-image" src="branding/images/selector/submit-design.svg" alt="{{t 'submit_design.marketing_section.image_alt_text'}}">
+                    </div>
+                    <div class="submit-design-text">
+                        <p>{{t 'submit_design.marketing_section.paragraph_1'}}</p>
+                        <p>{{t 'submit_design.marketing_section.paragraph_2'}}</p>
+                        <p>{{t 'submit_design.marketing_section.paragraph_3'}}</p>
+                    </div>
+                </div>
+                <div class="submit-design-form-wrapper">
+                    <form class="submit-design-form">
+                        <div class="submit-design-form-group-wrapper">
+                            <div class="submit-design-form-group">
+                                <label for="submitDesignName">{{t 'submit_design.user_name.label'}}</label>
+                                {{validated-input-text
+                                    type='text'
+                                    value=userName
+                                    id='submitDesignName'
+                                    placeholder=(t 'submit_design.user_name.placeholder')
+                                    isValid=isNameValid
+                                    valid=nameValid
+                                    class='form-control'
+                                    checkImmediate=true
+                                }}
+                            </div>
+                            <div class="submit-design-form-group">
+                                <label for="submitDesignEmail">{{t 'submit_design.email.label'}}</label>
+                                {{validated-input-email
+                                    type='email'
+                                    value=userEmail
+                                    id='submitDesignEmail'
+                                    placeholder=(t 'submit_design.email.placeholder')
+                                    isEmailValid=isEmailValid
+                                    valid=emailValid
+                                    class='form-control'
+                                }}
+                            </div>
+                            <div class="submit-design-form-group">
+                                <label for="submitDesignPhone">{{t 'submit_design.contact_number.label'}}</label>
+                                {{validated-intl-tel-input
+                                    allowExtensions=false
+                                    autoFormat=false
+                                    autoPlaceholder=false
+                                    value=phoneNumber
+                                    selectedCountryData=selectedCountryData
+                                    number=number
+                                    extension=extension
+                                    numberType=numberType
+                                    isValidNumber=isNumberValid
+                                    valid=numberValid
+                                    validationError=validationError
+                                    placeholder=(t 'submit_design.contact_number.placeholder')
+                                    class='form-control'
+                                    autocomplete='on'
+                                    defaultCountry=myCountry
+                                }}
+                            </div>
+                        </div>
+                        <div class="submit-design-form-group-wrapper">
+                            <div class="submit-design-form-group">
+                                <label for="submitDesignDesignName">{{t 'submit_design.design_name.label'}}</label>
+                                {{validated-input-text
+                                    type='text'
+                                    value=designName
+                                    id='submitDesignDesignName'
+                                    placeholder=(t 'submit_design.design_name.placeholder')
+                                    isValid=isDesignNameValid
+                                    valid=designNameValid
+                                    class='form-control'
+                                }}
+                            </div>
+                            <div class="submit-design-form-group">
+                                <label for="submitDesignDescription">{{t 'submit_design.design_description.label'}}</label>
+                                {{validated-textarea
+                                    rows="4"
+                                    value=designDescription
+                                    id='submitDesignDescription'
+                                    placeholder=(t 'submit_design.design_description.placeholder')
+                                    isValid=isDesignDescriptionValid
+                                    valid=designDescriptionValid
+                                    class='form-control'
+                                }}
+                            </div>
+                            <div class="submit-design-form-group">
+                                {{rs-checkbox
+                                    name='becomeDesigner'
+                                    label=(t 'submit_design.become_designer.label')
+                                    title=(t 'submit_design.become_designer.label')
+                                    position='right'
+                                    isChecked=becomeDesigner
+                                }}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+    <div class="submit-design-footer" {{action 'noop' bubbles=false}}>
+        {{#if hasError}}
+            <button type="submit" {{action 'closeModal'}} class="btn btn-primary">{{t 'submit_design.error.button_text'}}</button>
+        {{else if hasSubmitted}}
+            <button type="submit" {{action 'closeModal'}} class="btn btn-primary">{{t 'submit_design.success.button_text'}}</button>
+        {{else}}
+            <button type="submit" {{action 'submit'}} {{bind-attr class=':btn :btn-primary validForm::disabled'}}>{{t 'submit_design.button_text'}}</button>
+        {{/if}}
+    </div>
+{{/rs-modal}}

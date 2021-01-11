@@ -1,0 +1,65 @@
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                {{#if sending}}
+                {{else}}
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                {{/if}}
+                <h4 class="modal-title">{{t 'selector.save_your_design'}}</h4>
+            </div>
+            <div class="modal-body">
+
+                {{#if controller.sent}}
+
+                    <p class="banner-icon"><i class="glyphicon glyphicon-thumbs-up"></i></p>
+
+                    <p class="email-design-confirmation banner-text">{{t 'selector.email_design_confirmation'}}</p>
+
+                {{else}}
+
+                    {{#if sending}}
+
+                        {{#if error}}
+                            <p class="alert alert-danger">{{t 'selector.save_design_failed'}}</p>
+                        {{else}}
+                            <p class="saving-throbber"></p>
+                            <p class="banner-text">{{t 'selector.email_design_please_wait'}}</p>
+                        {{/if}}
+
+                    {{else}}
+
+                        <p class="selector-preview-container">
+                            {{#if view.selectorImage}}
+                            <img src="{{view.selectorImage}}">
+                            {{/if}}
+                        </p>
+
+                        <p>{{t 'selector.email_prompt'}} {{t 'selector.please_enter_email'}}</p>
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+
+                            <span class="{{if isEmailInvalid 'has-error' 'has-success'}}">
+                            {{view "design/validatedField" type="email" class="form-control email-address-input" placeholder=(t 'selector.email_input_placeholder') data-name="email" value=email notifyImmediately=false}}
+                            </span>
+                        </div>
+
+                    {{/if}}
+                {{/if}}
+            </div><!-- /.modal-body -->
+
+            <div class="modal-footer">
+                {{#if controller.sent}}
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">{{t 'application.ok'}}</button>
+                {{else}}
+                    <button type="button" class="btn btn-primary" {{action "save"}} disabled={{disableSendButton}}>
+                        <i class="glyphicon glyphicon-floppy-disk"></i>
+                        {{t 'selector.save_to_email'}}
+                    </button>
+                {{/if}}
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,0 +1,188 @@
+.skin-motocal{
+    .purchased .checkout-deck {
+        display: none;
+    }
+
+    .purchased-screen {
+
+        .purchase-hero {
+            background-color: #f3fdfe;
+            margin-left: -15px;
+            margin-right: -15px;
+            font-size: 20px;
+            padding: 15px 45px;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 30px;
+            margin-top: -15px;
+            color: #464646;
+        }
+
+        .facebook {
+            padding: 1em;
+            border-left: 1px solid #e5e5e5;
+
+            .facebook-icon {
+                float: left;
+                margin: 0 20px 20px 0;
+                &.sprite {
+                    display:block;
+                }
+            }
+
+            h5 {
+                margin-top: 0;
+                color: #464646;
+                text-transform: none;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .selector {
+                width: 100%;
+                border: 1px solid #e5e5e5;
+                margin-bottom: 10px;
+            }
+
+            .facebook-like-container {
+                margin-left: 110px;
+            }
+
+            .facebook-share-btn-container {
+                margin-left: 1em;
+                float: left;
+
+                i.sprite-fb-logo-white{
+                    display:block;
+                    padding:0;
+                    margin:0;
+                    border-radius: 8px;
+                    @include transform(scale(0.33));
+                    top:-15px;
+                    left:16px;
+                    position:relative;
+                    .safari & {
+                        left: 12px;
+                    }
+                    .ipad &, .iphone & {
+                        height: 80px;
+                    }
+                }
+            }
+
+            .facebook-share-button {
+                margin: 0;
+                vertical-align: bottom;
+                display: table-cell;
+                width: 100%;
+
+                .sprite {
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 5px;
+                    display:block;
+                }
+
+                text-align: center;
+                display: inline-block;
+                width: 90px;
+                height: 70px;
+                vertical-align: bottom;
+                white-space: normal;
+                text-transform: uppercase;
+
+                .share-text{
+                    position:relative;
+                    top:-27px;
+                }
+            }
+        }
+
+        .start-a-new-design {
+            float: left;
+        }
+
+        .order-number {
+            text-transform: none;
+        }
+
+        .smalltext {
+            font-size: small;
+        }
+
+        background-color: white;
+
+        .header-img-and-text {
+            margin-top: 15px;
+            padding-left: 0;
+            padding-top: 0;
+
+            .modal-header-img {
+                float: left;
+                margin-right: 15px;
+            }
+
+            h4.modal-title {
+                font-weight: bold;
+                font-size: 180%;
+                text-align: left;
+            }
+        }
+
+        h5 {
+            font-size: 120%;
+            margin-top: 1em;
+        }
+
+        .modal-title-error {
+            color: red;
+            font-weight: bold;
+            font-size: 200%;
+        }
+
+        .facebook-share-selector-and-button {
+            img {
+                width: 100%;
+            }
+        }
+
+        .order-summary-table {
+            width:100%;
+            max-width: 300px;
+            margin-left: 10px;
+            th {
+                width:100%;
+            }
+            td {
+                text-align: right;
+            }
+            tfoot {
+                border-top: 1px solid black;
+            }
+        }
+
+        address {
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        .delivery-estimate {
+            span {
+                font-size: 300%;
+                float: left;
+                display: block;
+                padding-top: 7px;
+                padding-right: 15px;
+            }
+            p {
+                font-size: 140%;
+            }
+        }
+
+        @media (max-width: $screen-sm) {
+            .facebook {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,91 @@
+//TODO replace variables with corresponding globals
+$coming-soon-modal-body-text-colour: #555555;
+$coming-soon-modal-title-colour: #555555;
+$coming-soon-modal-body-title-colour: grey;
+$coming-soon-modal-body-subtitle-colour: grey;
+$coming-soon-modal-button-colour: blue;
+$coming-soon-modal-body-form-colour: #777777;
+
+.coming-soon-modal-header {
+    @extend .modal-header;
+    text-align: center;
+    .coming-soon-modal-title {
+        text-transform: none;
+        color: $coming-soon-modal-title-colour;
+        margin: 0;
+    }
+    button.close {
+        position: absolute;
+        right: 16px;
+    }
+}
+
+.coming-soon-modal-body {
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    .coming-soon-modal-body-title {
+        margin-top: 20px;
+        color: $coming-soon-modal-body-title-colour;
+    }
+    .coming-soon-modal-body-subtitle {
+        text-transform: none;
+        color: $coming-soon-modal-body-subtitle-colour;
+    }
+    .coming-soon-modal-body-text {
+        text-align: left;
+        color: $coming-soon-modal-body-text-colour;
+        margin: 30px 0;
+    }
+    .coming-soon-modal-body-form {
+        color: $coming-soon-modal-body-form-colour;
+        max-width: 400px;
+        margin: 0 auto;
+        .coming-soon-modal-body-form-group {
+            @extend .form-group;
+            text-align: left;
+            margin: 34px 0 20px 0;
+        }
+    }
+    .coming-soon-modal-success-image {
+        margin: 40px 0;
+        animation: zoom ease-in-out 0.5s;
+    }
+    .coming-soon-modal-success-text {
+        text-align: center;
+    }
+}
+
+.coming-soon-modal-footer {
+    @extend .modal-footer;
+    position: relative;
+    padding: 10px;
+}
+
+@media(min-width: $screen-xs-min) {
+    .coming-soon-modal-body {
+        min-height: 335px;
+        .coming-soon-modal-body-text {
+            text-align: center;
+        }
+    }
+}
+
+@keyframes zoom {
+    0% {
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -moz-transform: scale(1.15);
+        -webkit-transform: scale(1.15);
+        transform: scale(1.15);
+    }
+    100% {
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+
+    }
+}

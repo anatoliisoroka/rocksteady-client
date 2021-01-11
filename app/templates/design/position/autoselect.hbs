@@ -1,0 +1,29 @@
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{position.name}}</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="canvas-wrapper">
+                    {{view "design/fabricComponentCanvas" content=oppositePositionMatchingShape}}
+                </div>
+
+                <div class="modal-body-text">
+                    <p>{{t 'selector.autoselect_matching_decal' name=oppositePosition.name}}</p>
+                    <p>{{t 'selector.autoselect_matching_decal_confirm'}}</p>
+                    <p class="alert alert-warning" role="alert">{{t 'selector.autoselect_warning'}}</p>
+                </div>
+
+            </div><!-- /.modal-body -->
+            
+            <div class="modal-footer">
+                <button type="button" name="noThanksAutoSelect" class="btn btn-default" data-dismiss="modal">{{t 'application.no_thanks'}}</button>
+                <button type="button" name="yesAutoSelect" class="btn btn-primary" {{action 'autoselect'}}>{{t 'selector.yes_autoselect'}}</button>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

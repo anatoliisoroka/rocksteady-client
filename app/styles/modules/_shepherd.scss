@@ -1,0 +1,123 @@
+body.skin-motocal {
+    &::after {
+        content: "";
+        opacity: 0;
+        background-color: white;
+        @include transition (all .5s);
+    }
+
+    .shepherd-step {
+        &[data-id="interview"] {
+            top: 42px !important;
+            left: 32px !important;
+        }
+    }
+
+    .shepherd-title .glyphicon {
+        vertical-align: text-top;
+    }
+
+    &.shepherd-active::after {
+        z-index: 99980;
+        display: block;
+        position: fixed; /* could also be absolute */
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 1;
+        /*content: "";*/
+        background-color: rgba(128, 128, 128, 0.8);
+    }
+
+    .shepherd-target.shepherd-enabled,
+    .shepherd-element {
+        z-index: 99982;
+    }
+
+    .shepherd-target.shepherd-enabled {
+        /*background-color: white;*/
+        @include filter(drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2)));
+        position: fixed;
+    }
+
+    .shepherd-element {
+        &.shepherd-theme-arrows {
+
+            &.shepherd-element-attached-top.shepherd-element-attached-left {
+                .shepherd-content::before {
+                    border-right-color: #eee;
+                }
+            }
+
+            .shepherd-content {
+
+                min-width: 250px;
+                max-width: 400px;
+
+                header h3 {
+                    padding-top: 5px;
+                    font-family: $interfaceFontFamily;
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: grey;
+                    text-transform: none;
+                }
+
+                .shepherd-text {
+                    font-family: $interfaceFontFamily;
+                    font-size: 16px;
+                    color: #333333;
+
+                    table th {
+                        padding-right: 1em;
+                    }
+                }
+
+                header::before {
+                    content: "";
+                    position: absolute;
+                    background-color: grey;
+                    height: 5px;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    border-top-left-radius: 3px;
+                    border-top-right-radius: 3px;
+                }
+
+                a.shepherd-cancel-link {
+                    margin-left: 15px;
+                }
+
+                footer .shepherd-buttons li .shepherd-button {
+                    background-color: #808080;
+                    font-size: 16px;
+                    font-family: $interfaceFontFamily;
+                    color: #ffffff;
+                    text-transform: uppercase;
+                    padding: 10px 20px;
+                }
+
+                footer .shepherd-buttons li .shepherd-button.shepherd-button-secondary {
+                    background-color: #555555;
+                }
+            }
+        }
+    }
+
+    .shepherd-element.shepherd-theme-arrows.shepherd-element-attached-top.shepherd-element-attached-center.shepherd-has-title .shepherd-content:before, .shepherd-element.shepherd-theme-arrows.shepherd-element-attached-top.shepherd-element-attached-right.shepherd-target-attached-bottom.shepherd-has-title .shepherd-content:before, .shepherd-element.shepherd-theme-arrows.shepherd-element-attached-top.shepherd-element-attached-left.shepherd-target-attached-bottom.shepherd-has-title .shepherd-content:before {
+    border-bottom-color: #e8e5ea;
+    }
+
+}
+
+.user-tour-event-sink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99981;
+}
+

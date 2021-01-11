@@ -1,0 +1,126 @@
+.upload-image-modal {
+
+    #info-edit-uploaded-graphic{
+        .btn-group-understand{
+            .btn.checkbox{
+                margin-top: 0;
+                height: 33px;
+                padding-top: 7px;
+                padding-left: 30px;
+            }
+        }
+    }
+
+    #edit-uploaded-graphic {
+        .modal-body {
+            padding: 0;
+
+            .upload-colours {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0 10px;
+
+                > p {
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: #6C6C6C;
+                    text-align: center;
+                    margin: 1.5em auto 1em;
+                }
+
+                ul {
+                    margin-left: -40px;
+                    display: flex;
+                    list-style: none;
+                }
+
+                li {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    span {
+                        color: #6E6F71;
+                        font-size: 13px;
+                        font-weight: 600;
+                        margin: 0.4em 0;
+                    }
+                }
+
+                .colour-swatch {
+                    margin: 0 0.4em;
+                    width: 72px;
+                    height: 72px;
+                    border: 1px solid #DDDDDD;
+                    border-radius: 3px;
+                }
+            }
+        }
+    }
+
+    .reset-graphic-container{
+        height: 0;
+
+        .reset-graphic{
+            transform: translate(-15px, -45px);
+        }
+    }
+
+    .checkbox-container{
+        padding-top: 10px;
+    }
+
+    .upload-image-preview {
+
+        text-align: center;
+        margin: 0;
+
+        .upload-image-canvas-container {
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 400px;
+
+            #temp-upload-image-canvas-container{
+                display: none;
+
+                #temp-upload-image-canvas{
+                    height: 400px;
+                }
+            }
+
+            .spinner {
+                display: none;
+            }
+
+            canvas {
+                box-sizing: border-box;
+                cursor: crosshair !important;
+            }
+
+            img.original-uploaded-image {
+                position: absolute;
+                visibility: hidden;
+            }
+
+            &.is-applying-changes {
+                canvas {
+                    opacity: .5;
+                }
+
+                .spinner {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-image: url(../images/spinners/large-circular-throbber.gif);
+                    background-repeat: no-repeat;
+                    background-position: 50% 75px;
+                }
+            }
+
+        }
+    }
+}

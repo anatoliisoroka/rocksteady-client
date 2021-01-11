@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex,nofollow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    {{content-for 'head'}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/motocal.css">
+    <link rel="stylesheet" href="branding/skin.css">
+
+    {{content-for 'favicons'}}
+    {{content-for 'bust-cache'}}
+    {{content-for 'head-footer'}}
+    {{content-for 'google-analytics-snippet'}}
+    {{content-for 'mixpanel-snippet'}}
+
+  </head>
+  <body class="skin-motocal" id="body">
+
+    {{content-for 'body'}}
+
+    {{content-for 'loading-spinner'}}
+    {{content-for 'fallback-application-error'}}
+
+    <script src="assets/vendor.js"></script>
+    <script src="assets/motocal.js"></script>
+
+    {{content-for 'analytics-loader'}}
+
+    <script>
+        $(function() {
+            $.ajax({
+                url: 'branding/loaders/loading-spinner.html',
+                success: function (html) {
+                    $('#loading-spinner-modal').prepend(html);
+                }
+            });
+        });
+    </script>
+
+    {{content-for 'body-footer'}}
+  </body>
+</html>

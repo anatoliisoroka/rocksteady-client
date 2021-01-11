@@ -1,0 +1,52 @@
+<div class="subpanel-headerbar">
+    <div class="subpanel-toolbar">
+        {{#if view.isGraphic}}
+        {{#if isTouch}}
+        <button name="shapesButton"{{action 'addShapeFilter' target='view'}}><span class="sprite-touch-btn-shapes"></span></button>
+        {{/if}}
+        {{/if}}
+    </div>
+    <div class="subpanel-back">
+        <button class="btn btn-sm pull-left" {{action 'backToMainPanel' target=view}} name="backToMainPanel"><span class="back-logo sprite-icn-back-to-kit"></span><span class="back-text">{{ t 'editor.subpanel_back'}}</span></button>
+    </div>
+    {{#if currentItem}}
+        <div class="current-item">
+            <div class="btn btn-sm pull-right" name="backToMainPanel">{{currentItem}}</div>
+        </div>
+    {{/if}}
+    <div class="subpanel-header">
+      <h4 class="subpanel-title">{{view.paletteType}}</h4>
+    </div>
+</div>
+
+<div class="subpanel-content {{if view.isGraphic 'is-graphic-subpanel'}}">
+
+  {{#if view.isFill}}
+      {{view "design/editor/subpanel/paletteContainer" moreResultsShown=view.moreResultsShown value=fill ruleColours=ruleFillColours designerColours=designerFillColours allColours=colourCollection propertyName='fill'}}
+  {{/if}}
+
+  {{#if view.isStrokeStyle1}}
+      {{view "design/editor/subpanel/paletteContainer" moreResultsShown=view.moreResultsShown value=strokeStyle1 ruleColours=ruleStroke1Colours designerColours=designerStroke1Colours allColours=borderColourCollection propertyName='strokeStyle1'}}
+  {{/if}}
+
+  {{#if view.isStrokeStyle2}}
+      {{view "design/editor/subpanel/paletteContainer" moreResultsShown=view.moreResultsShown value=strokeStyle2 ruleColours=ruleStroke2Colours designerColours=designerStroke2Colours allColours=borderColourCollection propertyName='strokeStyle2'}}
+  {{/if}}
+
+  {{#if view.isStrokeStyle3}}
+      {{view "design/editor/subpanel/paletteContainer" moreResultsShown=view.moreResultsShown value=strokeStyle3 ruleColours=ruleStroke3Colours designerColours=designerStroke3Colours allColours=borderColourCollection propertyName='strokeStyle3'}}
+  {{/if}}
+
+  {{#if view.isStrokeStyle4}}
+      {{view "design/editor/subpanel/paletteContainer" moreResultsShown=view.moreResultsShown value=strokeStyle4 ruleColours=ruleStroke4Colours designerColours=designerStroke4Colours allColours=borderColourCollection propertyName='strokeStyle4'}}
+  {{/if}}
+
+  {{#if view.isGraphic}}
+    {{render "design/editor/PagedCompositeGraphics"}}
+  {{/if}}
+
+  {{#if view.isFont}}
+      {{view "design/editor/subpanel/fontsPaletteContainer" moreResultsShown=view.moreResultsShown ruleFonts=ruleFonts designerFonts=designerFonts allFonts=allFonts propertyName='fill' location="subpanel"}}
+  {{/if}}
+
+</div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>QRON Test</title>
+
+<script src="rs-qronsvg.js"> </script>
+<script>
+(function(){
+
+
+    document.addEventListener('DOMContentLoaded', function(){
+
+        var renderer = new QRCode.Renderer();
+
+        renderer.adapter.addValue('decal|test position name with 44 characters 123456|123456789012345678901234');
+        renderer.adapter.setCorrectLevel(QRErrorCorrectLevel.L);
+        //renderer.adapter.setTypeNumber(4);
+
+        /*renderer
+            .setMode('SVG')
+            .renderTo(document.body);*/
+
+        var qronsvg = renderer
+            .setMode('SVGStringBC2')
+            .toString();
+
+        document.querySelector('body').innerHTML = qronsvg;
+
+    }, false);
+
+}());
+</script>
+</head>
+
+<body id="index" class="home" style="background:green">
+    // FIXME update this test to use ES6 component
+</body>
+</html>
+

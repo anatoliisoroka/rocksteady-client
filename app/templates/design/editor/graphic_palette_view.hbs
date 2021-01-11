@@ -1,0 +1,8 @@
+<ul class="graphic-swatch-list">
+
+{{#each graphic in view.content}}
+  {{view "design/editor/graphicPalette/graphicSwatch" content=graphic}}
+{{/each}}
+
+  {{view "design/editor/navigateToSubpanel" object=this class="graphic-swatch" property="graphic" name="seeMoreGraphics"}}
+</ul>

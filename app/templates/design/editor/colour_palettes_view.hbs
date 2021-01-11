@@ -1,0 +1,446 @@
+<div class="colour-palettes">
+    <div class="property-module colour">
+        {{partial "design/editor/colour_nav_items"}}
+        <div class="property-bd">
+            <div class="property-bd-inner">
+
+                {{#if parentController.fillIsSelected}}
+                    {{view
+                        "design/editor/colourPalette/colourPalette"
+                        value=model.fill
+                        propertyName="fill"
+                        class="palette-fill"
+                        content=controller.recent3FillColours
+                        location="mainPanel"
+                        showMoreButton=true
+                    }}
+                {{/if}}
+
+                {{#if parentController.stroke1IsSelected }}
+                    <div class="edit-border">
+
+                        {{#if isGraphicIcon}}
+
+                            {{#if isTouch}}
+                                <button
+                                    class="touch-control-button"
+                                    {{action "navigateToStroke1Subpanel"}}
+                                    style={{view.strokeStyle1Style}}
+                                >
+                                </button>
+                                {{#sticky-button
+                                    dir="decrement"
+                                    value=model.strokeWidth1
+                                    min="1"
+                                    max="50"
+                                    precision="0"
+                                    step="1"
+                                    class="border-thinner"
+                                }}
+                                    <i class="sprite-touch-btn-border-thinner"></i>
+                                {{/sticky-button}}
+                                {{#sticky-button
+                                    dir="increment"
+                                    value=model.strokeWidth1
+                                    min="1"
+                                    max="50"
+                                    precision="0"
+                                    step="1"
+                                    class="border-thicker"
+                                }}
+                                    <i class="sprite-touch-btn-border-thicker"></i>
+                                {{/sticky-button}}
+
+                            {{else}}
+                                {{view
+                                    "design/editor/colourPalette/colourPalette"
+                                    value=model.strokeStyle1
+                                    propertyName="strokeStyle1"
+                                    content=controller.recent3Stroke1Colours
+                                    location="mainPanel"
+                                    showMoreButton=true
+                                }}
+                                {{#view
+                                    "design/editor/sliderLayout"
+                                    labelName=(t 'editor.border_size')
+                                }}
+                                    {{view
+                                        "design/editor/noUiSlider"
+                                        type="range"
+                                        value=model.strokeWidth1
+                                        prop='strokeWidth1'
+                                        min="1"
+                                        max="50"
+                                        step="1"
+                                    }}
+                                {{/view}}
+                            {{/if}}
+
+                        {{else}}
+
+                            {{#if isTouch}}
+                                <button
+                                    class="touch-control-button"
+                                    {{action "navigateToStroke1Subpanel"}}
+                                    style={{view.strokeStyle1Style}}
+                                >
+                                </button>
+                                {{#sticky-button
+                                    dir="decrement"
+                                    value=model.strokeWidth1
+                                    min="1"
+                                    max="50"
+                                    precision="0"
+                                    step="1"
+                                    class="border-thinner"
+                                }}
+                                    <i class="sprite-touch-btn-border-thinner"></i>
+                                {{/sticky-button}}
+                                {{#sticky-button
+                                    dir="increment"
+                                    value=model.strokeWidth1
+                                    min="1"
+                                    max="50"
+                                    precision="0"
+                                    step="1"
+                                    class="border-thicker"
+                                }}
+                                    <i class="sprite-touch-btn-border-thicker"></i>
+                                {{/sticky-button}}
+                            {{else}}
+                                {{view
+                                    "design/editor/colourPalette/colourPalette"
+                                    value=model.strokeStyle1
+                                    propertyName="strokeStyle1"
+                                    content=controller.recent3Stroke1Colours
+                                    location="mainPanel"
+                                    showMoreButton=true
+                                }}
+                                {{#view
+                                    "design/editor/sliderLayout"
+                                    labelName=(t 'editor.border_size')
+                                }}
+                                    {{view
+                                        "design/editor/noUiSlider"
+                                        type="range"
+                                        value=model.strokeWidth1
+                                        prop='strokeWidth1'
+                                        min="1"
+                                        max="50"
+                                        step="1"
+                                    }}
+                                {{/view}}
+                            {{/if}}
+                        {{/if}}
+                        {{#if parentController.featureIsComponentShape}}
+                            {{#if parentController.isTouch}}
+
+                                <button
+                                    {{action 'removeStroke' 1}}
+                                    class="removeBorder"
+                                >
+                                    <i class="sprite-touch-btn-border-remove"></i>
+                                    <span
+                                        class="glyphicon glyphicon-remove remove-border-icon"
+                                        aria-hidden="true"
+                                    >
+                                    </span>
+                                    <span class="remove-border-text">
+                                        {{t 'editor.remove_border_btn_1'}}
+                                    </span>
+                                </button>
+
+                                <div class="background-stroke-tools">
+                                    {{rs-toggle-switch
+                                        value=internalBordersOn
+                                        action1="turnOnInternalBorders"
+                                        action2="turnOffInternalBorders"
+                                        icon1="sprite-border-all"
+                                        icon2="sprite-border-ext"
+                                        disabled=parentController.featureHasNoInternalBorders
+                                    }}
+                                    {{rs-toggle-switch
+                                        value=bordersInBack
+                                        action1="strokeToTheBack"
+                                        action2="strokeToTheFront"
+                                        icon1="sprite-border-bottom"
+                                        icon2="sprite-border-top"
+                                    }}
+                                </div>
+                            {{else}}
+                                <div class="background-stroke-tools">
+                                    {{rs-toggle-switch
+                                        value=internalBordersOn
+                                        action1="turnOnInternalBorders"
+                                        action2="turnOffInternalBorders"
+                                        icon1="sprite-border-all"
+                                        icon2="sprite-border-ext"
+                                        disabled=parentController.featureHasNoInternalBorders
+                                    }}
+                                    {{rs-toggle-switch
+                                        value=bordersInBack
+                                        action1="strokeToTheBack"
+                                        action2="strokeToTheFront"
+                                        icon1="sprite-border-bottom"
+                                        icon2="sprite-border-top"
+                                    }}
+                                </div>
+
+                                <button
+                                    {{action 'removeStroke' 1}}
+                                    class="removeBorder"
+                                >
+                                    <i class="sprite-touch-btn-border-remove"></i>
+                                    <span
+                                        class="glyphicon glyphicon-remove remove-border-icon"
+                                        aria-hidden="true"
+                                    >
+                                </span>
+                                    <span class="remove-border-text">
+                                        {{t 'editor.remove_border_btn_1'}}
+                                    </span>
+                                </button>
+                            {{/if}}
+
+                        {{else}}
+                            <button
+                                {{action 'removeStroke' 1}}
+                                class="removeBorder"
+                            >
+                                <i class="sprite-touch-btn-border-remove"></i>
+                                <span
+                                    class="glyphicon glyphicon-remove remove-border-icon"
+                                    aria-hidden="true"
+                                >
+                                </span>
+                                <span class="remove-border-text">
+                                    {{t 'editor.remove_border_btn_1'}}
+                                </span>
+                            </button>
+                        {{/if}}
+                    </div>
+                {{/if}}
+
+                {{#if parentController.stroke2IsSelected }}
+                    <div class="edit-border">
+
+                        {{#if isTouch}}
+                            <button
+                                class="touch-control-button"
+                                {{action "navigateToStroke2Subpanel"}}
+                                style={{view.strokeStyle2Style}}>
+                            </button>
+                            {{#sticky-button
+                                dir="decrement"
+                                value=model.strokeWidth2
+                                min="1"
+                                max="50"
+                                precision="0"
+                                step="1"
+                                class="border-thinner"
+                            }}
+                                <i class="sprite-touch-btn-border-thinner"></i>
+                            {{/sticky-button}}
+                            {{#sticky-button
+                                dir="increment"
+                                value=model.strokeWidth2
+                                min="1"
+                                max="50"
+                                precision="0"
+                                step="1"
+                                class="border-thicker"
+                            }}
+                                <i class="sprite-touch-btn-border-thicker"></i>
+                            {{/sticky-button}}
+                        {{else}}
+                            {{view
+                                "design/editor/colourPalette/colourPalette"
+                                value=model.strokeStyle2
+                                propertyName="strokeStyle2"
+                                content=controller.recent3Stroke2Colours
+                                location="mainPanel"
+                                showMoreButton=true
+                            }}
+                            {{#view
+                                "design/editor/sliderLayout"
+                                labelName=(t 'editor.border_size')
+                            }}
+                                {{view
+                                    "design/editor/noUiSlider"
+                                    type="range"
+                                    value=model.strokeWidth2
+                                    prop='strokeWidth2'
+                                    min="1"
+                                    max="50"
+                                    step="1"
+                                }}
+
+                            {{/view}}
+                        {{/if}}
+
+                        <button
+                            {{action 'removeStroke' 2}}
+                            class="removeBorder"
+                        >
+                            <i class="sprite-touch-btn-border-remove"></i>
+                            <span
+                                class="glyphicon glyphicon-remove remove-border-icon"
+                                aria-hidden="true"
+                            >
+                            </span>
+                            <span class="remove-border-text">
+                                {{t 'editor.remove_border_btn_1'}}
+                            </span>
+                        </button>
+                    </div>
+                {{/if}}
+
+                {{#if parentController.stroke3IsSelected }}
+                    <div class="edit-border">
+
+                        {{#if isTouch}}
+                            <button
+                                class="touch-control-button"
+                                {{action "navigateToStroke3Subpanel"}}
+                                style={{view.strokeStyle3Style}}
+                            >
+                            </button>
+                            {{#sticky-button
+                                dir="decrement"
+                                value=model.strokeWidth3
+                                min="1"
+                                max="50"
+                                precision="0"
+                                step="1"
+                                class="border-thinner"
+                            }}
+                                <i class="sprite-touch-btn-border-thinner"></i>
+                            {{/sticky-button}}
+                            {{#sticky-button
+                                dir="increment"
+                                value=model.strokeWidth3
+                                min="1"
+                                max="50"
+                                precision="0"
+                                step="1"
+                                class="border-thicker"
+                            }}
+                                <i class="sprite-touch-btn-border-thicker"></i>
+                            {{/sticky-button}}
+                        {{else}}
+                            {{view
+                                "design/editor/colourPalette/colourPalette"
+                                value=model.strokeStyle3
+                                propertyName="strokeStyle3"
+                                content=controller.recent3Stroke3Colours
+                                location="mainPanel"
+                                showMoreButton=true
+                            }}
+                            {{#view
+                                "design/editor/sliderLayout"
+                                labelName=(t 'editor.border_size')
+                            }}
+                                {{view
+                                    "design/editor/noUiSlider"
+                                    type="range"
+                                    value=model.strokeWidth3
+                                    prop='strokeWidth3'
+                                    min="1"
+                                    max="50"
+                                    step="1"
+                                }}
+                            {{/view}}
+                        {{/if}}
+                        <button
+                            {{action 'removeStroke' 3}}
+                            class="removeBorder"
+                        >
+                            <i class="sprite-touch-btn-border-remove"></i>
+                            <span
+                                class="glyphicon glyphicon-remove remove-border-icon"
+                                aria-hidden="true"
+                            >
+                            </span>
+                            <span class="remove-border-text">
+                                {{t 'editor.remove_border_btn_1'}}
+                            </span>
+                        </button>
+                    </div>
+                {{/if}}
+
+                {{#if parentController.stroke4IsSelected }}
+                    <div class="edit-border">
+                        {{#if isTouch}}
+                            <button
+                                class="touch-control-button"
+                                {{action "navigateToStroke4Subpanel"}}
+                                style={{view.strokeStyle4Style}}
+                            >
+                            </button>
+                            {{#sticky-button
+                                dir="decrement"
+                                value=model.strokeWidth4
+                                min="1"
+                                max="50"
+                                precision="0"
+                                step="1"
+                                class="border-thinner"
+                            }}
+                                <i class="sprite-touch-btn-border-thinner"></i>
+                            {{/sticky-button}}
+                            {{#sticky-button
+                                dir="increment"
+                                value=model.strokeWidth4
+                                min="1"
+                                max="50"
+                                precision="0"
+                                step="1"
+                                class="border-thicker"
+                            }}
+                                <i class="sprite-touch-btn-border-thicker"></i>
+                            {{/sticky-button}}
+                        {{else}}
+                            {{view
+                                "design/editor/colourPalette/colourPalette"
+                                value=model.strokeStyle4
+                                propertyName="strokeStyle4"
+                                content=controller.recent3Stroke4Colours
+                                location="mainPanel"
+                                showMoreButton=true
+                            }}
+                            {{#view
+                                "design/editor/sliderLayout"
+                                labelName=(t 'editor.border_size')
+                            }}
+                                {{view
+                                    "design/editor/noUiSlider"
+                                    type="range"
+                                    value=model.strokeWidth4
+                                    prop='strokeWidth4'
+                                    min="1"
+                                    max="50"
+                                    step="1"
+                                }}
+                            {{/view}}
+                        {{/if}}
+
+                        <button
+                            {{action 'removeStroke' 4}}
+                            class="removeBorder"
+                        >
+                            <i class="sprite-touch-btn-border-remove"></i>
+                            <span
+                                class="glyphicon glyphicon-remove remove-border-icon"
+                                aria-hidden="true"
+                            >
+                            </span>
+                            <span class="remove-border-text">
+                                {{t 'editor.remove_border_btn_1'}}
+                            </span>
+                        </button>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

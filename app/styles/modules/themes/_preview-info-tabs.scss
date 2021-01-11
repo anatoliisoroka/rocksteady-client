@@ -1,0 +1,157 @@
+@import "theme-variables";
+
+.theme-info {
+    position: absolute;
+    top: 300px;
+    left: 0;
+    right: 0;
+    background: $main-colour;
+    height: 252px;
+    transition: top 300ms ease;
+    z-index: 1;
+
+    .theme-info-tabs {
+        display: flex;
+
+        li {
+            width: auto;
+            border: 1px solid $sub-colour-2;
+            border-top: none;
+            border-right: none;
+            border-radius: 0;
+            background: $sub-colour;
+            flex: 1 0 auto;
+
+            .theme-info-icon {
+                height: 16px;
+                margin-top: 4px;
+            }
+
+            .theme-regulated-icon {
+                max-height: 25px;
+            }
+
+            .icon-user-edit {
+                padding: 2px;
+            }
+
+            &.regulation-info-tab {
+                a {
+                    //padding: 7px 15px;
+                }
+            }
+
+            &.active {
+                background: $main-colour;
+            }
+
+            &:first-child {
+                border-left: none;
+            }
+
+            a {
+                color: inherit;
+                background-color: inherit;
+                border: none;
+                cursor: pointer;
+                text-align: center;
+
+                &:hover {
+                    border: none;
+                }
+            }
+        }
+    }
+
+    .theme-info-tab-pane {
+        padding: 15px;
+        font-size: 13px;
+
+        p {
+            margin: 10px 0;
+        }
+
+        .theme-designer-table {
+            margin-top: 15px;
+
+            td {
+                padding: 6px 5px;
+
+                &.theme-designer-icon {
+                    text-align: center;
+
+                    .designer-region-flag {
+                        width: 30px;
+                    }
+
+                    .designer-theme-badge {
+                        width: 25px;
+                    }
+
+                    .icon-rosette-badge {
+                        padding: 0;
+                    }
+                }
+            }
+
+            .theme-designer-text {
+                color: $sub-colour-3;
+            }
+
+            .theme-designer-productline {
+                img {
+                    height: 30px;
+                }
+            }
+        }
+
+        .theme-description {
+            max-height: 75px;
+            overflow-x: auto;
+            color: $sub-colour-3;
+        }
+
+        .theme-design-time-text {
+            color: $sub-colour-5;
+
+            .glyphicon {
+                color: $sub-colour-4;
+                top: 2px;
+            }
+        }
+
+        .theme-flag-summary {
+            font-size: 12px;
+            font-weight: bold;
+            color: $sub-colour-3;
+        }
+
+        .theme-regulated-icon {
+            max-height: 34px;
+        }
+
+        .regulation-left {
+            float: left;
+            width: 61px;
+            height: 180px;
+
+            .theme-regulated-icon {
+                width: 50px;
+                max-height: unset;
+            }
+        }
+
+        .regulation-right{
+            p {
+                margin: 0;
+            }
+        }
+
+        button {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            padding: 4px 10px;
+        }
+    }
+}

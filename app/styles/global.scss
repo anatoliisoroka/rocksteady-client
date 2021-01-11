@@ -1,0 +1,96 @@
+body.app-config-testing * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
+}
+
+body.app, .checkout-container, nav {
+    min-width: $minScreenWidth;
+}
+
+@media (min-width: $minScreenWidth) {
+    #viewport-too-small {
+        display: none;
+    }
+}
+
+/*Required to pin progress bar
+when keyboard active on touch devices*/
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.actions {
+    line-height: 40px;
+    z-index: 9999;
+}
+
+hr {
+  height: 1px;
+  background-color: #ccc;
+  border: 0;
+}
+
+h2 {
+    font-size: 140%;
+}
+
+#viewport-too-small {
+    z-index: 999998;
+
+    .motocal-logo {
+        @include transform(scale(.66));
+        margin-left: -60px;
+    }
+
+    aside {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        background-color: white;
+        padding: 1.5em;
+
+        &.resize {
+            display:block;
+            padding: 0;
+            right: 10px;
+            bottom: 10px;
+        }
+    }
+}
+
+.tooltip {
+    z-index: 99999;
+}
+
+.saving-throbber {
+    background-image: url(../images/spinners/large-circular-throbber.gif);
+    background-repeat: no-repeat;
+    background-position: left 25px;
+    min-height: 100px;
+}
+
+h1, h2, h3, h4, h5 {
+    text-transform: uppercase;
+}
+
+// Disable text selection, implemented in editor so as not to select any when UI text when moving a feature
+*.unselectable {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -webkit-touch-callout: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+textarea {
+    resize: none;
+}

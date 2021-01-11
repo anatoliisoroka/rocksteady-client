@@ -1,0 +1,13 @@
+<div class="colour-group-selector-scroll">
+{{#each colourGroup as |colourGroup i|}}
+        <div class="colour-selector-box" {{action 'selectColour' colourGroup.colour}}>
+            {{#selector/global-edit/colour-square colourId=colourGroup.colour.id}}
+                {{#if colourGroup.isAcgColour}}
+                    <div class="colour-link-badge">
+                        {{icon/link-chain}}
+                    </div>
+                {{/if}}
+            {{/selector/global-edit/colour-square}}
+        </div>
+{{/each}}
+</div>

@@ -1,0 +1,231 @@
+{
+    "user_tour": {
+        "interview": {
+            "title": "Motorsport, Make & Competition",
+            "text": "<p>Click the image to make your choice.</p>"
+        },
+        "editor": {
+            "title": "Decal Editor",
+            "text": "<p>Add, remove and tweak (size, angle, colour, &hellip;) features on your decal here. Then position the features on your decal till you are happy. Enjoy Designing!</p><p>For further help, watch our <a href=\"https://www.motocal.com/about/video-tutorials/app-tutorials\" target=\"_blank\">design tutorials <i class=\"glyphicon glyphicon-new-window\"> </i></a>.</p>"
+        },
+        "checkout": {
+            "title": "Decals & Order Preferences",
+            "text": "<p>Review these before purchasing.</p><p>Scroll to view all your decals.</p>"
+        },
+        "selectmap": {
+            "title": "I'm a Decal",
+            "text": "<p>This is your graphics kit from the pilot/cockpit perspective. Select a decal to:</p><ul><li>Edit the decal</li><li>Pick a different decal</li><li>Remove the decal &#9785;</li></ul>"
+        },
+        "shortcuts": {
+            "title": "Keyboard Shortcuts",
+            "text": "<table><tr><th>←↑→↓</th><td>move feature</td></tr><tr><th>]/[</th><td>rotate feature</td></tr><tr><th>⇞/⇟</th><td>send forwards/backwards</td></tr><tr><th>+/-</th><td>increase/decrease scale</td></tr><tr><th>del</th><td>delete feature</td></tr><tr><th>enter</th><td>select next feature</td></tr></table>"
+        },
+        "targetcategorywarning": {
+            "title": "Generic Decals",
+            "text1": "<div class=\"target-category-warning\"><p>Select decals that best fit the panels on your vehicle.</p><div class=\"step\"><div><img src=\"branding/images/selector/target_category_warning_infographic_2.svg\" /></div><div><img src=\"branding/images/selector/target_category_warning_infographic_3.svg\" /></div><p>1. Measure your panel size</p></div><div class=\"step\"><div><img src=\"branding/images/selector/target_category_warning_infographic_1.svg\" /></div><p>2. Pick a decal that fits</p></div></div>",
+            "text2": "<p class=\"more-details\"><a href=\"https://www.motocal.com/help/generic-templates-sizes\" target=\"_new\">More details <i class=\"glyphicon glyphicon-new-window\"></i></a></p><div class=\"clearfix\"></div>"
+        }
+    },
+    "application": {
+        "page_title_brand_name": "Motocal",
+        "back_to_kit": "Back to Kit",
+        "more_information": "More Information"
+    },
+    "error": {
+        "title": "An error has occurred",
+        "sorry": "We're sorry, but there has been a technical malfunction and your action could not be completed.",
+        "investigating": "The error has been logged and our engineering team will be investigating the cause.",
+        "please": "Please",
+        "go_back": "go back",
+        "or": " or ",
+        "restart_race": "Design New Kit",
+        "close_and_continue": "Close and Continue",
+        "try_again": "and try again.",
+        "message": "The error message is: ",
+        "ajax_error": "You are offline. Reconnect to ensure design is not lost. Do not close window until saved."
+    },
+    "progressbar": {
+        "discovery": "Discovery",
+        "design": "Design",
+        "checkout": "Checkout"
+    },
+    "interview": {
+        "productline_title": "Motor Sport",
+        "manufacturer_title": "Select a Make",
+        "carousel_item_skip": "Skip",
+        "target_title": "Select Model",
+        "target_placeholder_text_1": "Enter search term",
+        "target_placeholder_text_2": "Enter search term, e.g. {{search_term}}",
+        "target_available_models": "Available Models",
+        "target_none": "Not in list",
+        "scroll_for_more_models": "Scroll to see more models",
+        "groupedyear_title": "Year",
+        "carousel_item_other": "Other",
+        "country_dropdown_label": "Competition Country",
+        "country_dropdown_placeholder": "Type region... ",
+        "ruleset_title": "Competition",
+        "carousel_not_competing": "Not Competing",
+        "usecategory_title": "Discipline",
+        "use1_title": "Competition",
+        "use2_title": "Competition",
+        "use3_title": "Competition",
+        "use4_title": "Competition",
+        "carousel_not_in_list": "Not in list",
+        "targetcategory_title": "Discipline",
+        "build_kit_btn": "Build Kit",
+        "loading_xs": {
+            "msg1": "Building your design, we are almost done",
+            "msg2": "Save your kit to edit the design later",
+            "msg3": "Tracked, free shipping to your door",
+            "msg4": "To design come back on a larger screen"
+        },
+        "start_your_engines": "Get ready to design, we are almost done",
+        "start_your_engines2": "Save your kit to edit the design later",
+        "start_your_engines3": "Tracked, free shipping to your door",
+        "toast_ruleset_automatically_skipped": "We have no regulations for {{country}}. Click here to change country"
+    },
+    "promptedfeatures": {
+        "no_features_message": "We have all the information required to create your Design...",
+        "title": "Discovery"
+    },
+    "editor": {
+        "maximum_scale_user_added_graphic_warning": "Maximum scale for uploaded graphic. For a larger graphic in your design, upload a better quality image file. <a href=\"https://www.motocal.com/about/design-best-practice\" target=\"_new\">More details <i class=\"glyphicon glyphicon-new-window\"></i></a>",
+        "file_size_min_warning": "Sorry the graphic is too small to print. Please upload a larger graphic. <a href=\"https://www.motocal.com/about/design-best-practice\" target=\"_new\">More details <i class=\"glyphicon glyphicon-new-window\"></i></a>",
+        "file_size_limit_warning": "Graphic file sizes cannot be larger than 1MB. <a href=\"https://www.motocal.com/about/design-best-practice\" target=\"_new\">More details <i class=\"glyphicon glyphicon-new-window\"></i></a>",
+	    "image_upload_search_by_keyword": "We upload the most popular colours from your image. When designing search \"upload\" to use colours",
+        "image_upload_read_more": "Read More",
+        "linked_feature_flash": "This feature has been updated elsewhere in the kit.",
+        "wrong_file_type": "Only the following file types are currently supported: PNG & JPEG"
+    },
+    "selector": {
+        "hero_logo_tooltip": "Design New Kit",
+        "material": "Material",
+        "material_premium": "Premium",
+        "material_economy": "Economy",
+        "material_custom": "Custom",
+        "select_material_description": "All the decals in your kit will be changed to the selected material (where applicable).",
+        "materials_more_details": "<a href=\"https://www.motocal.com/about/materials/\" target=\"_new\">More Details <i class=\"glyphicon glyphicon-new-window\"></i></a>",
+        "start_new_design": "Design New Kit",
+        "start_new_design_warning": "By starting a new kit you will lose the design you are working on. Save it now so you can come back later.",
+        "save_design_failed": "Could not save your design at this time. This may be due to a technical error in Motocal, or your design may be too large. Please try again later.",
+        "mirror_features_warning": "WARNING: Copied decals are not always identical. Please double-check your design after copying. Please read all text to ensure it is correct. Then fine tune if necessary.",
+        "material_flash_warning": "You have changed all the decals in your graphics kit to the '{{material}}' material (where applicable). <a href=\"https://www.motocal.com/about/materials/\" target=\"_new\">More details <i class=\"glyphicon glyphicon-new-window\"></i></a>",
+        "save_your_design": "Save Your Design",
+        "email_prompt": "We will send you a link so that you can access your design later.",
+        "global_edit": {
+            "clear_modal": {
+                "keep_personal_features_message": "The features selected here will remain on your design."
+            }
+        },
+        "please_enter_email": "Please enter your email address: ",
+        "share_your_design": "Share Your Design",
+        "social_share_text": "Share your design with a friend or a group of friends to show them your masterpiece!",
+        "decals_label": "Decals",
+        "decals_label_all": "All",
+        "decals_label_none": "None",
+        "decals_label_some": "{{count}} of {{total}}",
+        "decals_in_kit": "Decals in Kit",
+        "decals_all": "All Decals",
+        "decals_number_plates": "Number Plates",
+        "themes": "Themes",
+        "theme": "Theme",
+        "themes_label_none": "None",
+        "themes_confirm_title": "Confirm Theme Selection",
+        "themes_confirm_body": "Your current work may be lost if you change theme. Do you want to continue?",
+        "themes_confirm_button": "Change Theme",
+        "popover_remove_component": "Remove from Kit",
+        "popover_add": "Add",
+        "popover_edit_component": "Edit Design",
+        "popover_add_component": "Add to Kit",
+        "popover_alternative_component": "See More Decals",
+        "autoadd_matching_decal": "The <strong>{{name}}</strong> has a matching decal.",
+        "autoadd_matching_decal_confirm": "Do you want to add the <strong>{{name}}</strong> to the kit?",
+        "yes_autoadd": "Yes, Add to Kit",
+        "autoselect_matching_decal": "There is a matching decal for the <strong>{{name}}</strong>.",
+        "autoselect_matching_decal_confirm": "Do you want to auto-select this decal?",
+        "autoselect_warning": "WARNING: Decals are not always identical; please review after you auto-select.",
+        "alternatives": {
+            "advice": {
+                "text_1": "You have just selected a non-perforated decal for the tank.",
+                "text_2": "Motocal does not advise this. <a href=\"https://www.motocal.com/help/perforated-decal\" target=\"_new\"><i class=\"glyphicon glyphicon-new-window\"></i> Read more</a>",
+                "text_3": "For non-perforated decals the fumes will breakdown the decal's adhesive which shortens the life of the decal.",
+                "continue_with": "Continue with selection?"
+            }
+        },
+        "design_size_alerts": {
+            "design_size_alerts_5MB": "Your Design is using 25% of its allocated space; upload your own images once and you can use them in multiple positions.",
+            "design_size_alerts_10MB": "Your Design is using 50% of its allocated space; upload your own images once and you can use them in multiple positions.",
+            "design_size_alerts_20MB": "Your Design is using 100% of its allocated space; you may no longer be able to save further additions."
+        }
+    },
+    "submit_design": {
+        "title": "Submit Your Design",
+        "button_text": "SUBMIT YOUR DESIGN",
+        "placeholder": "Coming Soon",
+        "marketing_section": {
+            "headline": "SUBMIT YOUR CREATION TO WIN ",
+            "prize_currency": "$",
+            "prize_money": "1000",
+            "paragraph_1": "At Motocal we see a huge number and variety of amazing designs every week.",
+            "paragraph_2": "There are always a few standout designs though. They have a great colour combo, pattern or layout that really works with the vehicle. We'd like to share these designs and make them available as a theme that can be used and customised by everyone.",
+            "paragraph_3": "If you think your design has what it takes to feature as a theme, fill out the form below and click submit.",
+            "image_alt_text": "Previously submitted designs",
+            "previous_submitted_design_link": "Click here to see previous submitted designs"
+        },
+        "detail_section": {
+            "used_in_your_design_label": "Used in your design for"
+        },
+        "design_description": {
+            "label": "DESCRIBE YOUR DESIGN",
+            "placeholder": "A traditional design using simple shapes and factory colours."
+        },
+        "design_name": {
+            "label": "DESIGN NAME",
+            "placeholder": "Your Design Name"
+        },
+        "become_designer": {
+            "label": "I want to be a Motocal Designer"
+        },
+        "success": {
+            "title": "Submitted Design",
+            "body": "Well done, your design has now been submitted. We will be in contact with results when all designs have been reviewed.",
+            "button_text": "OK",
+            "coming_soon": {
+                "title": "COMING SOON!",
+                "sub_title": "Become a Motocal Designer",
+                "body": "Our Motocal Designer submission page is almost ready. As soon as it’s available you’ll receive an email to let you know."
+            }
+        },
+        "error": {
+            "title": "Submitted Design",
+            "body_1": "Unfortunately there is a technical error and we have not received your design. Please check you have internet and re-submit. If the problem persists please contact us at <a href=\"mailto:info@motocal.com?subject=Submit Design Error\">info@motocal.com</a> and we will help you out.",
+            "body_2": "Sorry for the inconvenience.",
+            "button_text": "OK"
+        }
+    },
+    "coming_soon": {
+        "body": "We are still developing this feature to improve your experience of Motocal. Please log in to hear more."
+    },
+    "billing": {
+        "start_new_design": "Design New Kit",
+        "purchase_description": "Motocal Decals",
+        "place_order": "Place Order",
+        "place_order_modal_title": "Place Order"
+    },
+    "checkout": {
+        "edit_design": "Edit Design",
+        "your_decals": "Your Decals: ",
+        "decals_tab": "YOUR DECALS",
+        "agree_terms": "By clicking 'Place Order' you agree to the <b><a href=\"#\">Terms &amp; Conditions.</a></b>",
+        "you_last_ordered_this_design": "You last ordered this design {{relative_time}}",
+        "terms_and_conditions": {
+            "loading_message": "Loading Terms and Conditions ...",
+            "error_message": "There was an error loading the terms and conditions. Please try again later, or send an email to our team: <a href=\"mailto:info@motocal.com?subject=Terms and Conditions Error\">info@motocal.com</a>"
+        },
+        "brand_like_url": "https://www.facebook.com/motocal/"
+    },
+    "regulationwarnings": {
+        "regulatedposition": "WARNING: This position is a regulated position, changing its design may conflict with the selected regulation.",
+        "regulatedfeature": "WARNING: Changing this feature may conflict with regulations selected."
+    }
+}

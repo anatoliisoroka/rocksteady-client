@@ -1,0 +1,85 @@
+
+.user-menu-button-icon {
+    height: 14px;
+    width: 14px;
+    position: relative;
+    display: inline-block;
+    &::after {
+        content: '';
+        display: inline;
+        height: 14px;
+        width: 16px;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        background: rgba(255, 255, 255, 0) url(../images/icons/user-icon.svg) no-repeat 0 0;
+    }
+
+
+    &.user-menu-button-icon__text {
+        color: $motocalBlue;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1;
+
+        &::after {
+            background: none;
+        }
+    }
+    &.user-menu-button-icon__highlighted {
+        &::after {
+            background: rgba(255, 255, 255, 0) url(../images/icons/user-icon-highlighted.svg) no-repeat 0 0;
+        }
+    }
+}
+
+.user-icon {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    display: inline-block;
+    &::after {
+        content: '';
+        display: inline;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        background: rgba(255, 255, 255, 0) url(../images/icons/user-icon.svg) no-repeat 0 0;
+        background-size: cover;
+    }
+}
+
+.sign-up-icon {
+    top: 2px;
+    &::after {
+        height: 13.75px;
+        width: 22px;
+        background: rgba(255, 255, 255, 0) url(../images/icons/sign-up-icon.svg) no-repeat 0 0;
+    }
+}
+
+.log-in-icon {
+    &::after {
+        height: 18px;
+        width: 18px;
+        background: rgba(255, 255, 255, 0) url(../images/icons/log-in-icon.svg) no-repeat 0 0;
+    }
+}
+
+.log-out-icon {
+    &::after {
+        height: 18px;
+        width: 18px;
+        background: rgba(255, 255, 255, 0) url(../images/icons/log-out-icon.svg) no-repeat 0 0;
+    }
+}
+
+.find-events-icon {
+    &::after {
+        height: 18px;
+        width: 22px;
+        background: rgba(255, 255, 255, 0) url(../images/icons/find-events-icon.svg) no-repeat 0 0;
+    }
+}

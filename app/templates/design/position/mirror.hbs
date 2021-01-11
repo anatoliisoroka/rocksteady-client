@@ -1,0 +1,71 @@
+<div class="modal fade mirror-position-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{model.name}}</h4>
+            </div>
+            <div class="modal-body">
+
+                {{#if view.done}}
+
+                    <div class="mirror-features-preview">
+                        <img src="{{view.renderedThisPosition}}"/>
+                    </div>
+
+                    <p class="alert alert-warning" role="alert">{{t 'selector.mirror_features_warning'}}</p>
+
+                {{else}}
+
+                    <div class="mirror-features-preview">
+                        <img src="{{view.renderedOppositePosition}}"/>
+                    <span>&rarr;</span>
+                        <img src="{{view.renderedThisPosition}}"/>
+                    </div>
+
+                    <p class="mirror-features-description">
+                    {{#if canCopyFeatures}}
+                        {{t 'selector.mirror_features_message' position=oppositePosition.name targetPosition=model.name}}
+                    {{else}}
+                        {{t 'selector.mirror_features_message_copy_only' position=oppositePosition.name targetPosition=model.name}}
+                    {{/if}}
+                    </p>
+
+                {{/if}}
+
+            </div><!-- /.modal-body -->
+
+            <div class="modal-footer">
+                {{#if view.done}}
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" name="dismissMirrorModal" {{action 'dismissMirrorModal'}}>{{t 'application.ok'}}</button>
+                {{else}}
+
+                    <div style="float: left">
+                        <button type="button" class="btn btn-default" name="noThanksButton" {{action 'noThanks'}}>{{t 'application.no_thanks'}}</button>
+                        {{#if showAutoMirrorDoNotShowAgainOption}}
+                        {{input type="checkbox" checked=mirrorPromptDoNotShowAgain id="mirrorPromptDoNotShowAgain" name="mirrorPromptDoNotShowAgain"}}
+                        <label for="mirrorPromptDoNotShowAgain">Do not show again</label>
+                        {{/if}}
+                    </div>
+
+                    {{#if canCopyFeatures}}
+                        <button type="button" class="btn btn-primary" name="copyFeaturesButton"
+                            disabled={{view.isWorking}}
+                            {{action 'copyFeatures' target=view}}>
+                            {{t 'selector.mirror_features_copy_button'}}
+                        </button>
+                    {{/if}}
+                    <!--TODO Check the action here -->
+                    <button type="button" class="btn btn-primary" name="mirrorFeaturesButton"
+                        disabled={{view.isWorking}}
+                        {{action 'mirrorFeatures' target=view}}>
+                        {{t 'selector.mirror_features_mirror_button'}}
+                    </button>
+
+                {{/if}}
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

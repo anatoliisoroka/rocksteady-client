@@ -1,0 +1,75 @@
+{{#side-menu open=open class="filter-menu"}}
+    {{!--<div class="side-menu-top-container-desktop" {{action 'closeFilterMenu'}}>--}}
+        {{!--{{icon/right-arrow background=false}}--}}
+        {{!--<span class="themes-count">{{filteredThemesCount}}/{{themesCount}}</span>--}}
+    {{!--</div>--}}
+
+    <div class="side-menu-top-container" {{action 'closeFilterMenu'}}>
+        {{icon/right-arrow background=false}}
+
+        <a class="btn btn-primary back-to-button" {{action 'closeFilterMenu'}}>
+            {{icon/left-arrow-solid}}
+            {{t 'themes.filter_menu.header_button'}}
+        </a>
+        <span class="themes-count">{{filteredThemesCount}}/{{themesCount}}</span>
+    </div>
+
+    <div class="filter-nav">
+
+        <div class="dropdown filter-dropdown">
+            <a class="dropdown-toggle"
+               id="dLabel"
+               data-target="#"
+               href="#"
+               data-toggle="dropdown"
+               role="button"
+               aria-haspopup="true"
+               aria-expanded="false">
+                {{#if sortOrderSelection}}
+                    <span class="sort-selection">
+                        {{themes/filter-menu-dropdown-icon name=sortOrderSelection}}
+                    </span>
+                    {{t (concat 'themes.filter_menu.sort_order.' sortOrderSelection)}}
+                {{else}}
+                    {{t 'themes.filter_menu.sort_order.none'}}
+                {{/if}}
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu filter-nav-list" aria-labelledby="dLabel">
+                {{#each sortField in sortFields}}
+                    <li class="sort-field" {{action 'setSortField' sortField}}>
+                        {{themes/filter-menu-dropdown-icon name=sortField}}
+                        <span class="sort-field-name">{{t (concat 'themes.filter_menu.sort_order.' sortField)}}</span>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <ul class="filter-nav-list main-categories-list">
+            {{#each categoryFilter in categoryFilters}}
+                <li class="active">
+                    {{rs-checkbox-small
+                        name=categoryFilter.name
+                        label=categoryFilter.name
+                        title=categoryFilter.name
+                        position='left'
+                        isChecked=categoryFilter.active
+                    }}
+                </li>
+            {{/each}}
+        </ul>
+
+        {{#each otherFiltersGrouped as |otherFiltersGroup index| }}
+            {{themes/filter-menu-category-group
+                index=index
+                name=otherFiltersGroup.name
+                values=otherFiltersGroup.values
+            }}
+        {{/each}}
+
+    </div>
+
+    <div class="clear-all-button-container">
+        <button class="btn btn-primary clear-all-button" {{action 'clearAll'}}>{{t 'themes.filter_menu.clear_tags'}}</button>
+    </div>
+{{/side-menu}}

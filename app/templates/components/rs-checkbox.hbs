@@ -1,0 +1,13 @@
+<label class="rs-checkbox" {{action 'toggle'}}>
+    {{#if positionLeft}}
+        <span class="rs-checkbox-label">{{label}}</span>
+    {{/if}}
+    {{input classBinding=':needsclick' type='checkbox' name=name checked=isChecked indeterminate=isIndeterminate}}
+    <div class="rs-custom-checkbox">
+        <span class="sprite-checkbox-tick" title={{title}}></span>
+        <span class="sprite-checkbox-indeterminate" title={{title}}></span>
+    </div>
+    {{#if positionRight}}
+        <span class="rs-checkbox-label">{{label}}</span>
+    {{/if}}
+</label>

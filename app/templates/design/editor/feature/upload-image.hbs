@@ -1,0 +1,95 @@
+<div id="info-edit-uploaded-graphic" class="modal fade" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="alert alert-warning" role="alert">
+                    <div class="row text-center">
+                        <div class="col-sm-2">
+                            <strong>{{{t 'editor.image_upload_text_warning'}}}</strong>
+                        </div>
+                        <div class="col-sm-8">
+                            {{{t 'editor.image_upload_text'}}}
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="{{controller.bestPracticeUrl}}" target="_new">
+                                <i class="glyphicon glyphicon-new-window"></i> {{{t 'editor.image_upload_read_more'}}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <img class="original-uploaded-image" src="branding/images/editor/image-upload-infographic.png"/>
+                    </div>
+                </div>
+            </div><!-- /.modal-body -->
+
+            <div class="modal-footer">
+                <div class="btn-group btn-group-understand" role="group" aria-label="...">
+                    <label class="btn btn-default checkbox checkbox-container">
+                        {{input type="checkbox" checked=view.understandCheckbox}} {{{t 'editor.image_upload_understand_colour_diff'}}}
+                    </label>
+                    <button type="button"
+                            class="btn btn-primary {{if view.understandCheckbox '' 'disabled'}}" {{action 'understandColourDifferences' target=view}}>
+                        {{t 'application.ok'}}
+                    </button>
+                </div>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div id="edit-uploaded-graphic" class="modal fade" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button {{action 'cancel' target=view}} type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">{{{t 'editor.image_upload_title_2'}}}</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="upload-image-preview">
+                    <div class="upload-image-canvas-container {{if view.isApplyingChanges 'is-applying-changes'}}">
+                        <canvas id="upload-image-canvas" class="upload-image-canvas"></canvas>
+                        <div id="temp-upload-image-canvas-container">
+                            <canvas id="temp-upload-image-canvas" class="upload-image-canvas"></canvas>
+                        </div>
+                        <img class="original-uploaded-image" src="{{controller.fileData}}"/>
+
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+                <div class="text-right reset-graphic-container">
+                    <button type="button" class="btn btn-default reset-graphic" {{action 'reset' target=view}}
+                            name="resetGraphic"
+                            disabled={{view.noChanges}}> {{t 'application.reset'}}
+                    </button>
+                </div>
+                <div class="upload-colours">
+                    <p>{{t 'editor.image_upload_search_by_keyword'}}</p>
+                    <ul>
+                        {{#each colour in mostUsedColours}}
+                            <li>
+                                <div class="colour-swatch" style={{colour.colourStyle}}></div>
+                                <span>{{colour.name}}</span>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+
+            </div><!-- /.modal-body -->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default cancel-uploading" {{action 'cancel' target=view}}> {{t 'application.cancel'}}
+                </button>
+                <button type="button" class="btn btn-primary" {{action 'applyChanges' target=view}}>
+                    {{t 'application.ok'}}
+                </button>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,0 +1,31 @@
+<div class="interview-step-carousel" data-interview-section="usecategory">
+    <h4>{{t 'interview.usecategory_title'}}</h4>
+
+    {{#if useCategories}}
+        <div class="block-elements">
+            {{#each usecategory in useCategories}}
+                <div class="selectable element"
+                     title="{{usecategory.name}}"
+                     data-searchfor="{{usecategory.name}}"
+                     data-usecategory-name="{{usecategory.name}}"
+                     data-value="{{usecategory.name}}"
+                    {{action "chooseUseCategory" usecategory}}>
+                    <div class="img-container">
+                        <img src="{{usecategory.imageUrl}}">
+                    </div>
+                </div>
+            {{/each}}
+
+            <div class="selectable element generic-icon"
+                 title="None"
+                 data-searchfor="None"
+                 data-usecategory-name="None"
+                {{action "skipUseCategory"}}>
+                <div class="impact small">{{t 'interview.carousel_not_in_list'}}</div>
+            </div>
+        </div>
+    {{else}}
+        <div class="saving-throbber"></div>
+    {{/if}}
+
+</div>

@@ -1,0 +1,113 @@
+.skin-motocal {
+    .rs-progressbar{
+        @media screen and (max-width: $screen-sm-min - 1px) {
+            display: none;
+        }
+
+        position: fixed;
+        border-top: $footerBorderTop;
+        background: $footerBackgroundColor;
+        height: $footerHeight;
+        font-family: $interfaceFontFamily;
+        color: $fontBlue;
+        text-align:center;
+        text-transform:uppercase;
+
+        ol{
+            margin-top: auto;
+            margin-bottom: auto;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            line-height: $progressBarLineHeight;
+
+            li{
+                font-size: $fontSizeLarge;
+                background: lightgrey;
+                width: 10%;
+                list-style-image: none;
+                list-style-type: none;
+                text-align: center;
+                color: grey;
+                position: relative;
+                margin: 18px 0;
+                margin-left: 5px + 2 * $progressBarArrowSize;
+                padding-right:1%;
+                .progressbar-text{
+                    height: $progressBarHeight;
+                    display:inline;
+                }
+
+                //appended arrow
+                &:after {
+                    position: absolute;
+                    top: 50%;
+                    left: 100%;
+                    content: " ";
+                    height: 0;
+                    width: 0;
+                    pointer-events: none;
+                    border: solid transparent;
+                    border-left-color: lightgrey;
+                    border-width: $progressBarArrowSize;
+                    margin-top: -$progressBarArrowSize;
+                }
+                // No prepended arrow on first item.
+                &:first-child {
+                    margin-left: 0;
+                    border-radius: 5px 0 0 5px;
+                    padding: 0 1%;
+
+                    span {
+                        padding:0;
+                        margin:0;
+                        &:after {
+                            border: none;
+                        }
+                    }
+                }
+
+                span {
+                    display: block;
+                    margin:0;
+                    left:0;
+                    //prepended arrow
+                    &:after {
+                        position: absolute;
+                        top: 50%;
+                        right: 100%;
+                        content: " ";
+                        height: 0;
+                        width: 0;
+                        pointer-events: none;
+                        border: solid lightgrey;
+                        border-left-color: transparent;
+                        border-width: $progressBarArrowSize;
+                        margin-top: -$progressBarArrowSize;
+                    }
+                }
+            }
+
+            li.rs-stage-active{
+                /* @include transition-property(all); */
+                /* @include transition-duration(2.0s); */
+                /* @include transition-timing-function(ease-in); */
+                background: grey;
+                color: $white;
+
+                //appended arrow
+                &:after{
+                    border-left-color: grey;
+                }
+
+                span{
+                    &:after{
+                        border-color: grey;
+                        border-left-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+}

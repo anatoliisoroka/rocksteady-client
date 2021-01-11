@@ -1,0 +1,45 @@
+<script type="text/javascript">
+
+    (function() {
+
+        'use strict';
+
+        var link = document.createElement('link');
+        link.setAttribute('type', 'text/css');
+        link.setAttribute('rel', 'stylesheet');
+        link.setAttribute('href', 'branding/loaders/loading-spinner.css');
+        document.head.appendChild(link);
+
+    })();
+
+</script>
+
+<div class="loading-spinner-backdrop"></div>
+<div class="loading-spinner">&nbsp;</div>
+<div class="loading-spinner-text">&nbsp;</div>
+
+<div class="loading-spinner-text">&nbsp;</div>
+
+<div id="gear-loading" style="display: none;">
+    <div class="cssload-loader">
+        <div class="cssload-line"></div>
+        <div class="cssload-line"></div>
+        <div class="cssload-line"></div>
+        <div class="cssload-line"></div>
+        <div class="cssload-line"></div>
+        <div class="cssload-line"></div>
+        <div class="cssload-subline"></div>
+        <div class="cssload-subline"></div>
+        <div class="cssload-subline"></div>
+        <div class="cssload-subline"></div>
+        <div class="cssload-subline"></div>
+        <div class="cssload-loader-circle-1">
+            <div class="cssload-loader-circle-2"></div>
+        </div>
+        <div class="cssload-needle"></div>
+        <!--(#loading-spinner-modal #gear-loading .cssload-loading)-->
+        <!--The div below is necessary and is populated by the text:-->
+        <!--'interview.start_your_engines', 'interview.start_your_engines2' and 'interview.start_your_engines3'-->
+        <div class="cssload-loading">loading</div>
+    </div>
+</div>

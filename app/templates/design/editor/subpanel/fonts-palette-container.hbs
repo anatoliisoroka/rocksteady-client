@@ -1,0 +1,31 @@
+{{#if view.moreResultsShown }}
+    <div class="fixed-header-container fonts">
+        <div class="top-padding-helper fixed-header-element"></div>
+        <div class="filter-container fixed-header-element">
+            {{input value=view.filterValue placeholder=(t 'editor.subpanel.fonts.filter') }}
+        </div>
+    </div>
+{{/if}}
+
+<div class="palette-container fonts {{if view.moreResultsShown 'more-results-shown'}}">
+
+    {{#if view.moreResultsShown }}
+        {{view "design/editor/fontPalette/fontPalette" content=view.filteredFonts location=view.location}}
+    {{else}}
+
+        {{#if view.ruleFonts}}
+            <h5>{{t 'editor.subpanel_rule_fonts_title'}}</h5>
+            {{view "design/editor/fontPalette/fontPalette" content=view.ruleFonts location=view.location}}
+        {{/if}}
+
+        {{#if view.designerFonts}}
+            <h5>{{t 'editor.subpanel_designer_fonts_title'}}</h5>
+            {{view "design/editor/fontPalette/fontPalette" content=view.designerFonts location=view.location}}
+        {{/if}}
+
+        <div class="text-center all-elements-container">
+            <div class="btn btn-primary" {{action 'showAllFonts' target=view}}>{{t 'editor.subpanel.fonts.show_all'}}</div>
+        </div>
+
+    {{/if}}
+</div>

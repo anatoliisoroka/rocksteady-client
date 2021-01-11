@@ -1,0 +1,32 @@
+<div class="modal fade no-transition-hidden in-front" id="hello-small-screen-modal" tabindex="-1" role="dialog"
+     data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                {{#if isDismissable}}
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                {{/if}}
+                <h4 class="modal-title">{{t 'interview.small_screen_modal_title'}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    {{t 'interview.small_screen_modal_body'}}
+                </p>
+                {{#if isTargetCategoryKit}}
+                    <p class="custom-kit-note">
+                        <strong>
+                            {{t 'interview.small_screen_modal_category_kit'}}
+                        </strong>
+                    </p>
+                {{/if}}
+            </div>
+            {{#if isDismissable}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">{{t 'application.close'}}</button>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

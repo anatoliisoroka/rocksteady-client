@@ -1,0 +1,46 @@
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{t 'selector.select_material_title'}}</h4>
+            </div>
+            <div class="modal-body">
+
+                <p>{{t 'selector.select_material_description'}}</p>
+
+                <div class="material-rating">
+                {{#each decalContainer in decalContainers}}
+                    <div href="#" class="row {{if decalContainer.selected 'selected'}}" {{action 'selectQuality' decalContainer.decal}} name="{{decalContainer.decal.name}}">
+                    <h4 class="col-sm-5 heading">
+                        {{decalContainer.decal.name}}
+                        {{#if decalContainer.selected}}
+                            <span class="h4">
+                                <i class="glyphicon glyphicon-ok text-success"></i>
+                            </span>
+                        {{/if}}
+                    </h4>
+
+                    <ul class="col-sm-6 rating">
+                      {{#each property in decalContainer.decal.properties}}
+                        <li class="{{property.ratingClass}} {{property.colourClass}}" data-name="{{property.name}}">
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="50" y2="0" preserveAspectRatio="none"/></svg>
+                          </div>
+                          {{property.name}}
+                            </li>
+                      {{/each}}
+                    </ul>
+                  </div>
+                {{/each}}
+                </div>
+            </div><!-- /.modal-body -->
+
+            <div class="modal-footer">
+                <p style="text-align:right;">{{t 'selector.materials_more_details'}}</p>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

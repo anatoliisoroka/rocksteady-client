@@ -1,0 +1,33 @@
+<div {{bind-attr class=":colour-clash-message hidden:hidden"}} {{action "bringForward" on="click" preventDefault=false}}>
+    <div class="colour-clash-message-heading">
+        <h3>{{t 'editor.colourClashMessage.selector.title' colourGroupName=colourGroupName}}</h3>
+        <span class="sprite-extended-x" title="Close" {{action "remove" on="click"}}></span>
+    </div>
+    <div class="colour-clash-message-body">
+        {{#each colourNamesList as |colourName index|}}
+            <strong>"{{colourName}}"</strong>
+            {{#unless (islast colourList index)}} {{t 'editor.colourClashMessage.selector.body.listSeparator'}} {{/unless}}
+        {{/each}}
+        {{t 'editor.colourClashMessage.selector.body.listEnding'}}
+        <p>{{t 'editor.colourClashMessage.selector.body.secondary'}}</p>
+        <ul>
+            {{#each colourList as |usedColour|}}
+                <li {{action "changeAllColours" message usedColour on="click"}}>
+                    <div {{bind-attr style="usedColour.style"}} class="colour-clash-colour-icon"></div>
+                    <div class="colour-clash-colour-name">{{usedColour.colour.name}}
+                        <span {{bind-attr style="usedColour.style"}} class="colour-clash-colour-name-underline"></span>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="colour-clash-message-footer">
+        <label class="colour-clash-message-checkbox">
+            {{t 'editor.colourClashMessage.selector.footer' colourGroupName=colourGroupName}}
+            {{input type="checkbox" name="hideGroup" checked=hiddenGroup}}
+            <div class="colour-clash-message-custom-checkbox">
+                <span class="sprite-checkbox-tick" title="Do not show"></span>
+            </div>
+        </label>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="brand-header-bar">
+    <h1>{{t 'application.motocal'}}</h1>
+</div>
+
+
+<div class="back-to-kit-container">
+    {{#link-to 'design.selector' class='btn back-to-kit'}}<span class="back-logo sprite-icn-back-to-kit"> </span><span class="back-text">{{t 'application.back_to_kit'}}</span>{{/link-to}}
+</div>
+
+{{#if showHelpButton}}
+{{partial "help-button"}}
+{{/if}}
+
+{{view "progressBar"}}
+{{view "errorModal"}}
+{{view "smallViewport"}}
+
+{{#if helloSmallScreenModal.shown}}
+  {{hello-small-screen-modal shown=helloSmallScreenModal.shown isTargetCategoryKit=helloSmallScreenModal.isTargetCategoryKit isDismissable=helloSmallScreenModal.isDismissable}}
+{{/if}}
+
+<div>
+  {{outlet "main"}}
+</div>
+
+{{#if userTourSlides}}
+    {{user-tour-mobile userTour=userTourSlides}}
+{{/if}}
+
+{{#if isNotBreakpointXS}}
+{{else}}
+    <div id="loading-design-xs-container">
+        {{view "loading-design-xs" isLoading=loadingDesignXS}}
+    </div>
+{{/if}}
+
+{{bootstrap-breakpoints}}

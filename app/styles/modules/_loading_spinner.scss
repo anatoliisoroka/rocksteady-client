@@ -1,0 +1,404 @@
+//when ember app starts
+.ember-application #loading-spinner-modal {
+    &.is-visible, &.section-visible {
+        .loading-spinner-backdrop {
+            background-color: rgba(0, 0, 0, 0.3);
+            opacity: 1;
+        }
+    }
+    .loading-spinner-backdrop {
+        @include transition(opacity 0.5s);
+        opacity: 0;
+    }
+}
+
+.cssanimations {
+    .loading-spinner {
+        display: none !important;
+    }
+    .is-visible {
+        #circle-loading {
+            display: block !important;
+        }
+    }
+    .section-visible {
+        #gear-loading {
+            display: block !important;
+        }
+        #circle-loading {
+            display: none !important;
+        }
+    }
+}
+
+.no-cssanimations {
+    .is-visible, .section-visible {
+        .loading-spinner {
+            display: block !important;
+        }
+    }
+    #gear-loading, #circle-loading {
+        display: none;
+    }
+}
+
+#loading-spinner-modal {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+
+    &.is-visible, &.section-visible {
+        display: block;
+    }
+
+    .loading-spinner-backdrop {
+        //background-color: white;
+        background-color: rgba(0,0,0,0.4);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999000;
+    }
+
+    .loading-spinner {
+        position: absolute;
+        top: 150px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 291px;
+        height: 348px;
+        background-image: url(../images/spinners/rocksteady-loading.gif);
+        z-index: 999001;
+        text-align: center;
+
+        display: none;
+
+        @media screen and (max-height: 700px) {
+            top: 50px;
+        }
+    }
+
+    #app-init-error, .noscript-error {
+        position: absolute;
+        top: 550px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        color: black !important;
+        font-size: 200%;
+        z-index: 999002;
+        text-align: center;
+
+        a:link, a:visited {
+            color: black;
+            text-decoration: underline;
+        }
+
+        .upgrade {
+            font-size: 66%;
+        }
+
+        @media screen and (max-height: 700px) {
+            top: 450px;
+        }
+    }
+
+    .loading-spinner-text {
+        z-index: 9999999;
+        font-size: 150%;
+        position: absolute;
+        top: 275px;
+        left: -500px;
+        background-color: grey;
+        width: 500px;
+        padding: 1em;
+        border-radius: 10px;
+        text-align: center;
+        color: white;
+        border: 1px solid white;
+        font-family: $interfaceFontFamily;
+
+        @media screen and (max-height: 700px) {
+            top: 175px;
+        }
+
+        @media (max-width: $screen-sm) {
+            margin-left: 100px;
+            width: 300px;
+        }
+
+    }
+}
+
+//http://cssload.net/en/spinners/3
+#gear-loading {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3000000;
+    overflow: hidden;
+    .cssload-loader {
+        width: 281px;
+        height: 281px;
+        border: 2px rgba(127, 121, 131, 0.98) solid;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -141px 0 0 -141px;
+        border-radius: 50%;
+
+        background-color: rgba(255, 255, 255, 0.9);
+        z-index: 30000;
+        box-shadow: 0 0 15px 4px #fff;
+    }
+
+    .cssload-loading {
+        font-size: 15px;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        line-height: 26px;
+        left: 0;
+        top: 50%;
+        color: rgb(126, 124, 131);
+        text-shadow: 0 0 5px rgba(100,100,100,0.2);
+        padding: 18px;
+        margin-top: 10px;
+    }
+
+    .cssload-loader-circle-1 {
+        width: 259px;
+        height: 259px;
+        left: 9px;
+        top: 9px;
+        border: 2px rgb(124, 123, 131) solid;
+        position: absolute;
+        border-right-color: transparent;
+        border-radius: 50%;
+        @include animation(spin 3.45s linear infinite);
+    }
+
+    .cssload-loader-circle-2 {
+        width: 236px;
+        height: 236px;
+        left: 9px;
+        top: 9px;
+        border: 2px transparent solid;
+        position: absolute;
+        border-right-color: rgb(230, 225, 232);
+        border-radius: 50%;
+        @include animation(spin 5.75s linear infinite);
+    }
+
+    .cssload-loader .cssload-line {
+        width: 19px;
+        height: 4px;
+        background: rgb(0, 0, 0);
+        position: absolute;
+    }
+
+    .cssload-loader .cssload-line:nth-child(1) {
+        left: 30px;
+        top: 50%;
+        margin-top: -2px;
+    }
+
+    .cssload-loader .cssload-line:nth-child(2) {
+        @include transform(rotate(45deg));
+        left: 62px;
+        top: 62px;
+    }
+
+    .cssload-loader .cssload-line:nth-child(3) {
+        top: 30px;
+        left: 50%;
+        width: 4px;
+        height: 19px;
+    }
+
+    .cssload-loader .cssload-line:nth-child(4) {
+        @include transform(rotate(135deg));
+        right: 62px;
+        top: 62px;
+    }
+
+    .cssload-loader .cssload-line:nth-child(5) {
+        right: 30px;
+        top: 50%;
+        margin-top: -2px;
+    }
+
+    .cssload-loader .cssload-line:nth-child(6) {
+        @include transform(rotate(45deg));
+        right: 62px;
+        bottom: 62px;
+        background: rgb(230, 225, 232);
+    }
+
+    .cssload-loader .cssload-subline {
+        position: absolute;
+        width: 6px;
+        height: 4px;
+        background: rgb(0, 0, 0);
+    }
+
+    .cssload-loader .cssload-subline:nth-child(7) {
+        @include transform(rotate(22.5deg));
+        left: 39px;
+        top: 94px;
+    }
+
+    .cssload-loader .cssload-subline:nth-child(8) {
+        @include transform(rotate(67.5deg));
+        left: 94px;
+        top: 39px;
+    }
+
+    .cssload-loader .cssload-subline:nth-child(9) {
+        @include transform(rotate(112.5deg));
+        right: 94px;
+        top: 39px;
+    }
+
+    .cssload-loader .cssload-subline:nth-child(10) {
+        @include transform(rotate(157.5deg));
+        right: 39px;
+        top: 94px;
+    }
+
+    .cssload-loader .cssload-subline:nth-child(11) {
+        @include transform(rotate(22.5deg));
+        right: 38px;
+        bottom: 92px;
+        background: rgb(230, 225, 232);
+    }
+
+    .cssload-loader .cssload-needle {
+        width: 26px;
+        height: 26px;
+        border: 2px rgb(0, 0, 0) solid;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -15px 0 0 -15px;
+        z-index: 1;
+        border-radius: 50%;
+        @include animation(pegIt 3.45s infinite ease-in-out);
+    }
+
+    .cssload-loader .cssload-needle:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 6.5px 94px 6.5px 0;
+        border-color: transparent rgb(230, 225, 232) transparent transparent;
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        margin: -6.5px 0 0 0;
+        border-radius: 0 50% 50% 0;
+    }
+
+    @include keyframes(pegIt) {
+        0% {
+            @include transform(rotate(0deg));
+        }
+        16% {
+            @include transform(rotate(75deg));
+        }
+        25% {
+            @include transform(rotate(55deg));
+        }
+        30% {
+            @include transform(rotate(90deg));
+        }
+        36% {
+            @include transform(rotate(170deg));
+        }
+        42% {
+            @include transform(rotate(150deg));
+        }
+        50% {
+            @include transform(rotate(227deg));
+        }
+        100% {
+            @include transform(rotate(0deg));
+        }
+    }
+
+    @include keyframes(spin) {
+        0% {
+            @include transform(rotate(0deg));
+        }
+        100% {
+            @include transform(rotate(360deg));
+        }
+    }
+
+    @media (max-width: $screen-xs-max) {
+        transform: scale(0.75);
+    }
+}
+
+#circle-loading {
+    position: absolute;
+    z-index: 3000000;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    .cssload-whirlpool,
+    .cssload-whirlpool::before,
+    .cssload-whirlpool::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border: 1px solid rgb(123, 122, 131);
+        border-left-color: rgb(228, 232, 230);
+        border-radius: 1374px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+
+    .cssload-whirlpool {
+        margin: -34px 0 0 -34px;
+        height: 69px;
+        width: 69px;
+        @include animation(cssload-rotate 1150ms linear infinite);
+    }
+
+    .cssload-whirlpool::before {
+        content: "";
+        margin: -32px 0 0 -32px;
+        height: 61px;
+        width: 61px;
+        @include animation(cssload-rotate 1150ms linear infinite);
+    }
+
+    .cssload-whirlpool::after {
+        content: "";
+        margin: -40px 0 0 -40px;
+        height: 77px;
+        width: 77px;
+        @include animation(cssload-rotate 2300ms linear infinite);
+    }
+
+    @include keyframes(cssload-rotate) {
+        100% {
+            @include transform(rotate(360deg));
+        }
+    }
+}

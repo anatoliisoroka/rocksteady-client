@@ -1,0 +1,176 @@
+@mixin small-checkout {
+    .skin-motocal {
+        .checkout {
+            .checkout-container {
+                position: relative;
+                top: 10px;
+                padding: 0;
+
+                .checkout-deck {
+
+                    h1 {
+                        margin: 0;
+                        font-size: 24px;
+                        font-weight: bold;
+                        line-height: 1.1em;
+                        display: inline-block;
+                    }
+
+                    h2 {
+                        font-size: 16px;
+                        margin-top: 7px;
+                        font-weight: bold;
+                    }
+
+                    .components-scroll {
+                        margin-top: 15px;
+                        padding-bottom: 15px;
+                        .components-wrapper {
+                            .component {
+                                .controls {
+                                    .ctrl-quality {
+                                        .btn-group {
+                                            button {
+                                                font-size: 17px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .components-container {
+                        .edit-button {
+                            bottom: 55px;
+                            right: 0;
+                            border-radius: 0;
+                            font-size: 12px;
+                        }
+                    }
+
+                    .checkout-shipping-details {
+                        margin-top: 15px;
+                        .combobox {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    #shipping-address {
+                        input {
+                            color: $fontBlue;
+                            margin-bottom: 2px;
+                            line-height: normal;
+                        }
+                    }
+
+                    .terms {
+                        padding-top: 15px;
+                        border-top: 1px solid #ccc;
+                        margin-top: 15px;
+                    }
+
+                    .estimate {
+                        font-size: 12px;
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .shipping-details-bottom {
+                        margin-top: 15px;
+                        margin-bottom: 15px;
+                        border-top: 1px solid #ccc;
+                    }
+                }
+            }
+        }
+    }
+}
+
+html.touch {
+    @include small-checkout;
+    .android-keyboard{
+        overflow-y: scroll;
+    }
+    .skin-motocal .checkout .checkout-container .has-tabs .checkout-deck {
+        padding-top: 94px;
+    }
+}
+
+@media screen and (max-height: $screen-sm-min) {
+    .checkout .ctrl-quality .dropdown-menu{
+        width: 20em;
+    }
+    .skin-motocal .checkout .checkout-container .has-tabs .checkout-deck {
+        padding-top: 94px;
+    }
+}
+
+@media screen and (max-height: $screen-sm-min) {
+    @include small-checkout;
+    .skin-motocal .checkout .checkout-container .checkout-deck {
+        padding-top: 28px;
+        h2 {
+            margin-bottom: 0;
+        }
+        .back-to-kit {
+            .edit-button {
+                bottom: 45px;
+            }
+        }
+        .components-container, .shipping-billing-container {
+            margin-top: 80px;
+        }
+        .checkout-shipping-details h2 {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+// all phones and tablets
+@media (orientation: landscape), (orientation: portrait) {
+
+    html.touch {
+        .checkout-container {
+            .navbar-header {
+                &.checkout {
+                    .center {
+                        .title {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $screen-sm-min) {
+    .skin-motocal .checkout {
+        &.navbar-header .right-interview{
+            display: block;
+        }
+        .checkout-container {
+            .back-to-kit {
+                display: none;
+            }
+            .checkout-deck {
+                h2 {
+                    margin-bottom: 5px;
+                }
+                .tab-pane {
+                    margin-top: 15px;
+                }
+                .components-container, .shipping-billing-container {
+                    margin-top: 80px;
+                }
+                .checkout-shipping-details h2 {
+                    display: none;
+                }
+                .components-scroll {
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+}

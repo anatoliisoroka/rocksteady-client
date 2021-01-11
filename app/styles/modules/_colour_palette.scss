@@ -1,0 +1,62 @@
+.rumble-colour-palette {
+  //margin: 20px 10px;
+}
+
+.rumble-colour-palette-individual-wrapper {
+
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  display:block;
+  border: 1px solid #ccc;
+  &.selected, &:hover {
+    border: 0;
+    width: 32px;
+    height: 32px;
+    box-shadow: 0 0 10px rgba(#000, 0.2);
+    top: 0px;
+    left: 0px;
+    .rumble-colour-palette-individual {
+      width: 32px;
+      height: 32px;
+      top: 0px;
+      left: 0px;
+    }
+  }
+}
+.rumble-colour-palette-item-wrapper,
+.palette-navigation-item-wrapper {
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+  margin-bottom: 5px;
+
+  top: 0;
+  left: 0;
+  display: inline-block;
+  text-align: center;
+
+  &:hover{
+    border: 1px solid $motocalBlue;
+  }
+}
+
+.rumble-colour-palette-individual {
+  height: 24px;
+  width: 24px;
+  left: 3px;
+  top: 3px;
+  position: relative;
+  z-index: 1000;
+
+}
+.rumble-colour-palette-item,
+.palette-navigation-item {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+  display: block;
+}

@@ -1,0 +1,33 @@
+{
+    "APP": {
+        "upg_endpoint": "https://elite.monek.com/secure/rocksteadyv3/iPay.aspx",
+        "upg_css_integrity": "sha384-36zWj8AnmofvmkVvbZvoqEkjKDJUv+F69mXyvKQQ2U+gik1VNA7Ftg0bW4Ew5nQp",
+        "facebook_share_id": "1498243230414608",
+        "best_practice_link": "https://www.motocal.com/about/design-best-practice",
+        "global_edit": {
+            "mandatory_recommended_colour_ids": [],
+            "colour_groups_display_order": []
+        }
+    },
+    "URLs": {
+        "marketing_site": "http://www.motocal.com/",
+        "charity_work": "http://www.motocal.com/about/charity-work"
+    },
+    "mixpanel": {
+        "token": "5863a25461c5b99397b64e829a7934a2"
+    },
+    "google_analytics": {
+        "tracking_id": "UA-52441999-1"
+    },
+    "product_lines": [
+        "Motorbike Decals",
+        "Laptop Decals",
+        "Tank Protector Decals",
+        "Hard Case Decals",
+        "Dirt Bike Decals",
+        "Van Decals",
+        "Test Motorbike Decals",
+        "Test Sports Vehicle Decals",
+        "Test Product Line Decals"
+    ]
+}

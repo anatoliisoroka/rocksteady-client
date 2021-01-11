@@ -1,0 +1,25 @@
+#favourite-tags {
+    display: block;
+    margin: 0;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.favourite-tags-item {
+    background-color: #999999;
+	border-radius: 3px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11.844px;
+    font-weight: bold;
+    line-height: 21px;
+    margin: 2px 3px 2px 3px;
+    padding: 1px 4px 2px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    vertical-align: baseline;
+}
+
+.favourite-tags-title{
+    text-align: center;
+}

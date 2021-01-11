@@ -1,0 +1,8 @@
+<ul class="font-swatch-list">
+{{#each font in view.content}}
+  {{view "design/editor/fontPalette/fontSwatch" content=font}}
+{{/each}}
+{{#if view.showMoreButton}}
+{{view "design/editor/navigateToSubpanel" object=this property="font" class="font-swatch" name="seeMoreFonts"}}
+{{/if}}
+</ul>

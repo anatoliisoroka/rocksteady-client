@@ -1,0 +1,6 @@
+{{#each swatch in view.content}}
+  {{view "design/editor/colourPalette/colourSwatch" content=swatch location=view.location}}
+{{/each}}
+{{#if view.showMoreButton}}
+  {{view "design/editor/navigateToSubpanel" object=this class="palette-navigation-item-wrapper"}}
+{{/if}}  

@@ -1,0 +1,34 @@
+.start .brand-header-bar ,
+.start .rs-progressbar {
+    display: none;
+}
+.interview-natural-text-input {
+    font-size: 150%;
+    margin-top: 2.5em;
+    width: 500px;
+}
+.natural-text-search-results {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.natural-text-search-result {
+    width: 500px;
+    text-align: left;
+    margin-top: 1px;
+    background-color: antiquewhite;
+    display: block;
+    cursor: pointer;
+}
+.natural-text-search-result:hover {
+    background-color: burlywood;
+}
+.natural-text-search-result img {
+    margin: 5px;
+}
+.natural-text-search-result p {
+    font-size: 130%;
+    color: darkolivegreen;
+    display: inline-block;
+}
+

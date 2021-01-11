@@ -1,0 +1,59 @@
+<div class="modal fade billing-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                <h4 class="modal-title">
+                {{t 'billing.place_order_modal_title'}}
+                </h4>
+            </div>
+            <div class="modal-body">
+
+                <!-- #billing-form will be written into the iframe and submitted -->
+
+                <form
+                    id="billing-form"
+                    method="post"
+                    action="{{upgEndpoint}}">
+
+                    <input type="hidden" name="ResponseAction" value="REDIRECT">
+                    <input type="hidden" name="MessageType" value="ESALE_KEYED">
+                    <input type="hidden" name="Dispatch" value="NOW">
+                    <input type="hidden" name="ShowAddressDetails" value="NO">
+                    <input type="hidden" name="ShowContactDetails" value="NO">
+                    <input type="hidden" name="PurchaseDescription" value="{{purchaseDescription}}">
+                    <input type="hidden" name="PrintRequestToken" value="{{printRequestToken}}">
+                    <input type="hidden" name="TransactionIdentifier" value="{{printRequestToken}}">
+                    <input type="hidden" name="TransactionID" value="{{transactionId}}">
+                    <input type="hidden" name="MerchantID" value="{{merchantId}}">
+                    <input type="hidden" name="RetOKAddress" value="{{retOkAddress}}">
+                    <input type="hidden" name="RetNotOKAddress" value="{{retNotOkAddress}}">
+                    <input type="hidden" name="Amount" value="{{amount}}">
+                    <input type="hidden" name="CurrencyCode" value="{{currencyCode}}">
+                    <input type="hidden" name="CountryCode" value="826">
+                    <input type="hidden" name="EchoAmount" value="YES">
+                    <input type="hidden" name="ThreeDSTest" value="{{threeDSTest}}">
+                    <input type="hidden" name="ThreeDSAction" value="{{threeDSAction}}">
+                    <input type="hidden" name="ThreeDSPassword" value="{{threeDSPassword}}">
+                    <!--MOT-1963-->
+                    <!--<input type="hidden" name="ThreeDSVEContinueOnError" value="YES">-->
+                    <input type="hidden" name="ShowPayPal" value="{{showPayPal}}">
+                    <input type="hidden" name="NonIframeRetOKAddress" value="{{nonIframeRetOkAddress}}">
+                    <input type="hidden" name="NonIframeRetNotOKAddress" value="{{nonIframeRetNotOkAddress}}">
+                    <!-- branding upg theme -->
+                    <input type="hidden" name="CssUrl" value="{{cssUrl}}">
+                    <input type="hidden" name="CssIntegrity" value="{{cssIntegrity}}">
+
+                </form>
+
+                <div class="clearfix"> </div>
+
+                <iframe id="billing-iframe" name="billing-iframe" class="{{if hideIframe 'hide-iframe'}}"> </iframe>
+
+            </div><!-- /.modal-body -->
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

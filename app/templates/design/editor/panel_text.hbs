@@ -1,0 +1,87 @@
+{{#if isTouch}}
+<div class="touch-buttons-panel">
+
+<button class="touch-control-button fonts" {{action "navigateToFontsSubpanel"}}><i class="sprite-touch-btn-font"></i></button>
+{{#if controller.multiline}}
+<button class="touch-control-button align-left" {{action "alignLeft"}} disabled={{controller.isNotMultiline}}><i class="sprite-touch-btn-align-L"></i></button>
+<button class="touch-control-button align-center" {{action "alignCentre"}} disabled={{controller.isNotMultiline}}><i class="sprite-touch-btn-align-center"></i></button>
+<button class="touch-control-button align-right" {{action "alignRight"}} disabled={{controller.isNotMultiline}}><i class="sprite-touch-btn-align-R"></i></button>
+{{else}}
+<button class="touch-control-button align-left-off" {{action "alignLeft"}} disabled={{controller.isNotMultiline}}><i class="sprite-touch-btn-align-L-off"></i></button>
+<button class="touch-control-button align-center-off" {{action "alignCentre"}} disabled={{controller.isNotMultiline}}><i class="sprite-touch-btn-align-center-off"></i></button>
+<button class="touch-control-button align-right-off" {{action "alignRight"}} disabled={{controller.isNotMultiline}}><i class="sprite-touch-btn-align-R-off"></i></button>
+{{/if}}
+
+{{#sticky-button dir="decrement" value=model.fontSize min="10" max="1000" precision="0" step="10" class="size-smaller sprite-touch-btn-size-smaller"}}<i class="sprite-touch-btn-size-smaller"></i>{{/sticky-button}}
+{{#sticky-button dir="increment" value=model.fontSize min="10" max="1000" precision="0" step="10" class="size-bigger"}}<i class="sprite-touch-btn-size-bigger"></i>{{/sticky-button}}
+
+{{#sticky-button dir="decrement" value=model.angle min="-180" max="180" precision="0" step="1" class="rotate-ccw"}}<i class="sprite-touch-btn-rotate-CCW"></i>{{/sticky-button}}
+{{#sticky-button dir="increment" value=model.angle min="-180" max="180" precision="0" step="1" class="rotate-cw"}}<i class="sprite-touch-btn-rotate-CW"></i>{{/sticky-button}}
+
+{{#sticky-button dir="decrement" value=model.letterSpacing min="-100" max="100" precision="0" step="1"class="letterspace-less"}}<i class="sprite-touch-btn-letterspace-less"></i>{{/sticky-button}}
+{{#sticky-button dir="increment" value=model.letterSpacing min="-100" max="100" precision="0" step="1" class="letterspace-more"}}<i class="sprite-touch-btn-letterspace-more"></i>{{/sticky-button}}
+
+{{#sticky-button dir="decrement" value=model.lineHeight min="0.1" max="2" precision="1" step="0.1" disabled=controller.isNotMultiline }}<i class="{{if controller.isNotMultiline 'sprite-touch-btn-linespace-less-off' 'sprite-touch-btn-linespace-less'}}"></i>{{/sticky-button}}
+{{#sticky-button dir="increment" value=model.lineHeight min="0.1" max="2" precision="1" step="0.1" disabled=controller.isNotMultiline }}<i class="{{if controller.isNotMultiline 'sprite-touch-btn-linespace-more-off' 'sprite-touch-btn-linespace-more'}}"></i>{{/sticky-button}}
+
+<button class="touch-control-button layer-bottom" {{action "featureToBack"}}><i class="sprite-touch-btn-layer-bottom"></i></button>
+<button class="touch-control-button layer-down" {{action "featureBackwards"}}><i class="sprite-touch-btn-layer-down"></i></button>
+<button class="touch-control-button layer-up" {{action "featureForwards"}}><i class="sprite-touch-btn-layer-up"></i></button>
+<button class="touch-control-button layer-top" {{action "featureToFront"}}><i class="sprite-touch-btn-layer-top"></i></button>
+
+</div>
+
+{{else}}
+
+<div class="property-module font">
+  <div class="property-bd">
+    <h5 class="title">{{t 'editor.font_title'}}</h5>
+    {{view "design/editor/fontPalette/fontPalettes"}}
+  </div>
+</div>
+
+<div class="property-module size">
+  <h5 class="title">{{t 'editor.text_adjust_title'}}</h5>
+  <div class="property-bd">
+
+    {{#view "design/editor/sliderLayout" labelName=(t 'editor.slider_label_font_size') decrementTitle=(t 'editor.tooltip_decrease_scale') incrementTitle=(t 'editor.tooltip_increase_scale')}}
+    {{view "design/editor/noUiSlider" type="range" value=model.fontSize prop='fontSize' min="10" max="1000" step="1" stickyThrottle="20"}}
+    {{/view}}
+
+    {{#view "design/editor/sliderLayout" labelName=(t 'editor.slider_label_angle') decrementTitle=(t 'editor.tooltip_rotate_anticlockwise') incrementTitle=(t 'editor.tooltip_rotate_clockwise')}}
+    {{view "design/editor/noUiSlider" type="range" value=model.angle prop='angle' min="-180" max="180" step="1" }}
+    {{/view}}
+
+    {{#view "design/editor/sliderLayout" labelName=(t 'editor.slider_label_letter_spacing') decrementTitle=(t 'editor.tooltip_decrease_letter_spacing') incrementTitle=(t 'editor.tooltip_increase_letter_spacing')}}
+    {{view "design/editor/noUiSlider" type="range" value=model.letterSpacing prop='letterSpacing' min="-100" max="100" step="1"}}
+    {{/view}}
+
+    <div class="line-height-slider-container {{if controller.multiline 'multiline'}}">
+      {{#view "design/editor/sliderLayout" labelName=(t 'editor.slider_label_line_height') decrementTitle=(t 'editor.tooltip_decrease_line_height') incrementTitle=(t 'editor.tooltip_increase_line_height')}}
+      {{view "design/editor/noUiSlider" type="range" value=model.lineHeight prop='lineHeight' min="0.1" max="2" step="0.1"}}
+      {{/view}}
+    </div>
+
+    {{#if controllers.application.config.APP.features.feature_opacity}}
+    {{#view "design/editor/sliderLayout" labelName=(t 'editor.slider_label_opacity')}}
+      {{view "design/editor/noUiSlider" value=model.opacity prop='opacity' min="10" max="100" step="1" }}
+    {{/view}}
+    {{/if}}
+
+    <div class="order-tools">
+      <ul class="alignment-icons {{if controller.multiline 'multiline'}}">
+        <li><a href="#" {{action "alignLeft"}}><span class="btn-align-left sprite-btn-align-left" title="{{t 'editor.tooltip_left_align'}}"></span></a></li>
+        <li><a href="#" {{action "alignCentre"}}> <span class="btn-align-center sprite-btn-align-center" title="{{t 'editor.tooltip_centrally_align'}}"></span></a></li>
+        <li><a href="#" {{action "alignRight"}}><span class="btn-align-right sprite-btn-align-right" title="{{t 'editor.tooltip_right_align'}}"></span></a></li>
+      </ul>
+
+    {{view "design/editor/zIndexModule" rightAlign=controller.multiline}}
+
+    </div>
+  </div>
+</div>
+
+{{/if}}
+
+{{view "design/editor/colourPalette/colourPalettes"}}
+

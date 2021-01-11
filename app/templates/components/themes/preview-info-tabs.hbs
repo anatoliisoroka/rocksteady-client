@@ -1,0 +1,77 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs theme-info-tabs" role="tablist">
+    <li role="presentation" class="active">
+        <a data-target="#theme-info-{{index}}" aria-controls="info" role="tab" data-toggle="tab">
+            <img class="theme-info-icon" src="branding/images/selector/theme_icon.svg">
+        </a>
+    </li>
+    <li role="presentation">
+        <a data-target="#design-info-{{index}}" aria-controls="design" role="tab" data-toggle="tab">
+            {{icon/user-edit}}
+        </a>
+    </li>
+    {{#if theme.isRegulated}}
+        <li role="presentation" class="regulation-info-tab">
+            <a data-target="#regulation-info-{{index}}" aria-controls="regulation" role="tab" data-toggle="tab">
+                <img class="theme-regulated-icon" alt="{{theme.regulation.name}}" src="{{theme.regulation.image}}">
+            </a>
+        </li>
+    {{/if}}
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active theme-info-tab-pane" id="theme-info-{{index}}">
+        <p class="theme-description">{{theme.description}}</p>
+        <p class="theme-design-time-text">
+            <span class="glyphicon glyphicon-time"></span>
+            {{designTimeText}}  Hours
+        </p>
+        <p class="theme-flag-summary">
+            {{themeSummary}}
+        </p>
+        <button {{action 'closeInfo'}} class="btn btn-primary">OK</button>
+    </div>
+    <div role="tabpanel" class="tab-pane fade theme-info-tab-pane" id="design-info-{{index}}">
+        <table class="theme-designer-table">
+            <tr>
+                <td class="theme-designer-icon"><img class="designer-region-flag" src="{{regionFlagUrl}}"></td>
+                <td class="theme-designer-text">{{theme.designer.name}}</td>
+            </tr>
+            <tr>
+                <td class="theme-designer-icon"><img class="designer-theme-badge"
+                                                     src="branding/images/selector/theme_icon.svg"></td>
+                <td class="theme-designer-text">
+                    {{t 'themes.preview_gallery.designer.design_count' designCount=theme.designer.designs}}
+                </td>
+            </tr>
+            <tr>
+                <td class="theme-designer-icon">{{icon/rosette-badge}}</td>
+                {{#if hasProductLineIds}}
+                    <td class="theme-designer-productline">
+                        {{#each productLine in productLines}}
+                            <img alt="{{productLine.name}}" src="{{productLine.imageUrl}}">
+                        {{/each}}
+                    </td>
+                {{else}}
+                    <td class="theme-designer-text">{{specialityText}}</td>
+                {{/if}}
+            </tr>
+        </table>
+        <button {{action 'closeInfo'}} class="btn btn-primary">OK</button>
+    </div>
+    {{#if theme.isRegulated}}
+        <div role="tabpanel" class="tab-pane fade theme-info-tab-pane" id="regulation-info-{{index}}">
+            <div class="regulation-left">
+                <img class="theme-regulated-icon" alt="{{theme.regulation.name}}" src="{{theme.regulation.image}}">
+            </div>
+            <div class="regulation-right">
+                {{#each use in regulationNames}}
+                    <p>{{use}}</p>
+                {{/each}}
+            </div>
+
+            <button {{action 'closeInfo'}} class="btn btn-primary">OK</button>
+        </div>
+    {{/if}}
+</div>

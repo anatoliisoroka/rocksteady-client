@@ -1,0 +1,19 @@
+<div class="global-selector-edit-component {{if showFlag 'active'}}">
+    <div class="close-panel">
+        <button type="button" {{action 'hide'}} class="close">
+            X
+        </button>
+    </div>
+    <div class="actions-panel">
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-3">
+                <button
+                    class="btn btn-default btn-block clear"
+                    {{action 'openClearModal' (t 'selector.global_edit.clear_modal.title')}}
+                >
+                    {{t 'selector.global_edit.component.clear_button'}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

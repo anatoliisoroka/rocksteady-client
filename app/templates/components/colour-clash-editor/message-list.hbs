@@ -1,0 +1,15 @@
+{{#each messages as |message index|}}
+    {{colour-clash-editor/message
+        message=message
+        hidden=message.hidden
+        stackOffset=stackOffset
+        topOffset=topOffset
+        leftOffset=leftOffset
+        positionName=positionName
+        removeMessage="removeMessage"
+        bringForward="bringForward"
+        hideGroup="hideGroup"
+        editorController=editorController
+        features=features
+        designId=designId}}
+{{/each}}

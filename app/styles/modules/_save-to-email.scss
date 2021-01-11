@@ -1,0 +1,39 @@
+.email-design .modal-body,
+.share-design .modal-body {
+    min-height: 150px;
+
+    .saving-throbber{
+        background-position: center;
+    }
+
+    .banner-text {
+        text-align: center;
+        font-size: 120%;
+    }
+
+    .banner-icon {
+        text-align: center;
+        font-size: 300%;
+        min-height: 100px;
+        padding-top: 30px;
+    }
+
+    .selector-preview-container {
+        text-align: center;
+        margin: 20px 0;
+        height: 170px;
+
+        img {
+            max-width: 300px;
+            max-height: 200px;
+        }
+
+        @media (max-width: $screen-xs) {
+            display: none;
+        }
+    }
+}
+
+button.start-a-new-design {
+    i{ display:inline-block; }
+}

@@ -1,0 +1,73 @@
+html.touch {
+    .skin-motocal {
+        .modal-header .close {
+            font-size: 40px;
+            margin-top: -12px;
+        }
+    }
+}
+
+.skin-motocal {
+    h4.modal-title {
+        text-transform: none;
+        text-align: center;
+        font-family: $interfaceFontFamily;
+        font-size: $fontSizeLarge;
+        font-weight: bold;
+        color: #252525;
+    }
+
+    .modal-footer button {
+        text-transform: uppercase;
+    }
+
+    .btn-modal-left {
+        float: left;
+    }
+}
+
+.modal-backdrop {
+    z-index: 9998;
+    height: 100%;
+}
+
+.modal {
+    z-index: 9999;
+    &.in-front{
+        z-index: 9999999;
+    }
+}
+
+@media (min-width: $screen-xs-min) {
+    .modal-dialog {
+        &.modal-info, &.modal-warning, &.modal-success {
+            .modal-body::before {
+                font-family: 'Glyphicons Halflings';
+                font-size: 500%;
+                position: absolute;
+                left: -85px;
+                top: 5px;
+                color: #eee;
+            }
+
+            .modal-body {
+                margin-left: 120px;
+                min-height: 100px;
+                margin-top: 10px;
+            }
+        }
+
+
+        &.modal-info .modal-body::before {
+            content: "\e086";
+        }
+
+        &.modal-warning .modal-body::before {
+            content: "\e101";
+        }
+
+        &.modal-success .modal-body::before {
+            content: "\e013";
+        }
+    }
+}

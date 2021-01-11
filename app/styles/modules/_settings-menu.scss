@@ -1,0 +1,35 @@
+
+.settings-menu-button-icon {
+    width: 14px;
+    height: 14px;
+    position: relative;
+    display: inline-block;
+    &::after {
+        content: '';
+        display: inline;
+        height: 14px;
+        width: 14px;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        background: rgba(255, 255, 255, 0) url(../images/icons/settings-icon.svg) no-repeat 0 0;
+    }
+}
+
+.settings-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    &::after {
+        content: '';
+        display: inline;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        background: rgba(255, 255, 255, 0) url(../images/icons/settings-icon.svg) no-repeat 0 0;
+        background-size: cover;
+    }
+}

@@ -1,0 +1,227 @@
+{{render "design/selectorHeader" model}}
+
+<div id="toast-container" class="toast-container-selector">
+    <span class="do-not-remove"> </span>
+</div>
+
+{{colour-clash-selector/selector
+    fattributes=model.fattributes
+    features=model.features
+    positions=model.positions
+    usedColours=model.usedColours
+    selectorView=view
+    coloursInteractedWith=model.coloursInteractedWith
+    designId=model.id
+    featureEnabled=colourClashEnabled
+    sideMenuOpen=showGlobalSelectorEdit
+}}
+
+{{#side-menu open=showGlobalSelectorEdit class="global-edit-menu side-menu-left"}}
+
+    <div class="side-panel-header">
+                <span>
+                    <img class="side-panel-header-img" src="{{controllers.design.model.productLine.imageUrl}}"/>
+                </span>
+        <span class="side-panel-header-txt">
+            {{t 'selector.global_edit.header'}}
+        </span>
+        <a class="btn btn-primary side-panel-header-btn" {{action 'closeGlobalSelectorEdit'}}>
+            {{icon/left-arrow-solid}}
+            {{#if isMobile}}
+                {{t 'selector.global_edit.back_mobile'}}
+            {{else}}
+                {{t 'selector.global_edit.back_desktop'}}
+            {{/if}}
+        </a>
+    </div>
+
+    <div class="side-panel-content">
+        <div class="feature-tabs-container">
+            <!-- Feature tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#default" aria-controls="default" role="tab" data-toggle="tab">
+                        {{icon/filter-all}}
+                    </a>
+                </li>
+                <li role="presentation" class="disabled">
+                    <a href="#f1" aria-controls="f1" role="tab" data-toggle="tab">{{icon/paint-palette}}</a>
+                </li>
+                <li role="presentation" class="disabled">
+                    <a href="#f2" aria-controls="f2" role="tab" data-toggle="tab">{{icon/image-frame}}</a>
+                </li>
+                <li role="presentation" class="disabled">
+                    <a href="#f3" aria-controls="f3" role="tab" data-toggle="tab">{{icon/text-t}}</a>
+                </li>
+                <li role="presentation" class="disabled">
+                    <a href="#f4" aria-controls="f4" role="tab" data-toggle="tab">{{icon/user-icon}}</a>
+                </li>
+            </ul>
+
+            <!-- Feature tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="default">
+                    {{selector/global-edit/acg-list
+                        accentColourGroups=sortedAccentColourGroups
+                        reRender='reRender'
+                        editAccentColourGroup='editAccentColourGroup'}}
+                </div>
+
+                {{!-- To be used when the other features become available --}}
+                {{!--<div role="tabpanel" class="tab-pane fade" id="f1">--}}
+                {{!--</div>--}}
+            </div>
+        </div>
+        <div class="side-panel-footer">
+            <button
+                class="btn btn-primary clear-modal-btn"
+                {{action 'openClearModal' (t 'selector.global_edit.clear_modal.title')}}>
+                {{t 'selector.global_edit.component.clear_button'}}
+            </button>
+        </div>
+    </div>
+
+    {{#selector/global-edit/side-menu-panel open=slidePanelOpen}}
+
+        <div class="side-panel-header">
+            <div class="side-panel-header-colour">
+                {{selector/global-edit/colour-square colourId=activeAccentColourGroup.id}}
+            </div>
+            <span class="side-panel-header-txt">
+                {{activeAccentColourGroup.name}}
+            </span>
+            <a class="btn btn-primary side-panel-header-btn" {{action 'closeSlidePanel'}}>
+                {{icon/left-arrow-solid}}
+                {{t 'selector.global_edit.slide_panel.header_button'}}
+            </a>
+        </div>
+
+        <div class="side-panel-content">
+
+            <div class="selector-img-container">
+                <img src="{{selectorImage}}">
+            </div>
+
+            <div class="colour-tabs-container">
+
+                <!-- Colour tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+
+                    <li role="presentation">
+                        <a href="#colour-kit"
+                           aria-controls="colour-kit"
+                           role="tab"
+                           data-toggle="tab">
+                            {{t 'selector.global_edit.slide_panel.tab_1'}}
+                        </a>
+                    </li>
+
+                    <li role="presentation" class="active">
+                        <a href="#colour-recommended"
+                           aria-controls="colour-recommended"
+                           role="tab"
+                           data-toggle="tab">
+                            {{t 'selector.global_edit.slide_panel.tab_2'}}
+                        </a>
+                    </li>
+
+                    <li role="presentation">
+                        <a href="#colour-search"
+                           aria-controls="colour-search"
+                           role="tab"
+                           data-toggle="tab">
+                            {{t 'selector.global_edit.slide_panel.tab_3'}}
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Colour tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade" id="colour-kit">
+                        {{selector/global-edit/colour-selector
+                            colours=kitColours
+                            acgColours=acgColours
+                            selectColour='selectColourForAccentColourGroup'}}
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in active" id="colour-recommended">
+                        {{selector/global-edit/colour-selector
+                            colours=recommendedColours
+                            selectColour='selectColourForAccentColourGroup'}}
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="colour-search">
+                        {{selector/global-edit/colour-group-selector
+                            colours=searchColours
+                            acgColours=acgColours
+                            selectColour='selectColourForAccentColourGroup'}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/selector/global-edit/side-menu-panel}}
+{{/side-menu}}
+
+<div class="display-map-container">
+
+    <div class="kit-options">
+        <button {{action 'toggleGlobalSelectorEdit'}} class="edit-tab">
+            <img src="{{controllers.design.model.productLine.imageUrl}}"/>
+            <span class="tab-label">
+                {{t 'selector.edit'}}
+            </span>
+        </button>
+
+        {{#if controllers.application.config.APP.features.quick_decal_select}}
+            <button {{action 'showQuickDecalSelector'}} data-name="decals">
+                <img src="branding/images/selector/add_remove_decal_icon.svg"/>
+                <span class="tab-label">
+                {{t 'selector.decals_label'}}:
+            </span>
+                <strong>{{decalsLabel}}</strong>
+            </button>
+        {{/if}}
+
+        {{#if controllers.application.config.APP.features.themes}}
+            <button {{action 'showThemes'}} data-name="themes">
+                <img src="branding/images/selector/theme_icon.svg"/>
+                <span class="tab-label">
+                {{t 'selector.theme'}}:
+            </span>
+                {{#if model.theme}}
+                    <strong>{{model.theme.name}}</strong>
+                {{else}}
+                    <strong>{{t 'selector.themes_label_none'}}</strong>
+                    {{#if showThemeBadge}}
+                        <span class="badge theme-badge">{{availableThemes}}</span>
+                    {{/if}}
+                {{/if}}
+            </button>
+        {{/if}}
+
+        <button {{action 'showMaterials'}} data-name="materials">
+            <img src="branding/images/selector/material_icon.svg"/>
+            <span class="tab-label">
+                {{t 'selector.material'}}:
+            </span>
+            <strong>{{controllers.design.material}}</strong>
+        </button>
+    </div>
+
+    {{view "design/fabricMapCanvas" }}
+
+    <img class="canvas-replacement-image"/>
+
+    {{outlet}}
+</div>
+
+{{#if view.showMobileHelp}}
+    {{view "design/selector/mobileHelp" }}
+{{/if}}
+
+{{selector/global-edit/clear-modal
+    modalOpen=clearModalOpen
+    title=clearModalTitle
+    selectAll=clearModalSelectAll
+    personalFeatures=clearModalPersonalFeatures
+    featureFabObjs=featureFabObjs
+    action="clearFeaturesAndAttributes"
+}}

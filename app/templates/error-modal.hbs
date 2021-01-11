@@ -1,0 +1,31 @@
+{{! Note: there is a non-localised copy of this modal in templates/inline/fallback-application.error.html }}
+
+<div id="error-modal" class="modal fade" style="display: none" data-backdrop="static">
+    <div class="modal-dialog error-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{t 'error.title'}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>{{t 'error.sorry'}}</p>
+
+                <p>{{t 'error.investigating'}}</p>
+
+                <div class="clearfix"> </div>
+
+                <div class="error-modal-message-container {{if view.hideOnProduction 'hide-on-production'}}">
+                    <hr>
+                    <p>{{t 'error.message'}}</p>
+                    <p id="error-modal-message" class="error"></p>
+                </div>
+
+            </div><!-- /.modal-body -->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary"  onclick="location.hash = '#/interview/'">{{t 'error.restart_race'}}</button>
+                <button type="button" class="btn btn-primary" onclick="document.querySelector('.close').click();">{{t 'error.close_and_continue'}}</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

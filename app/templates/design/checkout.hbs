@@ -1,0 +1,102 @@
+<div class="logo-container checkout">
+    <a class="hero-logo" {{action 'startNewDesign'}}></a>
+</div>
+
+<nav class="navbar-header checkout">
+    <div class="center">
+        <div class="productline-logo">
+            <img src="{{controllers.design.model.productLine.imageUrl}}"/>
+        </div>
+        <h1 class="title">{{controllers.design.model.description}}</h1>
+    </div>
+    <div class="right-interview">
+        {{#link-to 'design.selector'}}
+            <span class="edit-button btn">
+                <span class="edit-logo" ></span>
+                {{t 'checkout.edit_design'}}
+            </span>
+        {{/link-to}}
+    </div>
+</nav>
+
+<div id="toast-container" class="toast-container-checkout">
+    <span class="do-not-remove"> </span>
+</div>
+
+{{#if controller.hasTabs}}
+    <div class="has-tabs">
+
+        {{#link-to 'design.selector' class="back-to-kit"}}<span class="edit-button btn"><span
+            class="edit-logo"></span>{{t 'checkout.edit_design'}}</span>{{/link-to}}
+
+        <div class="checkout-deck {{if view.ipadWorkaroundPurchase 'hidden'}}">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation">
+                    <a href="#your-decals" aria-controls="your-decals" role="tab" data-toggle="tab">
+                        {{t 'checkout.decals_tab'}}
+                    </a>
+                </li>
+                <li role="presentation" class="active">
+                    <a href="#shipping-details" aria-controls="shipping-details" role="tab" data-toggle="tab">
+                        {{t 'checkout.shipping_tab'}}
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane" id="your-decals">
+                    {{render "design/checkoutComponents" design}}
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="shipping-details">
+                    {{render "design/checkoutShippingDetails" }}
+                    {{view "design/checkout/priceAndButton"}}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{{else}}
+    <div class="checkout-deck {{if view.ipadWorkaroundPurchase 'hidden'}}">
+        <div class="row checkout">
+            <div class="col-sm-6 components-container">
+                <div class="checkout-header-section">
+                    <h1>{{t 'checkout.title'}}</h1>
+                    <h2>{{t 'checkout.your_decals'}}</h2>
+                    {{#link-to 'design.selector' class="back-to-kit"}}
+                        <span class="edit-button btn">
+                            <span class="edit-logo"></span>
+                            {{t 'checkout.edit_design'}}
+                        </span>
+                    {{/link-to}}
+                </div>
+                {{render "design/checkoutComponents" design}}
+            </div>
+            <div class="col-sm-6 shipping-billing-container {{if view.androidKeyboard 'android-keyboard'}}">
+                {{render "design/checkoutShippingDetails" }}
+                {{view "design/checkout/priceAndButton"}}
+            </div>
+        </div>
+    </div>
+{{/if}}
+
+<div class="modal fade" id="placeorder-progress-bar" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{t 'checkout.progress_modal_title'}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" style={{progressBarStyle}}>
+                        <span class="sr-only">{{progressBarPercentage}}%</span>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+{{outlet}}

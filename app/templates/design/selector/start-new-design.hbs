@@ -1,0 +1,43 @@
+<div class="modal fade start-new-design">
+    <div class="modal-dialog {{if sending '' 'modal-warning'}}">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{t 'selector.start_new_design'}}</h4>
+            </div>
+            <div class="modal-body">
+
+                {{#if sending}}
+
+                    {{#if error}}
+                        <p class="alert alert-danger">{{t 'selector.save_design_failed'}}</p>
+                    {{else}}
+                        <p class="saving-throbber"></p>
+                    {{/if}}
+
+                {{else}}
+
+                    <p>{{t 'selector.start_new_design_warning'}}</p>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+
+                        <span class="{{if isEmailInvalid 'has-error' 'has-success'}}">
+                        {{view "design/validatedField" type="email" class="form-control email-address-input" placeholder=(t 'selector.email_input_placeholder') data-name="email" value=email notifyImmediately=false disabled=sending}}
+                        </span>
+                    </div>
+
+                {{/if}}
+
+            </div><!-- /.modal-body -->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary start-a-new-design" {{action "startNewDesign" target="view"}} disabled={{disableSendButton}}>
+                    <i class="sprite-star"></i>
+                    {{t 'selector.start_new_design'}}
+                </button>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

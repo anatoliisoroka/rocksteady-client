@@ -1,0 +1,181 @@
+<div class="row theme-overview-container">
+
+    <div class="col-xs-12 {{if theme.isRegulated 'is-regulated'}}">
+        <h4 class="uppercase theme-name">{{theme.name}}</h4>
+
+        {{#if theme.isRegulated}}
+            <img class="theme-regulated-icon" alt="{{theme.regulation.name}}" src="{{theme.regulation.image}}">
+        {{/if}}
+    </div>
+
+    <!--previewFullScreen:preview-full-screen set via jQuery-->
+    <div {{bind-attr class=":col-xs-12 :theme-preview-image-container infoOpen:theme-info-open"}}>
+
+        <!--TODO: DOM Refactor-->
+        <div class="row">
+            <p class="image-name">
+                {{#if currentPreview.name}}
+                    {{currentPreview.name}}
+                {{else}}
+                    {{t 'themes.preview_gallery.default_preview_name'}}
+                {{/if}}
+            </p>
+
+            <div class="pagination-pages-selection-wrapper">
+                {{pagination-pages-selection
+                    showCount=true
+                    count=numSlides
+                    current=currentIndex
+                    previous='previousSlide'
+                    next='nextSlide'}}
+            </div>
+
+            <div {{bind-attr class=":image-preview-container showGridView:grid-view-open"}}>
+
+                <!-- Shown by default -->
+                <div id='slider' class='swipe' {{action 'nextSlide'}}>
+                    <div class='swipe-wrap'>
+                        {{#each sortedPreviews as |preview|}}
+                            {{#if preview.image_url}}
+                                <div class="content-placeholder">
+                                    <div class="image-mask">
+                                        {{image-with-placeholder
+                                            class="img-responsive theme-preview-image"
+                                            src=preview.image_url
+                                            alt=theme.name
+                                        }}
+                                    </div>
+                                </div>
+                            {{else}}
+                                <div class="content-placeholder">
+                                    <div class="image-mask">
+                                        {{image-with-placeholder
+                                            class="img-responsive theme-preview-image"
+                                            src=preview.imageUrl
+                                            alt=theme.name
+                                        }}
+                                    </div>
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+
+                <!-- Hidden by default -->
+                <div class='grid-view-container'>
+                    <div class="row-wrapper">
+                        <div class="row">
+                            {{#each sortedPreviews as |preview index|}}
+                                {{#if preview.image_url}}
+                                    <div class="col-xs-4 col-sm-3">
+                                        <div>
+                                            <img class="img-responsive"
+                                                 src="{{preview.image_url}}"
+                                                 alt="{{preview.name}}"
+                                                {{action 'goToSlide' index}}/>
+                                        </div>
+                                    </div>
+                                {{else}}
+                                    <div class="col-xs-4 col-sm-3">
+                                        <div>
+                                            <img class="img-responsive"
+                                                 src="{{preview.imageUrl}}"
+                                                 alt="{{preview.name}}"
+                                                {{action 'goToSlide' index}}/>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                            {{/each}}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6">
+                {{themes/grid-view-button open=showGridView class="preview-grid-view-button"}}
+            </div>
+
+            <div class="col-xs-6">
+                {{themes/full-screen-button open=previewFullScreen class="preview-full-screen-button"}}
+            </div>
+        </div>
+
+
+        <div class='theme-info'>
+            {{themes/preview-info-tabs
+                theme=theme
+                infoOpen=infoOpen
+                themeSummary=themeSummary
+                index=index}}
+        </div>
+    </div>
+
+
+    <div class="col-xs-12 theme-panel-footer{{if smallWidth ' small-width'}}">
+        <div class="theme-footer-icon theme-bookmarked-icon">
+            {{themes/bookmarked-icon
+                bookmarked=bookmarked
+                isAuthenticated=isAuthenticated
+                bookmark='bookmarkTheme'}}
+        </div>
+
+        {{#unless smallWidth}}
+            <div class="theme-summary-text">
+                {{themes/info-summary
+                    summary=themeSummarySmall
+                    open=infoOpen}}
+            </div>
+        {{/unless}}
+        {{#if new}}
+            <div class="theme-footer-icon">
+                {{#icon/tooltip-helper text=(t 'themes.preview_gallery.new_tooltip')}}
+                    {{icon/new-badge}}
+                {{/icon/tooltip-helper}}
+            </div>
+        {{/if}}
+        {{#if popular}}
+            <div class="theme-footer-icon">
+                {{#icon/tooltip-helper text=(t 'themes.preview_gallery.popular_tooltip')}}
+                    {{icon/fire-flame}}
+                {{/icon/tooltip-helper}}
+            </div>
+        {{/if}}
+        <div class="theme-footer-icon">
+            {{themes/viewed-icon
+                viewed=viewed
+                isAuthenticated=isAuthenticated}}
+        </div>
+        <div class="theme-engagement-summary">
+            {{themes/engagement-summary
+                metric=engagementMetric}}
+        </div>
+        {{#unless smallWidth}}
+            <div class="theme-footer-button">
+                <button class="btn btn-success apply-theme-button"
+                        data-theme-name="{{theme.name}}"
+                        data-theme-id="{{theme.id}}"
+                    {{action 'selectTheme' theme}}>
+                    {{t 'themes.preview_gallery.apply_theme'}}
+                </button>
+            </div>
+        {{/unless}}
+    </div>
+    {{#if smallWidth}}
+        <div class="col-xs-12 theme-panel-footer">
+            <div class="theme-summary-text">
+                {{themes/info-summary
+                    summary=themeSummarySmall
+                    open=infoOpen}}
+            </div>
+            <div class="theme-footer-button">
+                <button class="btn btn-success apply-theme-button"
+                        data-theme-name="{{theme.name}}"
+                        data-theme-id="{{theme.id}}"
+                    {{action 'selectTheme' theme}}>
+                    {{t 'themes.preview_gallery.apply_theme'}}
+                </button>
+            </div>
+        </div>
+    {{/if}}
+</div>

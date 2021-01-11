@@ -1,0 +1,19 @@
+.rs-toggle-switch {
+    margin: 0 10px;
+
+    .btn {
+        padding: 0 2px;
+
+        &.btn-primary {
+            background: #1b4383 !important;
+        }
+
+        &.btn-default {
+            background: #e0e0e0 !important;
+        }
+
+        span {
+            display: block;
+        }
+    }
+}

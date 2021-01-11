@@ -1,0 +1,190 @@
+//TODO replace variables with corresponding globals
+$submit-design-body-text-colour: #555555;
+$submit-design-title-colour: #555555;
+$submit-design-body-title-colour: $motocalBlue;
+$submit-design-body-title-colour-mobile: $ApriliaOrange;
+$submit-design-body-title-colour-desktop: $motocalBlue;
+$submit-design-button-colour: blue;
+$submit-design-body-form-colour: #777777;
+$submit-design-coming-soon-title-colour-mobile: $ApriliaOrange;
+$submit-design-coming-soon-title-colour-desktop: $motocalRed;
+
+$submit-design-coming-soon-sub-title-colour-mobile: $submit-design-body-text-colour;
+$submit-design-coming-soon-sub-title-colour-desktop: $motocalBlue;
+
+$submit-design-border-colour: #e5e5e5;
+
+.submit-design-modal {
+    .submit-design-header {
+        @extend .modal-header;
+        text-align: center;
+        .submit-design-title {
+            text-transform: none;
+            color: $submit-design-title-colour;
+            margin: 0;
+        }
+        button.close {
+            position: absolute;
+            right: 16px;
+        }
+    }
+
+    //http://stackoverflow.com/questions/9280258/prevent-body-scrolling-but-allow-overlay-scrolling
+    .submit-design-body-wrapper {
+        overflow-y: scroll; /* has to be scroll, not auto */
+        -webkit-overflow-scrolling: touch;
+        .submit-design-body {
+            @include make-row();
+            margin: 0;
+            .submit-design-info {
+                display: inline-block;
+                .submit-design-body-title {
+                    @include make-xs-column(12);
+                    @include make-sm-column(8);
+                    margin: 15px 0;
+                    color: $submit-design-body-title-colour-mobile;
+                    text-align: center;
+                    text-transform: none;
+                    user-select: initial;
+                }
+                .image-wrapper {
+                    @include make-xs-column(12);
+                    @include make-sm-column(4);
+                    text-align: center;
+                    .submit-design-image {
+                        @include img-responsive;
+                        display: inline;
+                    }
+                }
+                .submit-design-text {
+                    @include make-xs-column(12);
+                    @include make-sm-column(8);
+                    user-select: initial;
+                    text-align: left;
+                    color: $submit-design-body-text-colour;
+                }
+            }
+            .submit-design-form-wrapper {
+                @include make-md-column(12);
+                .submit-design-form {
+                    @include make-row();
+                    .submit-design-form-group-wrapper {
+                        @include make-xs-column(12);
+                        @include make-sm-column(6);
+                        color: $submit-design-body-form-colour;
+                        //margin: 0 auto;
+                        .submit-design-form-group {
+                            @extend .form-group;
+                            text-align: left;
+                            //margin: 10px 0;
+                            .form-control {
+                                box-shadow: none;
+                            }
+                            .intl-tel-input {
+                                width: 100%;
+                            }
+                            .rs-checkbox {
+                                font-size: 12px;
+                                .rs-custom-checkbox {
+                                    top: 8px;
+                                }
+                                .rs-checkbox-label {
+                                    padding-left: 7px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .submit-design-success-text {
+            }
+        }
+    }
+
+    .submit-design-footer {
+        @extend .modal-footer;
+        position: relative;
+        padding: 10px;
+    }
+}
+
+.submit-design-success, .submit-design-error, .designer-section {
+    @include make-xs-column(12);
+    text-align: center;
+    color: $submit-design-body-text-colour;
+    .image-wrapper {
+        margin: 20px auto;
+        .submit-design-image {
+            max-width: 200px;
+            min-height: 120px;
+        }
+    }
+    .submit-design-text {
+        user-select: initial;
+        text-align: center;
+        margin: 0 20px;
+        p {
+            text-align: left;
+            margin: 10px auto;
+            max-width: 580px;
+        }
+
+    }
+}
+
+.submit-design-success.designer {
+    @include make-sm-column(6);
+}
+
+.designer-section {
+    @include make-sm-column(6);
+    border-top: 1px solid $submit-design-border-colour;
+    .designer-section-title {
+        color: $submit-design-coming-soon-title-colour-mobile;
+    }
+    .designer-section-sub-title {
+    }
+}
+
+.submit-design-error {
+    .image-wrapper {
+        .submit-design-image {
+            max-width: 85px;
+        }
+    }
+}
+
+//Desktop
+@media(min-width: $screen-sm-min) {
+    .submit-design-modal {
+        .submit-design-body-wrapper {
+            .submit-design-body {
+                margin: 10px;
+                .submit-design-info {
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    margin: 10px 15px;
+                    .submit-design-body-title {
+                        text-align: left;
+                        color: $submit-design-body-title-colour-desktop;
+                    }
+                    .image-wrapper {
+                        float: right;
+                    }
+                }
+                .submit-design-success.designer {
+                    border-right: 1px solid $submit-design-border-colour;
+                }
+            }
+        }
+    }
+    .designer-section {
+        border-top: none;
+        .designer-section-title {
+            color: $submit-design-coming-soon-title-colour-desktop;
+        }
+        .designer-section-sub-title {
+            color: $submit-design-coming-soon-sub-title-colour-desktop;
+        }
+    }
+}

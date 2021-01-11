@@ -1,0 +1,49 @@
+{{#rs-modal modalOpen=modalOpen modalClass='auth-modal'}}
+    <div class="auth-modal-header">
+        <button type="button" class="close" {{action 'closeModal'}}>
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{#if isAuthenticated}}
+            <h2 class="auth-modal-title">{{t 'auth.logout.modal_title'}}</h2>
+        {{else}}
+            <h2 class="auth-modal-title">{{t 'auth.login.modal_title'}}</h2>
+        {{/if}}
+    </div>
+    <div class="auth-modal-body" {{action 'noop' bubbles=false}}>
+
+        {{#if isAuthenticated}}
+            <p class="auth-modal-body-title">{{t 'auth.logout.modal_body'}}</p>
+            <p class="auth-modal-body-email">
+                <label for="authModalEmail">{{t 'submit_design.email.label'}}</label>
+                {{validated-input-email
+                    type='email'
+                    value=newUserEmail
+                    id='authModalEmail'
+                    placeholder=(t 'auth.logout.email.placeholder')
+                    isEmailValid=isEmailValid
+                    valid=emailValid
+                    class='form-control'
+                }}
+            </p>
+
+        {{else}}
+            <p class="auth-modal-body-title">{{t 'auth.login.modal_body'}}</p>
+
+            {{#each provider in providers}}
+                <p class="auth-modal-provider">
+                {{auth/provider-button
+                    logIn='logIn'
+                    providerKey=provider.key
+                    isLoggingIn=isLoggingIn
+                    text=(t 'auth.login.provider_text' provider=provider.name)}}
+                </p>
+            {{/each}}
+        {{/if}}
+
+    </div>
+    {{#if isAuthenticated}}
+        <div class="auth-modal-footer" {{action 'noop' bubbles=false}}>
+            <button type="submit" {{action 'submit'}} class="btn btn-primary">{{t 'auth.logout.submit_button'}}</button>
+        </div>
+    {{/if}}
+{{/rs-modal}}

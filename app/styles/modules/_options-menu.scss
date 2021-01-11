@@ -1,0 +1,194 @@
+.options-menu-button {
+    @extend .btn;
+    @extend .btn-default;
+
+    .options-menu__button-icon {
+        width: 14px;
+        height: 14px;
+        position: relative;
+        display: inline-block;
+        &::after {
+            content: '';
+            display: inline;
+            height: 14px;
+            width: 14px;
+            position: absolute;
+            top: 1px;
+            left: 0;
+            background: rgba(255, 255, 255, 0);
+        }
+    }
+}
+
+.options-modal-header {
+    @extend .modal-header;
+    text-align: center;
+    .options-icon {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        display: inline-block;
+        &::after {
+            content: '';
+            display: inline;
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            top: 1px;
+            left: 0;
+            background-size: cover;
+        }
+    }
+}
+
+.options-modal-body {
+    position: relative;
+    padding: 10px;
+    .options-modal-list {
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        .options-modal-list-item {
+            border-radius: 2px;
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+            margin: 6px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .options-modal-icon {
+            margin-right: 20px;
+            font-size: 20px;
+        }
+    }
+}
+
+.options-dropdown-wrapper {
+    z-index: 1050;
+    display: inline-block;
+    position: relative;
+    user-select: none;
+
+    .options-dropdown {
+        top: 30px;
+        width: 200px;
+        z-index: 2000;
+        left: auto;
+        right: 3px;
+        position: absolute;
+        display: none;
+        float: left;
+        padding: 5px 0;
+        list-style: none;
+        font-size: 14px;
+        text-align: left;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+        background-clip: padding-box;
+
+        .options-dropdown-item {
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+            display: block;
+            padding: 6px 10px;
+            margin: 4px 6px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            overflow: hidden;
+        }
+    }
+    .options-dropdown__open {
+        display: block;
+    }
+}
+
+.options-login-item {
+    display: flex;
+    padding: 6px;
+    margin: 4px 0;
+    background-color: #fff;
+    overflow: hidden;
+
+    .login-icon-wrapper {
+        flex: 0 1;
+        height: fit-content;
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        padding: 2px 10px;
+
+        .user-icon {
+            &.user-icon__highlighted {
+                &::after {
+                    background: rgba(255, 255, 255, 0) url(../images/icons/user-icon-highlighted.svg) no-repeat 0 0;
+                }
+            }
+        }
+
+        .log-in-initial {
+            color: $motocalBlue;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+    }
+
+    .login-details-wrapper {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-evenly;
+        flex: 1 0;
+        margin: 0 10px;
+
+        .log-in-name, .log-in-email {
+            flex: 0;
+            line-height: 0.9;
+        }
+
+        .log-in-name {
+            font-size: 13px;
+            color: $motocalBlue;
+            font-weight: bold;
+        }
+
+        .log-in-email {
+            font-size: 10px;
+            color: #6d6e71;
+        }
+    }
+
+}
+
+.options-icon {
+    margin-right: 14px;
+    height: 14px;
+    width: 18px;
+    position: relative;
+    display: inline-block;
+    top: 1px;
+    color: #555;
+    &::after {
+        content: '';
+        display: inline;
+        height: 18px;
+        width: 18px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-size: cover;
+    }
+}
+
+.touch {
+    .options-dropdown-wrapper {
+        .options-dropdown {
+            top: 51px;
+        }
+    }
+}

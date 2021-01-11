@@ -1,0 +1,26 @@
+<div class="rs-carousel-wrapper {{if view.hasDataPending 'has-data-pending'}}">
+
+    {{#if view.carouselTypeahead}}
+    {{input type="text" value=typeaheadValue}}
+    {{/if}}
+
+    <div class="rs-carousel">
+        <div class="rs-carousel-inner">
+
+{{yield}}
+
+        </div>
+    </div>
+
+    <a class="carousel-control left {{if view.carouselLeftEnabled '' 'disabled'}}"
+        data-slide="prev"
+        href="#">
+        <span class="sprite sprite-left-icon"></span>
+    </a>
+
+    <a class="carousel-control right {{if view.carouselRightEnabled '' 'disabled'}}"
+        data-slide="next"
+        href="#">
+        <span class="sprite sprite-right-icon"></span>
+    </a>
+</div>

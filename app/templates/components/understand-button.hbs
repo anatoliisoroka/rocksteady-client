@@ -1,0 +1,10 @@
+<div class="btn-group btn-group-understand">
+    <label class="btn btn-default checkbox checkbox-container">
+    {{input type="checkbox" checked=iUnderstand}}
+    {{t 'application.i_understand'}}
+    </label>
+
+    <button type="button" class="btn btn-primary" disabled={{iDontUnderstand}} {{action "doAction"}}>{{t 'application.ok'}}</button>
+</div>
+
+{{yield}}

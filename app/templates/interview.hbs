@@ -1,0 +1,68 @@
+<div class="logo-container">
+    <a title="{{t 'application.restart'}}"
+        data-placement="top hero-logo"
+        class="hero-logo"
+        {{action 'restartInterview'}}></a>
+</div>
+
+<nav class="navbar-header interview">
+    <div class="center">
+        {{#if model.productLine}}
+            <div class="productline-logo {{if hasNoProductLine 'has-no-product-line'}}">
+                {{#link-to "interview"}}
+                    <img src="{{model.productLine.imageUrl}}"/>
+                {{/link-to}}
+            </div>
+        {{/if}}
+        <h1 class="title">{{model.description}}</h1>
+    </div>
+    <div class="right-interview">
+        <div class="combo-box-container {{if controller.regionFilterSection 'visible'}}">
+            {{#combo-box
+            filter=regionFilter
+            filterBy="name"
+            name="Competition Country"
+            label=(t 'interview.country_dropdown_label')
+            placeholder=(t 'interview.country_dropdown_placeholder')
+            content=model.competingRegion
+            value=model.competingRegion.name
+            comboboxClass="small-screen-as-icon"}}
+                {{#if filteredRegions.length}}
+                    {{#each region in filteredRegions}}
+                        <li {{action "selectRegion" region "competingRegion"}}>
+                            <a href="#" data-value="{{region.name}}" data-region="{{region.name}}"
+                               data-priority="{{region.priority}}">
+                                {{#if region.imageUrl}}
+                                    <img src="{{region.imageUrl}}"/>
+                                {{/if}}
+                                <span>{{region.name}}</span>
+                            </a>
+                        </li>
+                    {{/each}}
+                {{else}}
+                {{!-- Bug #1088 - Competition country search bar extends to bottom of screen (Windows Internet Explorer) --}}
+                    <li></li>
+                {{/if}}
+            {{/combo-box}}
+        </div>
+    </div>
+</nav>
+
+<form>
+
+    <div class="interviewsteps-container">
+        {{outlet "productLines"}}
+        {{outlet "manufacturers"}}
+        {{outlet "targets"}}
+        {{outlet "targetCategories"}}
+        {{outlet "groupedYears"}}
+        {{outlet "ruleSets"}}
+        {{outlet "useCategories"}}
+        {{outlet "use1s"}}
+        {{outlet "use2s"}}
+        {{outlet "use3s"}}
+        {{outlet "use4s"}}
+        {{outlet "promptedFeatures"}}
+    </div>
+
+</form>

@@ -1,0 +1,92 @@
+/*!* Background image *!*/
+/*body {*/
+    /*background: white;*/
+    /*background-image: url(images/brand_logo.png);*/
+    /*background-position: top left;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: 109px 23px;*/
+/*}*/
+
+/*!* Billing heading font, color *!*/
+/*.content > .header > h1 {*/
+    /*font-family: "interface", Arial, Helvetica, sans-serif;*/
+    /*font-weight: bold;*/
+    /*color: #333333;*/
+/*}*/
+
+/*!* Billing amount value font, color *!*/
+/*.content > p.text > span#labelAmount {*/
+    /*font-family: "interface", Arial, Helvetica, sans-serif;*/
+    /*font-weight: bold;*/
+    /*color: red;*/
+/*}*/
+
+/*!* Billing amount text font, color *!*/
+/*.content > p.text {*/
+    /*font-family: "interface", Arial, Helvetica, sans-serif;*/
+    /*font-weight: normal;*/
+    /*color: #000000;*/
+/*}*/
+
+/*!* Billing form placeholder font (name, number, security code) *!*/
+/*::-webkit-input-placeholder {*/
+    /*!* Chrome/Opera/Safari *!*/
+    /*font-family: "interface", Arial, Helvetica, sans-serif;*/
+    /*font-weight: normal;*/
+/*}*/
+/*::-moz-placeholder {*/
+    /*!* Firefox 19+ *!*/
+    /*font-family: "interface", Arial, Helvetica, sans-serif;*/
+    /*font-weight: normal;*/
+/*}*/
+/*:-ms-input-placeholder {*/
+    /*!* IE 10+ *!*/
+    /*font-family: "interface", Arial, Helvetica, sans-serif;*/
+    /*font-weight: normal;*/
+/*}*/
+/*:-moz-placeholder {*/
+    /*!* Firefox 18- *!*/
+    /*font-family: "interface", Arial, Helvetica, sans-serif;*/
+    /*font-weight: normal;*/
+/*}*/
+
+/*!* Billing form placeholder, selected value font (valid from, to) *!*/
+/*.content > .input > select {*/
+    /*font-family: "interface", Arial, Helvetica, sans-serif;*/
+    /*font-weight: normal;*/
+/*}*/
+
+/*!* Billing form dropdown text font *!*/
+/*.content > .input > select > option {*/
+    /*font-family: "interface", Arial, Helvetica, sans-serif;*/
+    /*font-weight: normal;*/
+/*}*/
+
+/*!* Billing form input font, color *!*/
+/*.content > .input > input {*/
+    /*font-family: "interface", Arial, Helvetica, sans-serif;*/
+    /*font-weight: normal;*/
+    /*color: #1d4485;*/
+/*}*/
+
+/*!* Submit button hover background + text color *!*/
+/*.content > .footer > input#buttonSubmit:not(.disabled):hover {*/
+    /*background: #1d4485;*/
+    /*color: #fff;*/
+/*}*/
+
+/*!* Submit button font, background + text border color *!*/
+/*.content > .footer > input#buttonSubmit {*/
+    /*border-color: #1d4485;*/
+    /*font-family: "interface", Arial, Helvetica, sans-serif;*/
+    /*font-weight: normal;*/
+    /*background: #fff;*/
+    /*color: #1d4485;*/
+/*}*/
+
+/*!* Billing form active field border color *!*/
+/*.content > .input > .form-control:focus {*/
+    /*border-color: #66afe9;*/
+    /*box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset, rgba(102, 175, 233, 0.6) 0px 0px 8px;*/
+/*}*/
+

@@ -1,0 +1,65 @@
+<div id="alternatives-selector-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{model.name}}</h4>
+            </div>
+            <div class="modal-body">
+
+                {{#carousel controlwidth=60}}
+
+                    {{#each componentShape in model.componentShapes}}
+                    {{view "design/shapeCarouselItem" content=componentShape class="selectable"}}
+                    {{/each}}
+
+                    <div class="rs-carousel-item placeholder"><h5>&nbsp;</h5><div class="canvas-wrapper"><canvas/></div><h5>&nbsp;</h5></div>
+                    <div class="rs-carousel-item placeholder"><h5>&nbsp;</h5><div class="canvas-wrapper"><canvas/></div><h5>&nbsp;</h5></div>
+                    <div class="rs-carousel-item placeholder"><h5>&nbsp;</h5><div class="canvas-wrapper"><canvas/></div><h5>&nbsp;</h5></div>
+                    <div class="rs-carousel-item placeholder"><h5>&nbsp;</h5><div class="canvas-wrapper"><canvas/></div><h5>&nbsp;</h5></div>
+                    <div class="rs-carousel-item placeholder"><h5>&nbsp;</h5><div class="canvas-wrapper"><canvas/></div><h5>&nbsp;</h5></div>
+
+                {{/carousel}}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="alternatives-advice-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{model.name}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <img class="selected-shape img-responsive" src={{controller.chosenShape.imgDataURL}}>
+                    </div>
+                    <div class="col-xs-7">
+                        <p>
+                            {{t 'selector.alternatives.advice.text_1'}}
+                            <br><br>
+                            {{t 'selector.alternatives.advice.text_2'}}
+                            <br><br>
+                            {{t 'selector.alternatives.advice.text_3'}}
+                            <br><br>
+                            <b>{{t 'selector.alternatives.advice.continue_with'}}</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" {{action 'cancel' target=view}} name="resetGraphic"
+                        disabled={{view.noChanges}}>
+                    {{t 'application.cancel'}}
+                </button>
+                <button type="button" class="btn btn-primary" {{action 'applyChanges' target=view}}>
+                    {{t 'application.ok'}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="theme-tag-list">
+    {{#if filters}}
+        {{#if hasSecondRow}}
+            <div class="drop-down-arrow" {{action 'toggleOpen'}}>
+                {{icon/down-arrow }}
+            </div>
+        {{/if}}
+
+        {{#each filter in filters}}
+            <span class="label label-default theme-tag" {{action 'removeFilter' filter}}>
+                {{filter.name}}
+                {{icon/remove-x }}
+            </span>
+        {{/each}}
+    {{/if}}
+</div>
+

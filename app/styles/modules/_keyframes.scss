@@ -1,0 +1,11 @@
+@include keyframes(price-blinker) {
+    0% { visibility: visible; }
+    50% { visibility: hidden; }
+    100% { visibility: visible; }
+}
+
+@include keyframes(pulse-animation) {
+	50% { @include transform(scale(1.1)); }
+	100% { @include transform(scale(1)); }
+}
+

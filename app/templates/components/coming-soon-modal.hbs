@@ -1,0 +1,38 @@
+{{#rs-modal modalOpen=modalOpen modalClass='coming-soon-modal'}}
+    <div class="coming-soon-modal-header">
+        <button type="button" class="close" {{action 'closeModal'}}>
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h2 class="coming-soon-modal-title">{{title}}</h2>
+    </div>
+    <div class="coming-soon-modal-body" {{action 'noop' bubbles=false}}>
+        {{#unless hasSubmitted}}
+            <h1 class="coming-soon-modal-body-title">{{t 'coming_soon.title'}}</h1>
+            <h5 class="coming-soon-modal-body-subtitle">{{subtitle}}</h5>
+            <p class="coming-soon-modal-body-text">{{t 'coming_soon.body'}}</p>
+            <form class="coming-soon-modal-body-form">
+                <div class="coming-soon-modal-body-form-group">
+                    <label for="comingSoonEmail">{{t 'coming_soon.email_label'}}</label>
+                    {{validated-input-email
+                        type='email'
+                        value=userEmail
+                        placeholder=(t 'coming_soon.email_placeholder')
+                        isEmailValid=isEmailValid
+                        class='form-control'
+                        tooltipMessage=(t 'coming_soon.email_tooltip')
+                    }}
+                </div>
+            </form>
+        {{else}}
+            <img class="coming-soon-modal-success-image" src="images/green-thumbs-up.svg" height="142" width="96" alt="{{t 'coming_soon.success_text'}}">
+            <p class="coming-soon-modal-body-text coming-soon-modal-success-text">{{t 'coming_soon.success_text'}}</p>
+        {{/unless}}
+    </div>
+    <div class="coming-soon-modal-footer" {{action 'noop' bubbles=false}}>
+        {{#unless hasSubmitted}}
+            <button type="submit" {{action 'submit' subject}} {{bind-attr class=':btn :btn-primary validForm::disabled'}}>{{t 'coming_soon.submit_button'}}</button>
+        {{else}}
+            <button type="submit" {{action 'closeModal'}} class="btn btn-primary">{{t 'coming_soon.success_button'}}</button>
+        {{/unless}}
+    </div>
+{{/rs-modal}}

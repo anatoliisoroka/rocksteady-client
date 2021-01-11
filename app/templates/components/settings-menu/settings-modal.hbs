@@ -1,0 +1,30 @@
+<div class="options-modal-header settings-modal-header">
+    <button type="button" class="close" {{action 'closeSettings'}}>
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <span class="settings-icon"></span>
+</div>
+<div class="options-modal-body settings-modal-body" {{action 'noop' bubbles=false}}>
+    <ul class="options-modal-list">
+        <li class="options-modal-list-item" {{action 'saveDesign'}}>
+            <span class="options-icon save-icon"></span>
+            {{t 'settings_menu.save_your_design'}}
+        </li>
+        <li class="options-modal-list-item"  {{action 'socialShare'}}>
+            <span class="options-icon fb-share-icon"></span>
+            {{t 'settings_menu.share_design'}}
+        </li>
+        <li class="options-modal-list-item" {{action 'openSubmitDesignModal'}}>
+            <span class="options-icon submit-design-icon"></span>
+            {{t 'settings_menu.submit_design'}}
+        </li>
+        <li class="options-modal-list-item" {{action 'openComingSoonModal' 'find_designer' (t 'settings_menu.coming_soon.find_designer.title') (t 'settings_menu.coming_soon.find_designer.subtitle')}}>
+            <span class="options-icon find-designer-icon"></span>
+            {{t 'settings_menu.find_designer'}}
+        </li>
+        <li class="options-modal-list-item" {{action 'openComingSoonModal' 'view_3d' (t 'settings_menu.coming_soon.view_3d.title') (t 'settings_menu.coming_soon.view_3d.subtitle')}}>
+            <span class="options-icon view-3d-icon"></span>
+            {{t 'settings_menu.view_3d'}}
+        </li>
+    </ul>
+</div>

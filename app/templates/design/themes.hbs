@@ -1,0 +1,202 @@
+<nav class="navbar-header">
+    {{#link-to 'design.selector' class='btn btn-primary back-to-button'}}
+        {{icon/left-arrow-solid}}
+        {{t 'themes.back_to_selector'}}
+    {{/link-to}}
+    <h3 class="theme-header-title">
+        {{t 'themes.header_title'}}
+    </h3>
+    <span class="theme-search-icon" {{action 'openFilterMenu' target='view'}}>
+        {{icon/search-thin}}
+    </span>
+
+    <span class="theme-icon">
+        {{auth/menu-button
+            userMenuOpen=userMenuOpen
+            isAuthenticated=isAuthenticated
+            userName=userName
+            firstInitial=firstInitial}}
+
+        {{#if isDesktop}}
+            {{#options-menu/options-dropdown exceptSelector='#auth-menu-button' menuOpen=userMenuOpen}}
+                {{user-menu/user-dropdown
+                    openComingSoonModal='openComingSoonModal'
+                    openAuthModal='openAuthModal'
+                    isAuthenticated=isAuthenticated
+                    userName=userName
+                    userEmail=userEmail
+                    firstInitial=firstInitial}}
+            {{/options-menu/options-dropdown}}
+        {{else}}
+            {{#rs-modal modalOpen=userMenuOpen}}
+                {{user-menu/user-modal
+                    menuOpen=userMenuOpen
+                    openComingSoonModal='openComingSoonModal'
+                    openAuthModal='openAuthModal'
+                    isAuthenticated=isAuthenticated
+                    userName=userName
+                    userEmail=userEmail
+                    firstInitial=firstInitial}}
+            {{/rs-modal}}
+        {{/if}}
+    </span>
+
+    {{auth/auth-modal
+        modalOpen=authModalOpen
+        designController=controllers.design}}
+
+    {{coming-soon-modal
+        modalOpen=comingSoonModalOpen
+        subject=comingSoonModalSubject
+        title=comingSoonModalTitle
+        subtitle=comingSoonModalSubtitle
+        design=comingSoonDesign}}
+</nav>
+
+<div class="themes-side-nav">
+    <span class="side-menu-icon" {{action 'openFilterMenu' target='view'}}>
+        {{icon/search-thin}}
+    </span>
+    <span class="side-menu-icon" {{action 'openFindDesigner' target='view'}}>
+        {{icon/user-edit}}
+    </span>
+    <span class="side-menu-icon" {{action 'openSubmitDesign' target='view'}}>
+        {{icon/submit-design}}
+    </span>
+</div>
+
+{{themes/filter-menu open=view.filterMenuOpen
+                     themesCount=allThemes.length
+                     filteredThemesCount=themesCategorisedFilteredSorted.length
+                     sortFields=sortFields
+                     sortOrderSelection=sortOrderSelection
+                     categoryFilters=categoryFilters
+                     otherFiltersGrouped=filtersCategorisedFiltered
+                     clearAllFilters='clearAllFilters'
+}}
+
+<div class="side-menu-main-content-container {{if view.filterMenuOpen 'open'}}">
+    {{#if allThemes}}
+        <div class="side-menu-main-content">
+            <div class="themes-pagination-wrapper">
+                <div class="themes-pagination">
+                    <h5 class="themes-count">{{themesCategorisedFilteredSorted.length }}/{{allThemes.length}} {{t
+                        'themes.x_of_x'}}</h5>
+                    {{pagination-pages-selection
+                        count=numberOfPages
+                        current=currentPage
+                        previous='previousPage'
+                        next='nextPage'
+                        change='changePage'}}
+                </div>
+            </div>
+
+            {{themes/tag-summary-dropdown filters=activeFilters}}
+
+            <div class="hammer-swipe themes-previews-container">
+                {{#each paginatedThemes as |theme index|}}
+                    <div class="col-xs-12 col-md-6 preview-fluid-container">
+                        {{themes/preview-gallery
+                            theme=theme
+                            selectTheme='selectTheme'
+                            index=index
+                            orderedFilters=orderedFilters
+                            openAuthModal='openAuthModal'}}
+                    </div>
+                {{/each}}
+            </div>
+
+            {{#if controllers.application.config.APP.features.import_theme_json}}
+                <div class="json-upload-container" style="text-align: left;">
+                    <input class="json-upload-control" type="file">
+                    <button type="button"
+                            class="json-upload-button btn btn-default" {{action "importThemeJSON" false target=view}}>
+                        <i class="glyphicon glyphicon-import"></i>
+                        Import Theme
+                    </button>
+                    <button type="button"
+                            class="json-upload-button btn btn-default" {{action "importThemeJSON" true target=view}}>
+                        <i class="glyphicon glyphicon-import"></i>
+                        Import Theme and Apply
+                    </button>
+                </div>
+            {{/if}}
+        </div>
+    {{else}}
+        <div class="side-menu-main-content no-themes">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="image-wrapper">
+                        {{#unless hasSubmitted}}
+                            <img class="themes-coming-soon-image"
+                                 src="images/themes/no-themes.svg"
+                                 alt="{{t 'themes.no_themes.image_text'}}">
+                            <span class="themes-coming-soon-image-message">{{t 'themes.no_themes.image_text'}}</span>
+                        {{else}}
+                            <img class="themes-coming-soon-success-image"
+                                 src="images/green-thumbs-up.svg"
+                                 alt="Success">
+                        {{/unless}}
+                    </div>
+                </div>
+
+                {{#unless hasSubmitted}}
+                    <div class="col-md-12">
+                        <p class="email-description">{{t 'themes.no_themes.email_description'}}</p>
+                    </div>
+
+                    <div class="col-md-12">
+                        <form>
+                            <label for="themesComingSoonEmail">{{t 'coming_soon.email_label'}}</label>
+                            <div class="input-group">
+                                {{validated-input-email
+                                    type='email'
+                                    value=userEmail
+                                    id='themesComingSoonEmail'
+                                    placeholder=(t 'coming_soon.email_placeholder')
+                                    isEmailValid=isEmailValid
+                                    class='form-control'
+                                    tooltipMessage=(t 'coming_soon.email_tooltip')
+                                }}
+
+                                <span class="input-group-btn">
+                                    <button
+                                        type="button"
+                                        {{bind-attr class=":btn hasSubmitted:btn-success:btn-primary isEmailValid::disabled"}}
+                                        {{action 'submitComingSoon'}}>
+                                            {{t 'themes.no_themes.submit_button'}}
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                {{/unless}}
+
+                <div class="col-md-12">
+                    <p>{{t 'themes.no_themes.submit_prompt'}}</p>
+                    <button class="btn btn-secondary submit-design-button" {{action 'openSubmitDesign' target='view'}}>
+                        {{t 'themes.no_themes.submit_design'}}
+                    </button>
+                    <button class="btn btn-secondary find-designer-button" {{action 'openFindDesigner' target='view'}}>
+                        {{t 'themes.no_themes.find_designer'}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</div>
+
+<!-- outlet for confirm modal view -->
+{{outlet}}
+
+{{coming-soon-modal
+    modalOpen=view.comingSoonModalOpen
+    subject='find_designer'
+    title=(t 'settings_menu.coming_soon.find_designer.title')
+    subtitle=(t 'settings_menu.coming_soon.find_designer.subtitle')
+    design=controllers.design.model
+}}
+
+{{submit-design-modal
+    modalOpen=view.submitDesignModalOpen
+    designModel=controllers.design.model}}

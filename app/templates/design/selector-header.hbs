@@ -1,0 +1,142 @@
+<div class="logo-container">
+    <a title="{{t 'selector.hero_logo_tooltip'}}"
+       data-placement="top hero-logo"
+       class="hero-logo"
+        {{action 'startNewDesign'}}></a>
+</div>
+
+<nav class="navbar-header selector">
+    <div class="center">
+        <div class="productline-logo"><img src="{{model.productLine.imageUrl}}"/></div>
+        <h1 class="title">
+            {{model.description}}
+        </h1>
+    </div>
+
+    <div class="right-selector header-price-buttons">
+      <span class="saving-spinner {{if controllers.design.delayedSaveActive 'is-saving' 'is-saved'}} {{if view.savingChangedState 'saving-changed-state'}}">
+        {{#if controllers.application.isNotBreakpointXS}}
+        {{else}}
+            <span class="glyphicon glyphicon-ok"></span>
+        {{/if}}
+          <span class="saving-spinner-text">
+              {{#if controllers.design.delayedSaveActive}}
+                  <span id="nprogress-spinner">
+                    <span class="spinner" role="spinner"><span class="spinner-icon"></span></span>
+                </span>
+                  {{t 'selector.saving'}}
+              {{else}}
+                  {{t 'selector.saved'}}
+              {{/if}}
+          </span>
+      </span>
+
+        {{#options-menu/options-button title=(t 'settings_menu.title') id='settings-menu-button' menuOpen=settingsMenuOpen}}
+            <span class="settings-menu-button-icon"></span>
+        {{/options-menu/options-button}}
+        {{#if isDesktop}}
+            {{#options-menu/options-dropdown exceptSelector='#settings-menu-button' menuOpen=settingsMenuOpen}}
+                {{settings-menu/settings-dropdown
+                    saveDesign='saveDesign'
+                    socialShare='socialShare'
+                    openComingSoonModal='openComingSoonModal'
+                    openSubmitDesignModal='openSubmitDesignModal'
+                }}
+            {{/options-menu/options-dropdown}}
+        {{else}}
+            {{#rs-modal modalOpen=settingsMenuOpen}}
+                {{settings-menu/settings-modal
+                    menuOpen=settingsMenuOpen
+                    saveDesign='saveDesign'
+                    socialShare='socialShare'
+                    openComingSoonModal='openComingSoonModal'
+                    openSubmitDesignModal='openSubmitDesignModal'
+                }}
+            {{/rs-modal}}
+        {{/if}}
+
+        {{auth/menu-button
+            userMenuOpen=userMenuOpen
+            isAuthenticated=isAuthenticated
+            userName=userName
+            firstInitial=firstInitial
+        }}
+
+        {{#if isDesktop}}
+            {{#options-menu/options-dropdown exceptSelector='#auth-menu-button' menuOpen=userMenuOpen}}
+                {{user-menu/user-dropdown
+                    openComingSoonModal='openComingSoonModal'
+                    openAuthModal='openAuthModal'
+                    isAuthenticated=isAuthenticated
+                    userName=userName
+                    userEmail=userEmail
+                    firstInitial=firstInitial
+                }}
+            {{/options-menu/options-dropdown}}
+        {{else}}
+            {{#rs-modal modalOpen=userMenuOpen}}
+                {{user-menu/user-modal
+                    menuOpen=userMenuOpen
+                    openComingSoonModal='openComingSoonModal'
+                    openAuthModal='openAuthModal'
+                    isAuthenticated=isAuthenticated
+                    userName=userName
+                    userEmail=userEmail
+                    firstInitial=firstInitial
+                }}
+            {{/rs-modal}}
+        {{/if}}
+
+        {{coming-soon-modal
+            modalOpen=comingSoonModalOpen
+            subject=comingSoonModalSubject
+            title=comingSoonModalTitle
+            subtitle=comingSoonModalSubtitle
+            design=comingSoonDesign
+        }}
+
+        {{submit-design-modal
+            modalOpen=submitDesignModalOpen
+            designModel=model}}
+
+        {{auth/auth-modal
+            modalOpen=authModalOpen
+            designController=controllers.design}}
+
+        <div class="dropdown btn-group">
+            {{#if b2bSite}}
+                <button {{action 'saveDesign'}} class="btn btn-success navbar-btn rs-checkout" data-name="checkoutButton" disabled={{controller.incompleteOrder}}>
+                    <span class="checkout-logo sprite-icn-cart"></span>
+                    <span class="checkout-text">{{t 'selector.save_design'}}</span>
+                    {{!-- <span class="header-price-inline {{if view.flashHeaderPrice 'flash'}}">{{model.currency.symbol}}{{localTotalPriceStr}}</span> --}}
+                </button>
+            {{else}}
+                <button {{action 'checkout'}} class="btn btn-success navbar-btn rs-checkout" data-name="checkoutButton" disabled={{controller.incompleteOrder}}>
+                    <span class="checkout-logo sprite-icn-cart"></span>
+                    <span class="checkout-text">{{t 'selector.checkout'}}</span>
+                    <span class="header-price-inline {{if view.flashHeaderPrice 'flash'}}">{{model.currency.symbol}}{{localTotalPriceStr}}</span>
+                </button>
+            {{/if}}
+
+            {{#if showCurrencyDropdown}}
+                <button type="button" class="btn btn-success dropdown-toggle checkout-dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+
+                <ul class="dropdown-menu pull-right checkout-dropdown-menu" role="menu">
+                    <li class="inline-menu-items">
+                        <span class="menu-label">{{t 'selector.currency'}}:</span>
+                        <div class="currency-icons-container">
+                            <a class="sprite-currency-eur" title="{{t 'selector.currency_euro'}}" {{action 'changeCurrency' 'EUR'}}></a>
+                            <a class="sprite-currency-gbp" title="{{t 'selector.currency_british_pound'}}" {{action 'changeCurrency' 'GBP'}}></a>
+                            <a class="sprite-currency-usd" title="{{t 'selector.currency_us_dollar'}}" {{action 'changeCurrency' 'USD'}}></a>
+                            <a class="sprite-currency-cad" title="{{t 'selector.currency_canadian_dollar'}}" {{action 'changeCurrency' 'CAD'}}></a>
+                            <a class="sprite-currency-aud" title="{{t 'selector.currency_australian_dollar'}}" {{action 'changeCurrency' 'AUD'}}></a>
+                        </div>
+                    </li>
+                </ul>
+            {{/if}}
+        </div>
+    </div>
+</nav>

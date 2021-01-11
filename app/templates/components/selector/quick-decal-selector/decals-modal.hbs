@@ -1,0 +1,79 @@
+{{#rs-modal modalOpen=modalOpen modalClass='decals-modal' onClosed='onCloseModal'}}
+    <div class="modal-header">
+        <button type="button" class="close" {{action 'onCloseModal'}}>
+            <span>&times;</span>
+        </button>
+        <h2 class="modal-title">{{t 'selector.decals_in_kit'}}</h2>
+    </div>
+    <div class="modal-body" {{action 'noop' bubbles=false}}>
+        <ul>
+            <li>
+                <a
+                    name={{all.name}}
+                    {{action 'onSelectAllToggled'}}
+                >
+                    <h4>{{all.name}}</h4>
+                </a>
+                <span>
+                    {{rs-checkbox
+                        isChecked=all.selected
+                        isIndeterminate=all.indeterminate
+                        onToggled='onSelectAllToggled'
+                    }}
+                </span>
+            </li>
+            {{#each group in groups}}
+                <li>
+                    <a
+                        name={{group.name}}
+                        {{action 'onSelectGroupToggled' undefined group.id}}
+                    >
+                        <h4>{{group.name}}</h4>
+                    </a>
+                    <span>
+                        {{rs-checkbox
+                            name=group.id
+                            isChecked=group.selected
+                            isIndeterminate=group.indeterminate
+                            onToggled='onSelectGroupToggled'
+                        }}
+                    </span>
+                </li>
+            {{/each}}
+            {{#each individual in individuals}}
+                <li>
+                    <a
+                        name={{individual.name}}
+                        {{action 'onSelectIndividualToggled' individual.id}}
+                    >
+                        <h4>{{individual.name}}</h4>
+                    </a>
+                    <span>
+                        {{rs-checkbox
+                            isChecked=individual.selected
+                        }}
+                    </span>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <div class="modal-footer" {{action 'noop' bubbles=false}}>
+        <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            {{action 'onCloseModal'}}
+        >
+            {{t 'application.cancel'}}
+        </button>
+        <button
+            type="button"
+            class="btn btn-primary"
+            data-dismiss="modal"
+            {{action 'onSelectDecals'}}
+        >
+            {{t 'application.done'}}
+        </button>
+    </div>
+{{/rs-modal}}

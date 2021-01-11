@@ -1,0 +1,133 @@
+.skin-motocal {
+    .alternative-shapes {
+        .rs-carousel-item {
+
+            h5 {
+                border-color: $black;
+                text-transform: capitalize;
+
+                &:nth-of-type(2){
+                    font-size: 14px;
+                    padding: .3em;
+                    text-overflow: clip;
+                    white-space: normal;
+                    height: 40px;
+                    vertical-align: middle;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            &.selectable canvas {
+                background-image: url(../images/background-grid-small.png);
+            }
+
+            &.is-active h5 {
+                background-color: darkgrey;
+                color: white;
+            }
+
+            &.selectable:hover h5 {
+                background-color: grey;
+                color: black
+            }
+
+            &.placeholder, &.placeholder h5, &.placeholder div {
+                border-color: $placeholderBorderColor;
+            }
+
+        }
+    }
+}
+
+.alternative-shapes {
+    #alternatives-selector-modal {
+        .modal-dialog {
+            width: 100%;
+        }
+
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+
+        @include transition-property(width);
+        @include transition-duration(.2s);
+        overflow: hidden;
+
+        .is-loading {
+            opacity: 0;
+            @include transition-property(opacity);
+            @include transition-duration(.2s);
+        }
+    }
+
+    #alternatives-advice-modal {
+        .selected-shape{
+            background-image: url(../images/background-grid-small.png);
+            border: 1px solid black;
+        }
+    }
+
+    .rs-carousel-item {
+
+        .canvas-wrapper {
+            border-left: 1px solid;
+            border-right: 1px solid;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        canvas {
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+        }
+
+        .shape-id {
+            display: none;
+            position: relative;
+            right: 0;
+            bottom: 23px;
+            text-align: right;
+            font-size: 10px;
+            padding: 3px;
+        }
+
+        &:hover .shape-id {
+            display: block;
+        }
+    }
+}
+
+.modal {
+    .canvas-wrapper {
+        display: inline-block;
+        float: left;
+        margin-right: 35px;
+
+        canvas {
+            background-image: url(../images/background-grid-small.png);
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+        }
+    }
+}
+
+.alternatives-autoselect, .autoadd-modal {
+
+    .modal-body {
+        min-height: 230px;
+    }
+
+    .modal-body-text {
+        margin-left: 220px;
+    }
+
+    .alert {
+        margin-top: 15px;
+    }
+
+
+}

@@ -1,0 +1,16 @@
+{{#ember-wormhole to='body' tagName='span'}}
+    <div
+        {{bind-attr class=":rs-modal modalOpen:rs-modal__open modalClass"}}
+        id="rs-modal"
+        {{action 'outsideClick'}}
+    >
+        <div class="rs-modal-dialog" role="document">
+            <div class="rs-modal-content">
+                {{yield}}
+            </div>
+        </div>
+    </div>
+    {{#if modalOpen}}
+        <div {{bind-attr class=":modal-backdrop :fade modalOpen:in"}}></div>
+    {{/if}}
+{{/ember-wormhole}}

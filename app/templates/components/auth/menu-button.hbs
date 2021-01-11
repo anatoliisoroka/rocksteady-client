@@ -1,0 +1,13 @@
+{{#options-menu/options-button title=(t 'user_menu.title') id='auth-menu-button' menuOpen=userMenuOpen}}
+
+    {{#if isAuthenticated}}
+        {{#if firstInitial}}
+            <span class="user-menu-button-icon user-menu-button-icon__text">{{firstInitial}}</span>
+        {{else}}
+            <span class="user-menu-button-icon user-menu-button-icon__highlighted"></span>
+        {{/if}}
+    {{else}}
+        <span class="user-menu-button-icon"></span>
+    {{/if}}
+
+{{/options-menu/options-button}}

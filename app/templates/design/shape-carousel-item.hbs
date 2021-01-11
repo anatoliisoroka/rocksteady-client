@@ -1,0 +1,13 @@
+<h5 class="component-name"
+    data-componentid="{{view.content.component.id}}">
+    {{ view.content.component.name }}</h5>
+
+<div class="canvas-wrapper">
+    {{view "design/fabricComponentCanvas" content=view.content}}
+    <div class="shape-id">{{view.content.shape.internal_id}}</div>
+</div>
+
+<h5 class="shape-name"
+    data-internalshapeid="{{view.content.shape.internal_id}}">
+    &nbsp;{{ view.content.shape.displayName }}</h5>
+

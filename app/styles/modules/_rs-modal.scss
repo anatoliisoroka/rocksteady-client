@@ -1,0 +1,56 @@
+.rs-modal {
+    opacity: 0;
+    z-index: 9999;
+    visibility: hidden;
+    overflow: hidden;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    transition: opacity 0.15s linear;
+    user-select: none;
+    .rs-modal-dialog {
+        position: relative;
+        background-color: #fff;
+        border: 1px solid #999;
+        border-radius: 6px;
+        -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+        background-clip: padding-box;
+        outline: 0;
+        transition: transform 0.3s ease-out;
+        transform: translate(0, -25%);
+        margin: 10px auto;
+        @media(max-width: $screen-sm) {
+            margin: 0 auto;
+        }
+        @extend .modal-lg;
+
+        .rs-modal-content {
+            @extend .modal-content;
+            .rs-modal-header {
+                @extend .modal-header;
+                button.close {
+                    position: absolute;
+                    right: 16px;
+                }
+            }
+            .rs-modal-body {
+                position: relative;
+                padding: 10px;
+            }
+        }
+    }
+}
+
+.rs-modal__open {
+    opacity: 1;
+    visibility: visible;
+    .rs-modal-dialog {
+        transform: translate(0, 0);
+    }
+}

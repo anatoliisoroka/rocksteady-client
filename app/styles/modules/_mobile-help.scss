@@ -1,0 +1,7 @@
+.mobile-info-modal{
+    .modal-title{
+        .help-button{
+            @include transform(translate(-2px, 2px) scale(1.4));
+        }
+    }
+}

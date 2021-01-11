@@ -1,0 +1,85 @@
+<div class="colour-palette-nav-container">
+    {{#unless isTouch}}
+        <h5 class="title">{{t 'editor.colour_title'}}</h5>
+    {{/unless}}
+
+    <ul class="colour-palette-nav">
+        {{#colour-tab
+            value=model.fill
+            propertyName="fillIsSelected"
+            property=parentController.fillIsSelected
+            tabLabel=(t 'editor.tab_fill')
+            tabName="fillTab"
+            action="selectColourTab"
+            enabled=true
+            active=true
+        }}
+        {{/colour-tab}}
+        {{#if model.stroke1Available}}
+            {{#if model.stroke2Available}}
+                {{#colour-tab
+                    value=model.strokeStyle1
+                    propertyName="stroke1IsSelected"
+                    property=parentController.stroke1IsSelected
+                    tabLabel=(t 'editor.tab_border1')
+                    tabName="border1Tab"
+                    action="selectColourTab"
+                    enabled=parentController.border1Enabled
+                    active=model.stroke1Enabled
+                }}
+                {{/colour-tab}}
+            {{else}}
+                {{#colour-tab
+                    value=model.strokeStyle1
+                    propertyName="stroke1IsSelected"
+                    property=parentController.stroke1IsSelected
+                    tabLabel=(t 'editor.tab_border')
+                    tabName="border1Tab"
+                    action="selectColourTab"
+                    enabled=parentController.border1Enabled
+                    active=model.stroke1Enabled
+                }}
+                {{/colour-tab}}
+            {{/if}}
+        {{/if}}
+        {{#if model.stroke2Available}}
+            {{#colour-tab
+                value=model.strokeStyle2
+                propertyName="stroke2IsSelected"
+                property=parentController.stroke2IsSelected
+                tabLabel=(t 'editor.tab_border2')
+                tabName="border2Tab"
+                action="selectColourTab"
+                enabled=parentController.border2Enabled
+                active=model.stroke2Enabled
+            }}
+            {{/colour-tab}}
+        {{/if}}
+        {{#if model.stroke3Available}}
+            {{#colour-tab
+                value=model.strokeStyle3
+                propertyName="stroke3IsSelected"
+                property=parentController.stroke3IsSelected
+                tabLabel=(t 'editor.tab_border3')
+                tabName="border3Tab"
+                action="selectColourTab"
+                enabled=parentController.border3Enabled
+                active=model.stroke3Enabled
+            }}
+            {{/colour-tab}}
+        {{/if}}
+        {{#if model.stroke4Available}}
+            {{#colour-tab
+                value=model.strokeStyle4
+                propertyName="stroke4IsSelected"
+                property=parentController.stroke4IsSelected
+                tabLabel=(t 'editor.tab_border4')
+                tabName="border4Tab"
+                action="selectColourTab"
+                enabled=parentController.border4Enabled
+                active=model.stroke4Enabled
+            }}
+            {{/colour-tab}}
+        {{/if}}
+    </ul>
+</div>

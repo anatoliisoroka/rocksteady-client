@@ -1,0 +1,38 @@
+{{#if ruleSetHidden}}
+{{else}}
+<div class="interview-step-carousel" data-interview-section="ruleset">
+
+    {{#if view.showContent}}
+    <h4>{{t 'interview.ruleset_title'}}</h4>
+    {{/if}}
+
+    {{#if ruleSets.isFulfilled}}
+        <div class="block-elements">
+            {{#each ruleset in ruleSets}}
+                <div class="selectable element"
+                     title="{{ruleset.name}}"
+                     data-searchfor="{{ruleset.name}}"
+                     data-value="{{ruleset.name}}"
+                     data-ruleset-name="{{ruleset.name}}"
+                    {{action "chooseRuleSet" ruleset}}>
+                    <div class="img-container">
+                        <img src="{{ruleset.imageUrl}}">
+                    </div>
+                </div>
+            {{/each}}
+
+            <div class="element selectable generic-icon" data-ruleset-name="None"
+                 title="None"
+                 data-searchfor="None"
+                {{action "skipRuleSet"}}>
+                <div class="impact small">{{t 'interview.carousel_not_competing'}}</div>
+            </div>
+        </div>
+    {{else}}
+        {{#if view.showContent}}
+        <div class="saving-throbber"></div>
+        {{/if}}
+    {{/if}}
+
+</div>
+{{/if}}

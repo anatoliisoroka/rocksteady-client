@@ -1,0 +1,14 @@
+<div class="title-bar">
+  <h5 class="title">{{t 'editor.removed_items'}}</h5>
+</div>
+{{#if deletedFeatures}}
+  <ul class="graphic-swatch-list">
+  {{#each feature in deletedFeatures itemController="design/editor/removedFeature"}}
+    {{view "design/editor/removedFeature" class="graphic-swatch"}}
+  {{/each}}
+  </ul>
+{{else}}
+  <div class="title-bar no-removed-features">
+    <p>{{t 'editor.no_removed_features'}}</p>
+  </div>
+{{/if}}

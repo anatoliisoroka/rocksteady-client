@@ -1,0 +1,88 @@
+body.styleguide {
+    margin: 20px;
+    margin-bottom: 500px;
+
+    pre {
+        margin: 25px -20px;
+        color: white;
+        background-color: black;
+        border: none;
+    }
+
+    .brand-header-bar {
+        height: 35px;
+        margin-bottom: 50px;
+    }
+
+    .brand-header-bar .hero-logo {
+        position: static;
+    }
+
+    .back-to-kit-container {
+        display: block;
+        margin-top: 1em;
+    }
+
+    .feature-toolbar, .colour-palette-nav-container, .property-bd, .combobox {
+        width: 400px;
+        margin: 1em 0;
+    }
+
+    .rs-carousel-wrapper {
+        min-height: 200px;
+        width: 400px;
+    }
+
+
+    .btn.remove-feature {
+        position: static;
+        display: block;
+    }
+
+    .combobox {
+        display: block;
+        margin-bottom: 2em;
+    }
+
+    .rs-progressbar, .rs-popover-container {
+        position: static;
+    }
+
+    .rs-popover-container {
+        width: 224px;
+    }
+
+    .skin-motocal .rs-popover-container::after {
+        display: none;
+    }
+
+    .ctrl-quality {
+        margin-left: 400px;
+        min-height: 200px;
+    }
+
+    .ctrl-quantity {
+        margin-bottom: 40px;
+    }
+
+    #loading-spinner-modal {
+        position: static;
+    }
+
+    #loading-spinner-modal .loading-spinner {
+        position: static;
+    }
+
+    .terms-checkbox {
+        margin-top: 40px;
+    }
+
+    .checkout-container {
+        position: static;
+    }
+
+    #toast-container {
+        position: static;
+    }
+
+}

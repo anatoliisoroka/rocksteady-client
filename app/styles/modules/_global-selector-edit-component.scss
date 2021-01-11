@@ -1,0 +1,53 @@
+$primary-color: #eaeaeb;
+$border-color: rgb(204, 204, 204);
+$panel-border: 1px solid $border-color;
+
+
+.global-selector-edit-component {
+    background: $primary-color;
+    display: none;
+    width: 270px;
+    height: 100%;
+    border-right: $panel-border;
+    z-index: 1040;
+    position: relative;
+
+    &.active {
+        display: block;
+    }
+
+    div[class$="-panel"] {
+        padding: 14px;
+        overflow: hidden;
+        border-bottom: $panel-border;
+    }
+
+    div.applied-features-panel {
+        padding: 0;
+        border-bottom: hidden;
+
+        ul {
+            list-style: none;
+            margin-bottom: 0;
+            padding-left: 0;
+
+            li {
+                border-bottom: $panel-border;
+                padding: 14px 14px;
+                line-height: 0;
+
+                div {
+                    display: inline-block;
+                    width: 170px;
+                    height: 33px;
+                    background-color: deeppink;
+                    cursor: pointer;
+                }
+                button {
+                    float: right;
+                }
+
+            }
+        }
+    }
+}

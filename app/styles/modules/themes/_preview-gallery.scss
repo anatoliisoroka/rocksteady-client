@@ -1,0 +1,433 @@
+@import "theme-variables";
+
+$image-height: 180px;
+
+$placeholder-main-color: white;
+$placeholder-sub-color: #EFEFEF;
+
+.themes {
+
+    .theme-selector {
+
+        .theme-preview-container {
+            outline: none;
+            height: $image-height + 190px;
+            width: 100%;
+
+            .theme-overview-container {
+                width: 100%;
+                margin: 0 auto;
+
+                .col-xs-12 {
+                    padding: 0;
+                }
+
+                .theme-name {
+                    color: $sub-colour-4;
+                    height: 40px;
+                    font-weight: bold;
+                    display: table-cell;
+                    vertical-align: bottom;
+                    padding-bottom: 4px;
+                }
+
+                .is-regulated {
+                    $regulated-icon-size: 30px;
+
+                    .theme-name {
+                        padding-right: $regulated-icon-size;
+                    }
+
+                    .theme-regulated-icon {
+                        height: $regulated-icon-size;
+                        max-width: $regulated-icon-size;
+                        position: absolute;
+                        top: 10px;
+                        right: 0;
+                    }
+                }
+
+                .theme-preview-image-container {
+                    background-color: $main-colour;
+                    border: 1px solid $sub-colour-2;
+                    border-radius: 4px;
+                    margin-bottom: 10px;
+                    user-select: none;
+                    overflow: hidden;
+                    position: relative;
+                    transition: margin, box-shadow 300ms ease;
+
+                    .image-name {
+                        position: absolute;
+                        top: 5px;
+                        left: 8px;
+                        font-size: 14px;
+                        color: $sub-colour-3;
+                        margin: 0 83px 0 0;
+                        min-height: 30px;
+                    }
+
+                    .pagination-pages-selection-wrapper {
+                        position: absolute;
+                        top: 0;
+                        right: 3px;
+                        z-index: 1;
+                    }
+
+                    /* TODO: DOM refactor */
+                    .row {
+
+                        .image-preview-container {
+                            height: $image-height;
+                            margin: 34px 15px 10px 15px;
+
+                            .swipe {
+                                padding: 0;
+
+                                .swipe-wrap {
+                                    height: $image-height;
+
+                                    .content-placeholder {
+                                        background: $main-colour;
+
+                                        // Prevent images flashing when loading
+                                        &:nth-child(1){
+                                            z-index: 1;
+                                        }
+
+                                        .image-mask {
+                                            height: $image-height;
+                                            display: flex;
+                                            align-items: center;
+                                            background: $main-colour;
+
+                                            &.loading {
+                                                position: absolute;
+                                                right: 0;
+                                                left: 0;
+                                                animation-duration: 1s;
+                                                animation-fill-mode: forwards;
+                                                animation-iteration-count: infinite;
+                                                animation-name: placeHolderShimmer;
+                                                animation-timing-function: linear;
+                                                background: #f6f7f8;
+                                                background: linear-gradient(to right, $placeholder-main-color 8%, $placeholder-sub-color 18%, $placeholder-main-color 33%);
+                                                background-size: 800px 104px;
+
+                                                img {
+                                                    display: none;
+                                                }
+                                            }
+
+                                            .theme-preview-image {
+                                                flex: 0 0 auto;
+                                                padding: 0;
+                                                margin: 0 auto;
+                                                max-height: $image-height;
+                                                background: $main-colour;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .grid-view-container {
+                                visibility: hidden;
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .preview-grid-view-button, .preview-full-screen-button {
+                        margin-bottom: 3px;
+                    }
+
+                    .preview-grid-view-button {
+                        float: left;
+                        width: 33px;
+                        text-align: center;
+                        display: none;
+                    }
+
+                    .preview-full-screen-button {
+                        float: right;
+                        margin-right: 2px;
+                    }
+
+                    &.theme-info-open {
+                        box-shadow: rgba(50, 50, 50, 0.2) 2px 2px 15px 2px;
+
+                        .theme-info {
+                            top: 0;
+                        }
+                    }
+
+                    &.preview-full-screen {
+                        width: 100%;
+                        height: 100%;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        z-index: 9999;
+
+                        .row {
+                            position: fixed;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            margin: 55px 5px 50px;
+
+                            .image-preview-container {
+                                height: 100%;
+                                margin: 0;
+                                width: 100%;
+
+                                .swipe {
+                                    height: 100%;
+                                    .swipe-wrap {
+                                        height: 100%;
+                                        .content-placeholder {
+                                            height: 100%;
+                                            .image-mask {
+                                                height: 100%;
+                                                .theme-preview-image {
+                                                    max-height: 100%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .grid-view-container {
+                                    visibility: hidden;
+                                    display: none;
+                                    margin: 0 auto;
+                                }
+
+                                &.grid-view-open {
+                                    .swipe {
+                                        //Library sets style attribute
+                                        display: none;
+                                        visibility: hidden !important;
+                                    }
+
+                                    .grid-view-container {
+                                        display: block;
+                                        visibility: visible;
+
+                                        .row-wrapper {
+                                            position: fixed;
+                                            top: 0;
+                                            right: 0;
+                                            left: 0;
+                                            bottom: 0;
+                                            overflow: hidden;
+
+                                            .row {
+                                                overflow-y: scroll;
+                                                position: absolute;
+                                                top: 0;
+                                                right: 0;
+                                                bottom: 0;
+                                                left: 0;
+
+                                                .col-xs-4, .col-sm-3 {
+                                                    height: 25%;
+                                                    padding: 1px;
+
+                                                    div {
+                                                        display: flex;
+                                                        align-items: center;
+                                                        border: 1px solid lightgrey;
+                                                        height: 100%;
+                                                    }
+
+                                                    .img-responsive {
+                                                        max-width: 100%;
+                                                        max-height: 100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .img-responsive {
+                                            margin: 8px auto;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .image-name {
+                                position: fixed;
+                                top: 16px;
+                                left: 20px;
+                                font-size: 18px;
+                            }
+
+                            .pagination-pages-selection-wrapper {
+                                position: fixed;
+                                top: 12px;
+                                right: 17px;
+                            }
+
+                            .preview-grid-view-button, .preview-full-screen-button {
+                                position: fixed;
+                                bottom: 2px;
+                                display: block;
+                            }
+
+                            .preview-grid-view-button {
+                                left: 12px;
+                                bottom: 13px;
+                            }
+
+                            .preview-full-screen-button {
+                                right: 14px;
+                                bottom: 13px;
+                            }
+                        }
+
+                        .theme-info {
+                            display: none;
+                        }
+                    }
+                }
+
+                .theme-panel-footer {
+                    padding: 0;
+                    flex-wrap: nowrap;
+                    flex-direction: row;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 35px;
+
+                    .theme-footer-icon, .theme-summary-text, .theme-footer-button, .theme-engagement-summary {
+                        overflow: hidden;
+                        flex: 1 0 auto;
+
+                        .rs-icon {
+                            padding: 2px;
+                        }
+
+                        .rs-icon.icon-eye {
+                            padding: 4px;
+                            width: 39px;
+                        }
+
+                        & > div {
+                            float: right;
+                        }
+                    }
+
+                    .theme-footer-button {
+                        flex: 2 0 auto;
+
+                        & > button {
+                            float: right;
+                        }
+                    }
+
+                    .theme-bookmarked-icon {
+                        flex: 1 0 auto;
+
+                        & > div {
+                            float: left;
+                        }
+                    }
+
+                    .theme-summary-text {
+                        flex: 6 1 auto;
+
+                        & > div {
+                            float: left;
+                        }
+
+                        .theme-preview-description-summary {
+                            display: flex;
+                            align-items: center;
+
+                            .theme-preview-description-icon {
+                                flex: 0 0 auto;
+                                padding: 4px;
+                            }
+
+                            .theme-preview-info-text {
+                                flex: 4 1 auto;
+                                font-size: 12px;
+                                display: inline;
+                                cursor: pointer;
+                                padding-left: 6px;
+                            }
+                        }
+                    }
+
+                    .theme-engagement-summary {
+
+                        .theme-preview-description-icon {
+                            padding: 2px 2px 2px 0;
+                        }
+                        .engagement-text {
+                            font-size: 12px;
+                            padding-left: 4px;
+                            vertical-align: -3px;
+                        }
+                    }
+
+                    .theme-footer-button {
+
+                        .apply-theme-button {
+                            padding: 3px 12px;
+                        }
+                    }
+
+                    &.small-width {
+
+                        .theme-footer-icon {
+                            flex: 1 0 auto;
+                        }
+
+                        .theme-engagement-summary {
+                            flex: 0.5 0 auto;
+                        }
+
+                        .theme-bookmarked-icon {
+                            flex: 18 0 auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin theme-overview-responsive-container($width, $offset, $divisor) {
+    @media (min-width: $width) {
+        .themes {
+            .theme-selector {
+                .theme-preview-container {
+                    .theme-overview-container {
+                        width: ($width - $offset - 35px)/$divisor;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Tablet - sm */
+@include theme-overview-responsive-container($screen-sm-min, $filter-menu-width, 1);
+/* Desktop - md */
+@include theme-overview-responsive-container($screen-md-min, $filter-menu-width, 2);
+/* Large - lg */
+@include theme-overview-responsive-container($screen-lg-min, $filter-menu-width, 2);
+
+@keyframes placeHolderShimmer {
+    0% {
+        background-position: -468px 0
+    }
+    100% {
+        background-position: 468px 0
+    }
+}

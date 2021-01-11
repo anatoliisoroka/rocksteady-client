@@ -1,0 +1,29 @@
+<div class="pagination-pages-selection">
+    <span class="page-direction-container" {{action 'previous'}}>
+          <span class="page-direction {{unless hasPrevious 'disabled'}}">
+              {{icon/left-arrow background=true enabled=hasPrevious}}
+          </span>
+    </span>
+
+    {{#unless showCount}}
+        <span class="all-page-numbers">
+            {{#each page in pagesArray}}
+                <span class="page-number {{if page.active 'active'}}" {{action 'change' page.number}}>
+                    &nbsp;{{page.numberText}}&nbsp;
+                </span>
+            {{/each}}
+        </span>
+
+        <span class="single-page-number active">
+            {{currentPage}}
+        </span>
+    {{else}}
+        <span class="count-page-numbers">{{currentPage}}/{{count}}</span>
+    {{/unless}}
+
+    <span class="page-direction-container" {{action 'next'}}>
+        <span class="page-direction {{unless hasNext 'disabled'}}">
+            {{icon/right-arrow background=true enabled=hasNext}}
+        </span>
+    </span>
+</div>

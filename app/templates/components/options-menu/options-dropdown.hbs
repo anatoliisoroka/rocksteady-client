@@ -1,0 +1,7 @@
+{{#click-outside outsideClick='outsideClick' except-selector=exceptSelector}}
+    <div class="options-dropdown-wrapper">
+        <ul {{bind-attr class=":options-dropdown menuOpen:options-dropdown__open"}}>
+            {{yield}}
+        </ul>
+    </div>
+{{/click-outside}}

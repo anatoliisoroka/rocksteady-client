@@ -1,0 +1,309 @@
+.skin-motocal{
+    .logo-container{
+        position: fixed;
+        z-index:$zindexBackToKitBtn;
+        top:0;
+        left:0;
+
+        .hero-logo {
+            cursor: pointer;
+            top: 0;
+            margin: auto 30px;
+            display: block;
+            background-image: none;
+            width: 192px;
+            height: 89px;
+
+            @media (max-width: $screen-xs) {
+                width: 66px;
+                height: 35px;
+                margin-left: 10px;
+                margin-top: 33px;
+            }
+        }
+
+        .sprite-motocal-logo-header-sm{
+            margin-top:33px;
+        }
+    }
+
+    .brand-header-bar {
+
+        h1{visibility:hidden;}
+
+        background-image: none;
+        background-color: #eee;
+
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: $zindexFixedNavbar;
+    }
+
+    .navbar-header{
+
+        position:fixed;
+        top: 0;
+        margin:0;
+        z-index:$zindexFixedNavbarElement;
+        height: $headerHeight;
+        padding:0;
+        background: transparent;
+        padding-top: 2px;
+
+        @media (max-width: $screen-sm) {
+            .quality-dropdown {
+                display: none;
+            }
+        }
+
+        .dropdown-menu {
+            top: 30px;
+            min-width: 100%;
+
+            .inline-menu-items {
+                .currency-icons-container {
+                    display: inline-block;
+                    padding: 0;
+                    width: 130px;
+                    vertical-align: top;
+
+                    @media (max-width: $screen-sm) {
+                        width: auto;
+                        margin-left: 5px;
+                    }
+                }
+
+                span.menu-label {
+                    padding-left: 20px;
+                    padding-right: 5px;
+                }
+
+                a {
+                    display: inline-block;
+                    padding: 0;
+                }
+            }
+        }
+
+        .center{
+            @media (max-width: $screen-sm) {
+                display: none;
+            }
+
+            .has-no-product-line {
+                display: none;
+            }
+
+            .productline-logo img{
+                top: 29px;
+                left: 226px;
+                position:relative;
+                width: 31px;
+                height: 31px;
+            }
+
+            .title{
+                overflow:hidden;
+                top:4px;
+                position:relative;
+                font-family: $interfaceFontFamily;
+                color: $headerFontColor;
+                font-size: $headerDescriptionFontSize;
+                margin-left: 33px;
+                left:232px;
+            }
+        }
+
+        .right-interview{
+            display:block;
+            top:30px;
+            right:0;
+            margin-right: 30px;
+
+            span, button{
+                font-size: 15px;
+            }
+
+            .dropdown button {
+                strong {
+                    text-overflow: ellipsis;
+                    max-width: 100px;
+                    vertical-align: bottom;
+                    overflow-x: hidden;
+                }
+            }
+
+            .combobox{
+                .dropdown{
+                    .dropdown-toggle{
+                        .combobox-label{
+                            max-width: 265px;
+                            overflow:hidden;
+                            text-overflow: ellipsis;
+                            margin-bottom: -6px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .right-selector{
+            width:500px;
+            top:30px;
+
+            &.header-price-buttons{
+
+                text-align: right;
+                top: 30px;
+                font-family: $interfaceFontFamily;
+                z-index: $zindexFixedNavbarElement;
+
+                .dropdown {
+                    z-index: $zindexFixedNavbarElement;
+
+                    a {
+                        text-align:left;
+                        margin-bottom:0;
+                    }
+
+                    li button {
+                        /* facebook share button style overrides */
+                        width: 100%;
+                        text-align: left;
+                        background-color: transparent;
+                        color: black;
+                        border: none;
+                        padding: 3px 20px;
+
+                        &:hover {
+                            text-decoration: none;
+                            color: #262626;
+                            background-color: #f5f5f5;
+                        }
+                    }
+
+                    strong {
+                        font-weight: bold;
+                    }
+                }
+
+                .dropdown-toggle {
+                    font-size: 15px;
+                }
+
+                .rs-checkout {
+
+                    display:inline-block;
+                    background: $btnCheckoutBackground;
+                    margin-left: 5px;
+                    color: $white;
+                    height:40px;
+
+
+                    .checkout-logo{
+                        position: relative;
+                        bottom: 4px;
+                        padding:0;
+                        margin:0;
+                        display:block;
+                        display:inline-block;
+
+                    }
+
+                    .checkout-text{
+                        position: relative;
+                        font-size: $headerCheckoutBtnFontSize;
+                        bottom: 7px;
+                        padding:0 4px;
+                        text-transform: uppercase;
+                        display:inline-block;
+                    }
+
+                    .header-price-inline{
+                        display:inline-block;
+                        position:relative;
+                        bottom: 7px;
+                        padding:0;
+                        font-size: 18px;
+                        font-family: $interfaceFontFamily;
+                        font-weight: normal;
+
+                        &.flash {
+                            @include animation(price-blinker steps(1) .333s infinite);
+                        }
+                    }
+
+                    @media (max-width: $screen-sm) {
+                        .checkout-text, .checkout-logo {
+                            display: none;
+                        }
+
+                        .header-price-inline {
+                            position: static;
+                        }
+
+                        width: auto;
+                    }
+                }
+            }
+        }
+
+        &.interview{
+            .center{
+                .title{
+                    margin-right:595px;
+
+                    @media (max-width: $screen-sm) {
+                        margin-right: 480px;
+                    }
+                }
+            }
+        }
+
+        &.selector{
+            .center{
+                .title{
+                    margin-right: 680px;
+                }
+            }
+        }
+
+        &.editor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 64px;
+            color: transparent;
+            .center {
+                width: calc(100vw - 570px);
+                display: inline-block;
+                margin-left: 173px;
+                margin-top: 21px;
+                .title {
+                    @media (max-width: 700px) {
+                        display: none;
+                    }
+                    margin-left: 0;
+                    left: 0;
+                    width: 100%;
+                    text-overflow: ellipsis;
+                    top: 6px;
+                }
+            }
+
+            .undo-redo {
+                display: inline-block;
+            }
+        }
+
+        &.checkout{
+           .center{
+                .title{
+                    display:block;
+                    padding-right:240px;
+                }
+            }
+        }
+    }
+}

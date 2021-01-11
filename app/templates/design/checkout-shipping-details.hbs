@@ -1,0 +1,75 @@
+<h2>{{t 'checkout.shipping_details_title'}}</h2>
+
+<form autocomplete="on" id="shipping-address">
+
+  <span class="{{if isNameValid '' 'has-error'}}">
+    {{view "design/validatedField" type="text" class="form-control" placeholder=(t 'formInputLabels.form_input_name') data-name="name" value=model.name validateOnBlur=true}}
+  </span>
+
+  <span class="{{if isEmailValid '' 'has-error'}}">
+    {{view "design/validatedField" type="text" class="form-control" placeholder=(t 'formInputLabels.form_input_email') data-name="email" value=model.email validateOnBlur=true}}
+  </span>
+
+  <span class="{{if isEmailConfirmationValid '' 'has-error'}}">
+    {{view "design/validatedField" type="text" class="form-control" placeholder=(t 'formInputLabels.form_input_confirm') data-name="emailConfirmation" value=model.emailConfirmation validateOnBlur=true}}
+  </span>
+
+  <span class="{{if isAddress1Valid '' 'has-error'}}">
+    {{view "design/validatedField" type="text" class="form-control" placeholder=model.country.addressFields.address1 data-name="address1" value=model.address1 validateOnBlur=true }}
+  </span>
+
+  <span>
+    {{view "textField" type="text" class="form-control half-width" placeholder=model.country.addressFields.address2 data-name="address2" value=model.address2 validateOnBlur=true }}
+  </span>
+
+  <span class="{{if isCityValid '' 'has-error'}}">
+    {{view "design/validatedField" type="text" class="form-control half-width" placeholder=model.country.addressFields.city data-name="city" value=model.city validateOnBlur=true }}
+  </span>
+
+  <span>
+    {{view "textField" type="text" class="form-control half-width" placeholder=model.country.addressFields.subRegion data-name="subRegion" value=model.subRegion validateOnBlur=true }}
+  </span>
+
+  <span>
+      {{view "textField" type="text" class="form-control half-width" placeholder=model.country.addressFields.postcode data-name="postcode" value=model.postcode validateOnBlur=true }}
+  </span>
+
+    <span class="{{if isPhoneNumberValid '' 'has-error'}} {{if phoneNumberRequired '' 'hidden'}}">
+        {{view "textField" type="text" class="form-control half-width" placeholder=(t 'formInputLabels.form_input_phone_number') data-name="phoneNumber" value=model.phoneNumber validateOnBlur=true }}
+    </span>
+
+  {{#combo-box filter=regionFilter filterBy="name" name="Country" label="Country" placeholder=(t 'formInputLabels.form_country') content=model.country class="country" value=model.country.name}}
+  {{#each region in filteredRegions}}
+    <li {{action 'selectRegion' region 'model.country'}}>
+      <a href="#" data-value="{{region.name}}">
+        {{#if region.imageUrl}}
+        <img src="{{region.imageUrl}}"/>
+        {{/if}}
+        <span>{{region.name}}</span>
+      </a>
+    </li>
+  {{/each}}
+  {{/combo-box}}
+
+</form>
+<div class="terms">
+  <span class="terms-link">
+    {{view "design/checkout/agreeToTerms"}}
+  </span>
+</div>
+
+
+<div class="estimate">
+    <strong>{{t 'checkout.delivery_estimate'}}</strong>
+    {{#combo-box filter=shippingOptionFilter filterBy="name" name="Shipping options" label="" placeholder=(t 'checkout.shipping_details_shipping_options') content=shippingOptions class="shipping-options" value=selectedShippingOptionString}}
+        {{#each shippingOption in filteredShippingOptions}}
+            <li {{action 'selectShippingOption' shippingOption 'selectedShippingOption'}} data-time="{{shippingOption.time}}" data-cost="{{currency.symbol}}{{shippingOption.localCostStr}}">
+                <a href="#" data-value="{{shippingOption.id}}">
+                    <span>{{shippingOption.time}} {{t 'checkout.business_days'}} {{currency.symbol}}{{shippingOption.localCostStr}}</span>
+                </a>
+            </li>
+        {{/each}}
+    {{/combo-box}}
+</div>
+
+<div class="shipping-details-bottom"></div>

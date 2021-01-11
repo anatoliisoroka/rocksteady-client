@@ -1,0 +1,117 @@
+.skin-motocal{
+    .title{ margin-bottom:14px;}
+    .slider-container{
+        height:39px;
+        padding-top:0;
+        position:relative;
+        top:0;
+        i.slider-icon{
+            left:0;
+            top:20px;
+            position:relative;
+            width: 20px;
+            display:block;
+        }
+
+        .btn.increment-btn, .btn.decrement-btn { }
+        /*.noUi-target{ border:1px solid red; margin:0;}*/
+        .btn.decrement-btn{ left:21px;}
+    }
+}
+
+.slider-container {
+
+    overflow: hidden;
+    height: 32px;
+    width: 100%;
+    display: inline-block;
+
+    .slider-icon{
+        font-size: 10px;
+    }
+
+    .btn.increment-btn, .btn.decrement-btn {
+        position:relative;
+        font-weight: bold;
+        width: 20px;
+        height: 20px;
+        padding:0;
+        border: 1px solid #aaa;
+        margin: 2px;
+        z-index: $subpanelZIndex - 1;
+    }
+
+    .increment-btn{top : -31px; left: 180px;}
+    .decrement-btn{ left: 5px;}
+
+    .noUi-target{
+
+        height: 8px;
+        width: 130px;
+        position: relative;
+        left: 46px;
+        top: -15px;
+
+        .noUi-handle{
+
+            height: 18px;
+            width: 18px;
+            border-radius: 90%;
+	        border: 1px solid #99968f;
+	        background: #efefe7;
+            left: -8px;
+
+            &:before, &:after{
+                display: none;
+            }
+        }
+
+        .noUi-base{
+            position: relative;
+        }
+
+        .noUi-background{
+            background: #DDD;
+        }
+    }
+
+    .rangeValue {
+
+        text-align:center;
+        color: white;
+        font-size: 11px;
+        border-radius: 5px;
+        display: inline;
+        background: #AAA;
+        padding: 4px 4px;
+        z-index: 100;
+        position: relative;
+        top: -31px;
+        left: 184px;
+    }
+
+    .gauge-container {
+        height: 21px;
+        position: absolute;
+        bottom: -9px;
+        z-index: -1;
+    }
+
+    .tall-gauge {
+        height: 22px;
+        background-color: #bbb;
+        width: 1px;
+        display: block;
+        position: absolute;
+        bottom: 1px;
+    }
+
+    .small-gauge {
+        height: 18px;
+        background-color: #bbb;
+        width: 1px;
+        display: block;
+        position: absolute;
+        bottom: 3px;
+    }
+}

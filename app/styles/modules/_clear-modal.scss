@@ -1,0 +1,55 @@
+.clear-modal {
+
+    .modal-header {
+        @extend .modal-header;
+        text-align: center;
+
+        h2 {
+            text-transform: none;
+            color: #555555;
+            margin: 0;
+        }
+    }
+
+    .modal-body {
+
+        @media(min-width: $screen-md) {
+            max-height: calc(100vh - 157px);
+            overflow-y: auto;
+        }
+
+        .row {
+            padding-left: 10%;
+            padding-right: 10%;
+
+            &:first-child {
+                p {
+                    margin-top: 20px;
+                }
+            }
+
+            &:nth-child(2) {
+                p {
+                    margin-bottom: 20px;
+                }
+            }
+
+            &.select-all-personal-features {
+                margin-bottom: 20px;
+            }
+
+            .personal-feature-preview {
+                padding: 0;
+                border: 2px solid #d3d3d3;
+                background: url(../images/background-grid-small.png);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &.selected {
+                    border-color: $fontBlue;
+                }
+            }
+        }
+    }
+}

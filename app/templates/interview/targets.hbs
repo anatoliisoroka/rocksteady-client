@@ -1,0 +1,24 @@
+<div class="interview-step-combobox is-active" data-interview-section="target">
+    <h4 class="heading">{{t 'interview.target_title'}}</h4>
+    <form name="target">
+        {{input placeholder=view.searchPlaceholderText value=searchText action="submitTarget" name="userTargetSearchText" }}
+    </form>
+
+    <div class="available-targets {{if view.hasManyAvailableModels 'has-many-available-models'}} {{if view.hasDataPending 'has-data-pending'}}">
+        <h5>{{t 'interview.target_available_models'}}</h5>
+
+        <div class="scroll-for-more">
+            <span class="down-arrow sprite-down-arrow"> </span>
+            {{t 'interview.scroll_for_more_models'}}
+            <span class="down-arrow sprite-down-arrow"> </span>
+        </div>
+
+        <ul>
+
+          {{#each target in searchResults}}
+          <li><a {{action "chooseTarget" target}} data-target-name="{{target.name}}">{{target.name}}</a></li>
+          {{/each}}
+          <li class="none"><a {{action "skipTarget"}} data-target-name="None">{{t 'interview.target_none'}}</a></li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,103 @@
+<div class="price-and-button row">
+    <div class="price col-lg-7 col-md-12">
+        <table class="order-price-totals-table">
+
+            {{#if controllers.application.config.APP.features.discount_codes}}
+                {{#if view.showDiscountTable}}
+                    {{#if canApplyDiscount}}
+                        <tr class="discount-input">
+                            <th colspan="2">
+                                <div class="input-group {{if view.isInvalidDiscountCode 'has-error'}}">
+                                    {{input
+                                        type="text"
+                                        placeholder=(t 'checkout.enter_discount_code')
+                                        class="form-control"
+                                        value=view.discountCodeToCheck
+                                        name="discount-code-input"
+                                    }}
+                                    <span class="input-group-btn">
+                                        <button
+                                            class="btn btn-default"
+                                            type="button"
+                                            {{action 'applyDiscountCodeIfValid' target=view}}
+                                        >
+                                            Apply
+                                        </button>
+                                    </span>
+                                </div>
+                            </th>
+                        </tr>
+                    {{/if}}
+                {{/if}}
+
+                <tr>
+                    <th class="apply-discount-label {{if view.showDiscountTable 'show-discount-table'}}" colspan="2">
+                        <a {{action 'toggleDiscountTable' target='view'}}>{{t 'checkout.apply_discount_code'}}</a>
+                    </th>
+                </tr>
+            {{/if}}
+
+            <tr>
+                <th><strong>{{t 'checkout.order_total'}}</strong></th>
+                <td><span class="order-total price-cell {{if view.flashOrderTotal 'flash'}}">{{currency.symbol}}{{localTotalPriceStr}}</span>
+                </td>
+            </tr>
+
+            {{#if controllers.application.config.APP.features.discount_codes}}
+                {{#if view.showDiscountTable}}
+                    {{#if canApplyDiscount}}
+                    {{else}}
+                        <tr class="discount">
+                            <th><strong>{{t 'checkout.discount' discount=discountRateStr}}</strong></th>
+                            <td>
+                                <span class="price-cell">
+                                     - {{controller.currency.symbol}}{{controller.discountAmountStr}}
+                                    <a class="remove-discount-button" {{action 'unapplyDiscountCode'}}>
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </a>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="discount-quantity-message">
+                            <td colspan="2">{{controller.discountQuantityMessage}}</td>
+                        </tr>
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+
+            {{#if view.showShippingLine}}
+                <tr class="shipping">
+                    <th><strong>{{t 'checkout.shipping'}}</strong></th>
+                    <td>
+                        <span class="price-cell">
+                            {{controller.currency.symbol}}{{model.shippingOption.localCostStr}}
+                        </span>
+                        {{#if view.showShippingCostLineDiscard}}
+                            <a class="remove-discount-button" {{action 'unapplyShippingOption'}}>
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                        {{/if}}
+                    </td>
+                </tr>
+            {{/if}}
+
+            <tr class="total">
+                <th><strong>{{t 'checkout.total'}}</strong></th>
+                <td><span class="price-cell">{{controller.currency.symbol}}{{totalPriceStr}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="place-order-button col-lg-5 col-md-12">
+        <button
+            data-name="placeOrder"
+            class="btn btn-primary btn-lg"
+            {{action 'validateInput'}}
+            disabled={{disablePlaceOrderButton}}
+        >
+            <span class="glyphicon glyphicon-ok"></span>
+            {{t 'checkout.place_order'}}
+        </button>
+    </div>
+</div>

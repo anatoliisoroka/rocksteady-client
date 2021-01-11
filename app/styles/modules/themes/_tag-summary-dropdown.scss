@@ -1,0 +1,92 @@
+@import "theme-variables";
+
+$tag-height: 22px;
+
+.themes {
+
+    .theme-selector {
+
+        .side-menu-main-content {
+
+            .theme-tag-list-wrapper {
+                height: 0;
+                overflow: hidden;
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 15px;
+
+                &.open {
+                    .theme-tag-list {
+                        .drop-down-arrow {
+                            .icon-arrow {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+
+                .theme-tag-list {
+
+                    .drop-down-arrow {
+                        height: $tag-height;
+                        float: right;
+
+                        .icon-arrow {
+                            transition: transform 300ms ease;
+                            margin-top: 3px;
+                            margin-right: 6px;
+                            height: 20px;
+                            svg > polygon {
+                                fill: $sub-colour-5;
+                            }
+                        }
+                    }
+
+                    .theme-tag {
+                        cursor: pointer;
+                        font-size: 14px;
+                        margin: 3px;
+                        padding: 3px 5px;
+                        display: inline-block;
+                        height: $tag-height;
+                        background: $sub-colour;
+                        color: $sub-colour-3;
+                        font-weight: normal;
+
+                        .icon-remove {
+                            color: $sub-colour-2;
+                            padding-left: 9px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+///* Desktop */
+@media (min-width: $screen-sm-min) {
+    .themes {
+
+        .theme-selector {
+
+            .side-menu-main-content {
+
+                .theme-tag-list-wrapper {
+                    width: 90%;
+
+
+                    //&::after {
+                    //    border-bottom: 1px solid $sub-colour-2;
+                    //    position: absolute;
+                    //    bottom: -8px;
+                    //    left: 0;
+                    //    right: 0;
+                    //    margin: 0px -100%;
+                    //    content: "";
+                    //}
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+html.touch {
+    .skin-motocal {
+    }
+}
+
+.skin-motocal {
+    .carousel-control {
+        background-image: none;
+        width: 50px;
+        top: 35%;
+
+        &.left {
+            position: absolute;
+            left: -50px;
+
+            .sprite {
+                display: block;
+            }
+        }
+
+        &.right {
+
+            right: -50px;
+            .sprite {
+                display: block;
+            }
+        }
+
+        &.disabled {
+            display: none;
+        }
+    }
+}
+
+.modal .rs-carousel-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rs-carousel-wrapper {
+    &.has-data-pending {
+        background-image: url(../images/spinners/large-circular-throbber.gif);
+        background-repeat: no-repeat;
+        background-position: top left;
+
+        .rs-carousel, .carousel-control {
+            visibility: hidden;
+        }
+    }
+
+    position: relative;
+    margin-left: 80px;
+    margin-right: 80px;
+
+    .rs-carousel {
+        overflow: hidden;
+        position: relative;
+        height: 300px;
+
+        .rs-carousel-inner {
+            width: 50000px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include transition-property(left);
+            @include transition-duration(.2s);
+        }
+    }
+
+    input {
+        position: absolute;
+        top: 0;
+        margin-left: -10000px;
+    }
+
+    .rs-carousel-item {
+        display: inline-block;
+        width: 202px;
+        min-height: 250px;
+        vertical-align: top;
+
+        h5 {
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            border: 1px solid;
+            margin: 0;
+            padding: 0.5em;
+            box-sizing: border-box;
+        }
+
+        /*box-shadow: 2px 2px 5px 4px transparent;*/
+        margin: 5px;
+
+        &.selectable {
+            cursor: pointer;
+        }
+
+        &.indicate {
+            @include animation-name('pulse-animation');
+            @include animation-duration(500ms);
+            @include transform-origin(70% 70%);
+            @include animation-iteration-count(1);
+            @include animation-timing-function(linear);
+            @include animation-delay(500ms);
+        }
+    }
+}
+
+html.no-touch .rs-carousel-item.selectable:not(.placeholder):hover,
+.rs-carousel-item.selectable.show-touch-feedback {
+    box-shadow: 2px 2px 5px 4px #ccc;
+}

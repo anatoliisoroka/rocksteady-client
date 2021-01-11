@@ -1,0 +1,59 @@
+{{#rs-modal modalOpen=modalOpen modalClass='clear-modal'}}
+    <div class="modal-header">
+        <button type="button" class="close" {{action 'closeModal'}}>
+            <span>&times;</span>
+        </button>
+        <h2>{{title}}</h2>
+    </div>
+    <div class="modal-body" {{action 'noop' bubbles=false}}>
+        <div class="row">
+            <div class="col-xs-12">
+                <p>
+                    {{t 'selector.global_edit.clear_modal.warning_message'}}
+                </p>
+            </div>
+        </div>
+        {{#if personalFeatures.length}}
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        {{t 'selector.global_edit.clear_modal.keep_personal_features_message'}}
+                    </p>
+                </div>
+            </div>
+            <div class="row select-all-personal-features">
+                <div class="col-xs-12">
+                    {{rs-checkbox
+                        name='selectAll'
+                        label='Select All'
+                        title='Select All'
+                        position='right'
+                        isChecked=selectAll
+                        isIndeterminate=selectSome
+                        onToggled='onSelectAllToggled'
+                    }}
+                </div>
+            </div>
+        {{/if}}
+        <div class="row">
+            {{#each personalFeatures as |personalFeature index|}}
+                <div class="col-sm-6 col-md-4">
+                    <div class="personal-feature-preview thumbnail">
+                        {{selector/global-edit/personal-feature-preview
+                            feature=personalFeature
+                            featureFabObjs=featureFabObjs
+                        }}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="modal-footer" {{action 'noop' bubbles=false}}>
+        <button class="btn btn-secondary" {{action 'closeModal'}}>
+            {{t 'selector.global_edit.clear_modal.cancel_button'}}
+        </button>
+        <button class="btn btn-primary" {{action 'onClear'}}>
+            {{t 'selector.global_edit.clear_modal.clear_button'}}
+        </button>
+    </div>
+{{/rs-modal}}

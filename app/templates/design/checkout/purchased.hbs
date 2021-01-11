@@ -1,0 +1,105 @@
+<div class="modal fade purchased-screen">
+    <div>
+       <div class="container col-sm-12">
+           <div class="row">
+
+               <div class="col-xs-12 col-sm-6 col-md-5">
+
+                   <div class="header-img-and-text modal-header">
+                       <div class="modal-header-img sprite-payment-received"> </div>
+                       <h4 class="modal-title">{{t 'billing.payment_received_thank_you'}}</h4>
+                   </div>
+
+                   <h5>{{t 'billing.order'}} <span class="order-number">{{model.order_number}}</span></h5>
+
+                   {{#if controller.price}}
+                   <table class="order-summary-table">
+                       <tr>
+                           <th>{{t 'billing.purchase_description'}}</th>
+                           <td class="purchased-base-price">{{currency.symbol}}{{controller.price.base}}</td>
+                       </tr>
+                       {{#if controller.price.discount}}
+                       <tr>
+                           <th>{{t 'billing.discount'}} ({{controller.price.discountRate}})</th>
+                           <td class="purchased-discount">{{currency.symbol}}{{controller.price.discount}}</td>
+                       </tr>
+                       {{/if}}
+                       <tfoot>
+                           <tr>
+                               <th>{{t 'billing.total_paid'}}</th>
+                               <td class="purchased-total-price">{{currency.symbol}}{{controller.price.total}}</td>
+                           </tr>
+                       </tfoot>
+                   </table>
+                   {{/if}}
+
+                   {{#if controller.deliveryAddress}}
+                   <h5>{{t 'billing.delivery_address'}}</h5>
+
+                   <address class="purchased-delivery-address">
+                       {{{controller.deliveryAddress}}}
+                   </address>
+                   {{/if}}
+
+                   {{#if controller.deliveryEstimate}}
+                   <div class="delivery-estimate">
+                       <span class="glyphicon glyphicon-calendar"></span>
+                       <p>
+                           {{t 'billing.decals_arrive_in'}}<br/>
+                           <strong class="purchased-delivery-estimate">{{controller.deliveryEstimate}}</strong>
+                       </p>
+                   </div>
+                   {{/if}}
+
+                   <p class="smalltext">{{t 'billing.please_note' email=model.email_address}}</p>
+
+               </div>
+
+
+
+               <div class="col-xs-12 col-sm-6 col-md-7 facebook">
+
+                   {{#if selectorURL}}
+                   <img class="selector" src="{{selectorURL}}"/>
+                   {{/if}}
+
+                   <div class="row">
+                       <div class="facebook-share-btn-container">
+                           <button class="btn-primary facebook-share-button" {{action 'socialShare'}}>
+                               <i class="sprite-fb-logo-white"> </i>
+                               <span class="share-text">{{t 'general.share_on_facebook'}}</span>
+                           </button>
+                       </div>
+                       <div class="facebook-like-container">
+                           {{facebook-like
+                               url=(t 'checkout.brand_like_url')}}
+                       </div>
+                   </div>
+
+               </div>
+
+           </div>
+       </div>
+
+        <div class="clearfix"> </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button"
+            class="btn btn-primary start-a-new-design"
+            data-dismiss="modal"
+            disabled={{buttonsDisabled}}
+            {{action "startANewDesign" target="view"}}>
+            <i class="sprite-star"> </i>
+            {{t 'billing.start_new_design'}}
+        </button>
+
+        <button type="button"
+            class="btn btn-primary btn-close"
+            disabled={{controller.buttonsDisabled}}
+            {{action "exitApp"}}>
+            {{t 'application.close'}}
+        </button>
+    </div>
+
+</div>

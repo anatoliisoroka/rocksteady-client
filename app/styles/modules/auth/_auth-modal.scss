@@ -1,0 +1,56 @@
+$auth-modal-body-text-colour: #555555;
+$auth-modal-title-colour: #555555;
+$auth-modal-body-title-colour: grey;
+$auth-modal-body-subtitle-colour: grey;
+$auth-modal-button-colour: blue;
+$auth-modal-body-form-colour: #777777;
+
+.auth-modal {
+
+    .auth-modal-header {
+        @extend .modal-header;
+        text-align: center;
+        .auth-modal-title {
+            text-transform: none;
+            color: $auth-modal-title-colour;
+            margin: 0 auto;
+        }
+        button.close {
+            position: absolute;
+            right: 16px;
+        }
+    }
+
+    .auth-modal-body {
+        position: relative;
+        padding: 10px;
+        text-align: center;
+        .auth-modal-body-title {
+            margin: 50px auto 64px;
+            color: $auth-modal-body-title-colour;
+        }
+
+        .auth-modal-body-email {
+            margin: 38px auto;
+            max-width: 400px;
+
+            label {
+                float: left;
+                color: #777777;
+            }
+        }
+
+        .auth-modal-provider {
+            margin: 0 0 25px;
+        }
+    }
+
+    .auth-modal-footer {
+        @extend .modal-footer;
+        position: relative;
+        padding: 10px;
+    }
+}
+
+
+

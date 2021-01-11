@@ -1,0 +1,25 @@
+.mirror-features {
+    .mirror-features-preview {
+        text-align: center;
+        margin-bottom: 2em;
+
+        img {
+            max-width: 200px;
+            max-height: 100px;
+        }
+
+        > * {
+            vertical-align: middle;
+        }
+
+        span {
+            font-size: 400%;
+            display: inline-block;
+            margin: .5em;
+        }
+    }
+
+    .mirror-features-description {
+        text-align: center;
+    }
+}

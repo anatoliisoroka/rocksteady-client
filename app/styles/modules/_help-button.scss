@@ -1,0 +1,59 @@
+.help-button-container {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    text-align: right;
+    line-height: 10px;
+    font-size: xx-large;
+    z-index: 2051;
+
+    a {
+        display: block;
+    }
+}
+
+.inline-help-button-container{
+    .help-button{
+        font-size: 17px;
+        transform: translate(-6px, 6px) scale(1.4);
+
+        //white i
+        background: white;
+        border-radius: 50%;
+    }
+}
+
+.help-button {
+    color: grey;
+    cursor: pointer;
+}
+
+@mixin small-help-button {
+    .help-button-container {
+        right: 12px;
+        bottom: 12px;
+        font-size: large;
+    }
+}
+
+html.touch{
+    @include small-help-button;
+}
+
+@media screen and (max-height: 800px) {
+    @include small-help-button;
+}
+
+@media (max-width: ($screen-sm - 50)) {
+    .help-button-container {
+        display: none;
+    }
+}
+
+.interview .help-button-container {
+    display: none;
+}
+
+.editor-sub-panel-open .help-button-container {
+    display: none;
+}

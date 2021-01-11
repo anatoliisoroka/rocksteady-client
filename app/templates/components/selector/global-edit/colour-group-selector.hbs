@@ -1,0 +1,28 @@
+<div class="colour-group-selector-scroll">
+    {{#each colourGroups as |colourGroup i|}}
+        {{selector/global-edit/colour-group-square
+            selectColourGroup='selectColourGroup'
+            selectColour='selectColour'
+            colourGroup=colourGroup}}
+    {{/each}}
+</div>
+{{#click-outside outsideClick='outsideClick' except-selector='.colour-group-selector-scroll'}}
+    <div class="colour-group-dropdown {{unless open 'collapsed'}}" {{action 'closeColourGroup'}}>
+        <div class="colour-selector-box" {{action 'closeColourGroup' bubbles=false}}>
+            <div class="colour-square">
+                {{icon/down-arrow}}
+            </div>
+        </div>
+        {{#each activeGroup.group as |colour i|}}
+            <div class="colour-selector-box" {{action 'selectColour' colour bubbles=false}}>
+                {{#selector/global-edit/colour-square colourId=colour.id}}
+                    {{#if colour.isAcgColour}}
+                        <div class="colour-link-badge">
+                            {{icon/link-chain}}
+                        </div>
+                    {{/if}}
+                {{/selector/global-edit/colour-square}}
+            </div>
+        {{/each}}
+    </div>
+{{/click-outside}}

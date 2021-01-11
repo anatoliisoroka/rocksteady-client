@@ -1,0 +1,17 @@
+<li class="{{if controller.removedFeaturesPanelOn '' 'selected'}}">
+  <a id="edit-feature" {{action 'editText' target='view'}}>{{t 'editor.toolbar_list_edit'}}</a>
+</li>
+<li>
+<a class="add-text-feature {{if view.isTouch 'sprite-touch-tab-text-new' 'sprite-tab-text-new'}}" id="add-text-feature" {{action 'addText' target='view'}} name="addTextFeature"></a>
+</li>
+<li>
+<a class="add-graphic-feature {{if view.isTouch 'sprite-touch-tab-graphic-new' 'sprite-tab-graphic-new'}}" id="add-graphic-feature" {{action "addGraphic" target='view'}} name="addGraphicFeature"></a>
+</li>
+<li>
+
+{{#if view.isTouch}}
+    <a id="show-removed-features" {{ action "showRemovedFeatures" }} class="{{if controller.removedFeaturesPanelOn 'show-removed-features-on sprite-touch-tab-trash-on' 'show-removed-features sprite-touch-tab-trash'}}" name="showRemovedFeatures"></a>
+{{else}}
+    <a id="show-removed-features" {{ action "showRemovedFeatures" }} class="{{if controller.removedFeaturesPanelOn 'show-removed-features-on sprite-tab-removed-on' 'show-removed-features sprite-tab-removed'}}" name="showRemovedFeatures"></a>
+{{/if}}
+</li>

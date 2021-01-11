@@ -1,0 +1,121 @@
+@import "global-edit-variables";
+
+#colour-search {
+    .tab-pane {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+    }
+}
+
+.colour-group-selector {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+
+    .colour-group-dropdown {
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        background: #EEEEEE;
+        left: 0;
+        top: 0;
+        right: 0;
+        transition: height 300ms;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+        grid-template-rows: repeat(auto-fill, 44px);
+        grid-gap: 10px;
+        justify-items: center;
+        margin: 0 10px 10px;
+
+        &.collapsed {
+            height: 0;
+        }
+
+        .colour-selector-box {
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            text-align: center;
+            overflow: hidden;
+
+            .colour-square {
+                width: 44px;
+                height: 44px;
+                border-radius: 1px;
+
+                div.rs-icon.icon-arrow {
+                    transform: rotate(180deg);
+                    padding: 0;
+                    width: 22px;
+                    height: 18px;
+                    position: absolute;
+                    top: 10px;
+                    left: 13px;
+                }
+            }
+        }
+    }
+
+    .colour-group-selector-scroll {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+        grid-template-rows: repeat(auto-fill, 44px);
+        grid-gap: 10px;
+        justify-items: center;
+        margin: 0 10px 10px;
+
+        .colour-group-square {
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+
+            .colour-group-selector-square {
+                width: 44px;
+                height: 44px;
+            }
+        }
+    }
+}
+
+.colour-group-selector-scroll {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+    grid-template-rows: repeat(auto-fill, 44px);
+    grid-gap: 10px;
+    justify-items: center;
+    margin: 0 10px 10px;
+
+    .colour-group-square {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+
+        .colour-group-selector-square {
+            width: 44px;
+            height: 44px;
+        }
+    }
+}

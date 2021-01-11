@@ -1,0 +1,32 @@
+<div id="loading-spinner-modal" class="is-visible">
+    <div id="circle-loading">
+        <div class="cssload-whirlpool"></div>
+    </div>
+
+    <div id="app-init-error" style="display:none">
+        <p>There was a problem initializing the app.</p>
+
+        <p class="upgrade">Sorry about that. Perhaps you can try <a href="http://browsehappy.com/">upgrading your
+            browser</a>.</p>
+    </div>
+    <noscript class="noscript-error">
+        <p>This app requires JavaScript to be enabled.</p>
+    </noscript>
+    <script>
+        window._rsAppInitTimeout = window.setTimeout(function () {
+            try {
+                if (Bugsnag) {
+                    Bugsnag.notify('AppInitializationError', 'App initialization timed out', {}, 'error');
+                }
+
+                var appInitError = document.getElementById('app-init-error');
+
+                if (appInitError) {
+                    appInitError.setAttribute('style', '');
+                    document.querySelector('.loading-spinner-backdrop').setAttribute('style', 'display:none');
+                }
+            } catch (e) {
+            }
+        }, 30000);
+    </script>
+</div>

@@ -1,0 +1,62 @@
+@import "global-edit-variables";
+
+.colour-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+    grid-template-rows: repeat(auto-fill, 44px);
+    grid-gap: 10px;
+    justify-items: center;
+    margin: 0 10px 10px;
+
+    .colour-selector-box {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+    }
+}
+
+.colour-square {
+    width: 44px;
+    height: 44px;
+    border-radius: 1px;
+
+    .colour-number-badge, .colour-link-badge {
+        float: right;
+        margin: 2px;
+        border-radius: 2px;
+        background: white;
+        font-size: 12px;
+        padding: 2px 4px;
+        line-height: 1;
+        color: $sub-colour-4;
+    }
+
+    .colour-number-badge {
+
+    }
+
+    .colour-link-badge {
+        padding: 1px 2px;
+
+        .icon-link-chain {
+            height: 11px;
+            width: 17px;
+            padding: 0;
+            svg {
+                path {
+                    fill: $sub-colour-4;
+                }
+            }
+        }
+    }
+
+    .upload-icon {
+        padding-top: 23px;
+
+        > svg {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}

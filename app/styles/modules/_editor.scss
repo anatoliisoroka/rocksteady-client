@@ -1,0 +1,125 @@
+.feature{
+    .back-to-kit-container{
+        margin-left: 12px;
+        z-index: $zindexBackToKitBtn;
+        position: fixed;
+        top:21px;
+        width: 150px;
+        margin: 0;
+        padding: 0;
+
+        a.back-to-kit{
+
+            .back-logo{
+                float:left;
+                position:relative;
+                top:1px;
+                display:block;
+            }
+
+            .back-text{
+                text-transform: uppercase;
+                margin-left: 10px;
+                vertical-align: middle;
+            }
+
+            border-style: none;
+            box-shadow: none;
+        }
+    }
+
+    .navbar-header.editor{
+        .title {
+            padding:0;
+            text-align:left;
+        }
+
+        .title::before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+        }
+    }
+}
+
+.editor-container{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: $navbarEditorHeight;
+    overflow: hidden;
+    z-index: $editorCanvasContainerZindex;
+    width: 100%;
+
+    &.scrollable{
+        .editor-canvas-container.rendered{
+            overflow: scroll;
+            height: 100%;
+        }
+        ::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 7px;
+            height: 7px;
+        }
+        ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .5);
+            -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+    }
+
+    .editor-canvas-container{
+        overflow:hidden;
+    }
+}
+
+.editor-top-toolbox-container {
+    position: absolute;
+    left: 15px;
+    top: 75px;
+    z-index: 1060;
+    width: 100%;
+    padding-right: 300px;
+    text-align: center;
+
+    .feature-name-overlay {
+    }
+}
+
+.editor-bottom-toolbox-container {
+    position: absolute;
+    left: 17px;
+    bottom: 17px;
+    z-index: 1060;
+    right: 290px;
+    pointer-events: none;
+    *{
+        pointer-events: all;
+    }
+    .touch & {
+        right: 240px;
+    }
+}
+
+.editor-inline-toolbox {
+    display: inline-block;
+    background-color: $propertyPanelBackground;
+    padding: 5px 10px;
+    border: $propertyPanelBorder;
+    border-radius: 5px;
+
+    .editor-grid-controls{
+        margin-right: 10px;
+    }
+
+    button {
+        background-color: white;
+        &.btn-current-zoom{
+            margin-right: 5px;
+        }
+    }
+}
+
+

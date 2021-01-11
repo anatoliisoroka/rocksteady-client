@@ -1,0 +1,32 @@
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{t 'selector.share_your_design'}}</h4>
+            </div>
+
+            <div class="modal-body">
+
+                <p class="selector-preview-container">
+                {{#if model}}
+                    <a href="{{model.url}}" target="_new">
+                        <img src="{{model.selector}}">
+                    </a>
+                {{/if}}
+                </p>
+
+                <p class="alert alert-info" role="alert">{{t 'selector.social_share_text'}}</p>
+
+            </div><!-- /.modal-body -->
+
+            <div class="modal-footer">
+                <button class="facebook-share-btn btn btn-primary" {{action 'shareOnFacebook' target=view}}>
+                    <span class="glyphicon glyphicon-share"></span>
+                    {{t 'general.share_on_facebook'}}
+                </button>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

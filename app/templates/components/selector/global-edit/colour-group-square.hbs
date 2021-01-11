@@ -1,0 +1,16 @@
+<div class="colour-group-selector-square" {{action 'selectColourGroup'}}>
+    {{#selector/global-edit/colour-square colourId=defaultColourId}}
+        {{#if isGroup}}
+            <div class="colour-number-badge">
+                {{groupLength}}
+            </div>
+            {{#if isUploadGroup}}
+                {{icon/upload-icon}}
+            {{/if}}
+        {{else if isAcgColour}}
+            <div class="colour-link-badge">
+                {{icon/link-chain}}
+            </div>
+        {{/if}}
+    {{/selector/global-edit/colour-square}}
+</div>

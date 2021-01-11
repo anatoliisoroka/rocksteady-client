@@ -1,0 +1,61 @@
+<div class="interview-step-promptedfeatures" data-interview-section="promptedfeatures">
+
+    <h4>{{t 'promptedfeatures.title'}}</h4>
+
+    <form class="form {{unless model.hasLoaded 'has-data-pending'}}" role="form">
+        {{#if model.promptedFeatures}}
+            {{#each promptedFeature in model.promptedFeatures}}
+                {{#if promptedFeature.isUserFlag}}
+                    <div class="form-group" name="{{promptedFeature.displayName}}">
+                        <label>{{promptedFeature.displayName}}</label>
+                        <div>
+                            {{#combo-box
+                                filter=regionFilter
+                                filterBy="nationality"
+                                name=promptedFeature.attrName
+                                label=""
+                                placeholder='Type nationality...'
+                                content=model.nationality
+                                value=model.nationality.nationality
+                                isFullWidth=true}}
+                                {{#each region in filteredRegions}}
+                                    <li {{action 'selectUserFlag' region promptedFeature}}>
+                                        <a href="#" data-value="{{region.nationality}}"
+                                           data-nationality="{{region.nationality}}"
+                                           data-iso-alpha-2="{{region.iso_alpha_2}}">
+                                            {{#if region.imageUrl}}
+                                                <img src="{{region.imageUrl}}"/>
+                                            {{/if}}
+                                            <span>{{region.nationality}}</span>
+                                        </a>
+                                    </li>
+                                {{/each}}
+                            {{/combo-box}}
+                        </div>
+                    </div>
+                {{else}}
+                    <div class="form-group" name="{{promptedFeature.displayName}}">
+                        <label>{{promptedFeature.displayName}}</label>
+                        <div>
+                            {{input placeholder=promptedFeature.defaultValue
+                                    value=promptedFeature.value
+                                    name=promptedFeature.attrName
+                                    class="form-control"}}
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+        {{else}}
+            <div class="form-group">
+                <p class="no-features-message">{{t 'promptedfeatures.no_features_message'}}</p>
+            </div>
+        {{/if}}
+    </form>
+
+    <div class="button-container">
+        <button type="button" class="btn btn-lg btn-buildkit build-kit" id="buildKit" {{action 'build'}}>
+            <span class="build-icon"></span>
+            {{!--<span class="build-icon"></span>--}}
+        </button>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<nav class="navbar-header editor unselectable">
+    <div class="center">
+        <h1 class="title">
+            {{#if model.name}}
+                <strong>{{t 'editor.header_editing'}}: </strong>
+                {{model.name}}
+            {{/if}}
+        </h1>
+    </div>
+    {{undo-redo}}
+</nav>
+
+<div id="toast-container" class="toast-container-editor">
+    <span class="do-not-remove"> </span>
+</div>
+
+{{colour-clash-editor/editor
+    positionName=model.name
+    features=model.features
+    editorController=controller
+    colours=model.design.colours
+    designId=model.design.id
+    coloursInteractedWith=model.design.coloursInteractedWith
+}}
+
+<div class="editor-container {{if isScrollable 'scrollable'}}">
+    {{view "design/editor/fabricEditorCanvas"}}
+</div>
+
+<div class="editor-top-toolbox-container">
+    {{#if controllers.application.config.APP.features.editor_feature_name}}
+    <div class="feature-name-overlay editor-inline-toolbox">
+        {{activeFeature.name}}
+    </div>
+    {{/if}}
+</div>
+
+<div class="editor-bottom-toolbox-container">
+    <div class="overflow-controller-container">
+        <div class="overflow-controller">
+            <div id="nipple-controller" class="controller"></div>
+        </div>
+    </div>
+    <div class="editor-inline-toolbox pull-right">
+        {{#if controllers.application.config.APP.features.editor_grid}}
+            {{view "design/editor/gridControls"}}
+        {{/if}}
+        {{zoom-controls zoom=zoom availableZoomScales=availableZoomScales setZoom="setZoom"}}
+    </div>
+</div>
+
+{{outlet}}

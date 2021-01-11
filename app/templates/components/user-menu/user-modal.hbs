@@ -1,0 +1,41 @@
+<div class="options-modal-header user-modal-header">
+    <button type="button" class="close" {{action 'close'}}>
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <span class="user-icon"></span>
+</div>
+<div class="options-modal-body user-modal-body" {{action 'noop' bubbles=false}}>
+    <ul class="options-modal-list">
+        {{#if isAuthenticated}}
+            <li class="options-login-item">
+                <span class="login-icon-wrapper">
+                    {{#if firstInitial}}
+                        <span class="log-in-initial">{{firstInitial}}</span>
+                    {{else}}
+                        <span class="user-icon user-icon__highlighted"></span>
+                    {{/if}}
+                </span>
+                <div class="login-details-wrapper">
+                    {{#if userName}}
+                        <span class="log-in-name">{{userName}}</span>
+                    {{/if}}
+                    <span class="log-in-email">{{userEmail}}</span>
+                </div>
+            </li>
+        {{/if}}
+        <li class="options-modal-list-item" {{action 'openAuthModal'}}>
+            {{#if isAuthenticated}}
+                <span class="options-icon log-out-icon"></span>
+                {{t 'user_menu.log_out'}}
+            {{else}}
+                <span class="options-icon log-in-icon"></span>
+                {{t 'user_menu.log_in'}}
+            {{/if}}
+        </li>
+        <li class="options-modal-list-item"
+            {{action 'openComingSoonModal' 'find_events' (t 'user_menu.coming_soon.find_events.title') (t 'user_menu.coming_soon.find_events.subtitle')}}>
+            <span class="options-icon find-events-icon"></span>
+            {{t 'user_menu.find_events'}}
+        </li>
+    </ul>
+</div>

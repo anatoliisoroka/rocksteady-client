@@ -1,0 +1,33 @@
+<!-- Non-localised copy of the error modal. This will only appear during catastrophic routing errors -->
+
+<div id="error-modal" class="fallback-application-error modal fade" style="display: none" data-backdrop="static">
+    <div class="modal-dialog error-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close hide-on-production" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">An error has occurred</h4>
+            </div>
+            <div class="modal-body">
+
+                <p>We're sorry, but there has been a technical malfunction and your action could not be completed.</p>
+
+                <p>The error has been logged and our engineering team will be investigating the cause.</p>
+
+                <div class="clearfix"> </div>
+
+                <div class="error-modal-message-container hide-on-production">
+                    <hr>
+
+                    <p>The error message is:</p>
+                    <p id="error-modal-message" class="error"></p>
+                </div>
+
+            </div><!-- /.modal-body -->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="location.hash = '#/interview/'">Close and Continue</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

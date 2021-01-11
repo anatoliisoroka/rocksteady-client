@@ -1,0 +1,615 @@
+.touch .skin-motocal{
+    .property-panel-container {
+        .property-panel{
+           width: #{$propertyPanelWidthTouch}px;
+           position: fixed;
+           .feature-toolbar{
+              .toolbar-list{
+                position:relative;
+                height:41px;
+
+                li{
+                    margin-right:2px;
+                    height:41px;
+                }
+
+                li:first-child{
+                    width:70px;
+                    background:$white;
+
+                    a{
+                        font-weight:bold;
+                        border-right:$propertyPanelBorder;
+                    }
+
+                    &.selected{
+                        top:0;
+                        width:70px;
+
+                       a{
+                           background:$white;
+                        }
+                    }
+
+                    &:not(.selected){
+                        background:#d1d1d1;
+                        a{
+
+                            color: #464646;
+                            /*border-left:1px solid #b7b7b7;*/
+                            border-top: 1px solid #b7b7b7;
+                            border-right: 1px solid #b7b7b7;
+                        }
+                    }
+                }
+
+                li:nth-of-type(2){
+                    a{
+                       top:0;
+                       display:block;
+                    }
+                }
+
+                li:nth-of-type(3){
+                    a{
+                        top:0;
+                        display:block;
+                   }
+                }
+
+                li:nth-of-type(4){
+                    a{
+                       top:0;
+                       display:block;
+                    }
+
+                    a.show-removed-features-on{
+                        border-bottom:none;
+                        display:block;
+                    }
+                }
+            }
+        }
+
+        .features{
+            border-top:0;
+            .removedFeatures{
+                top:2px;
+                border-top:0;
+                h5{margin-bottom:7px;}
+                .graphic-swatch-list{
+                    width:204px;
+                    display:inline-block;
+
+                    .graphic-swatch{
+                        margin-right:7px;
+                        margin-bottom:7px;
+                        width:41px;
+                        height:41px;
+                        float:none;
+                        display:inline-block;
+                        canvas{
+                            top:-10px;
+                            left:-10px;
+                            width:40px!important;
+                            height:40px!important;
+                        }
+                    }
+                }
+            }
+
+            .feature-panel{
+                padding-left:9px;
+                padding-top:8px;
+                padding-right:10px;
+
+                    .property-module.feature-preview{
+                        display:inline-block;
+                        border: $propertyPanelBorder;
+                        width:144px;
+                        height:89px;
+
+                        .clone-feature{
+                            display: none;
+                        }
+
+                        .remove-feature{
+                            left:152px;
+                            top:0;
+                            width:41px;
+                            height:41px;
+                            margin-bottom:7px;
+                            i{
+                                font-size:20px;
+                                padding-top:7px;
+                            }
+                        }
+
+                        .edit-feature-text{
+                            left:152px;
+                            top:47px;
+                            display:block;
+                            padding:0;
+
+                            button{
+                                display: block;
+                                padding:0;
+                            }
+
+                            .sprite-touch-btn-edit-text{
+                                display:block;
+                            }
+
+                            .edit-text{
+                                display:none;
+                            }
+                        }
+                    }
+
+                    .edit-text-feature {
+                        width: #{$propertyPanelWidthTouch}px;
+                        textarea{
+                            height:89px;
+                            width:144px;
+                            margin-right:0;
+                            font-size:14px;
+                            font-weight:normal;
+                            color:#464646;
+                        }
+
+                        div {
+                            margin-right: 7px;
+                            top: 9px;
+                            width: 50px;
+
+                            button {
+                                height: 41px;
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
+
+                .subpanel{
+                    margin-top:100px;
+                    width: #{$propertyPanelWidthTouch}px;
+
+                    .subpanel-headerbar,.subpanel-content{
+                        background:$white;
+                    }
+
+                    .subpanel-headerbar{
+                        padding-left:9px;
+                        padding-bottom:0;
+                        background-color:#efefef;
+                        border-top:none;
+                        button{
+                           width:41px;
+                           height:41px;
+                           border-radius:0;
+                        }
+
+                        .subpanel-back{
+                            button{
+                              .back-logo{ font-size:20px;}
+                              .back-text{ display:none;}
+                            }
+                        }
+
+                        .subpanel-toolbar{
+                            button{
+                                margin-top:5px;
+                                position:relative;
+                                left:3px;
+                                padding:0;
+                                .sprite-touch-btn-shapes{
+                                    display:block;
+                                }
+                            }
+                        }
+                    }
+
+                    .subpanel-content{
+                        -webkit-overflow-scrolling: touch;
+                        width: #{$propertyPanelWidthTouch}px;
+                        background-color:#efefef;
+                        .palette-container{
+                            padding-left:9px;
+                            h5{margin-bottom:7px;}
+
+                            .colour-palette{
+                                width: #{$propertyPanelWidthTouch}px;
+                            }
+                        }
+
+                        .palette-container.colours{
+                            .rumble-colour-palette-item-wrapper{
+                                width:41px;
+                                height:41px;
+                                margin-right:7px;
+                                margin-bottom:7px;
+                            }
+                        }
+
+                        .palette-container .font-palette{
+                            overflow-x:hidden;
+                            .font-swatch-list{
+                              padding:0;
+                              width:204px;
+                            }
+
+                            .font-swatch{
+                                width:41px;
+                                height:41px;
+                                margin-right:7px;
+                                margin-bottom:7px;
+
+                                canvas{
+                                    width: 41px!important;
+                                    height:41px!important;
+                                }
+                            }
+                        }
+
+                        .paged-composite-graphics-container{
+                            width: #{$propertyPanelWidthTouch}px;
+                            margin-top:0;
+                            background-color:#efefef;
+
+                            #graphicFilter{
+
+                                background:none;
+                                border:none;
+                                display:inline-block;
+                                width:214px;
+                                padding-left:7px;
+                                padding-right:5px;
+
+                                input{
+                                    width:160px!important;
+                                    position:absolute;
+                                    top:51px;
+                                    right:40px;
+                                    height:25px;
+                                    color:$fontBlue;
+                                    background:#EEE;
+
+                                    @media (max-height: 133px) {
+                                        top: 100px;
+                                    }
+                                }
+
+                                button[name="clearTags"]{
+                                    position:absolute;
+                                    left:178px;
+                                    top:62px;
+                                    background:none;
+                                    padding:0;
+
+                                    @media (max-height: 133px) {
+                                        top: 110px;
+                                    }
+
+                                    .sprite-touch-btn-filter-clear{
+                                        display:block;
+                                    }
+                                }
+
+                                /*background-position bug in ipad/safari
+                                requires pseudo element fix*/
+
+                                button[name="clearTags"]:before{
+                                    content:'';
+                                    width:25px;
+                                    height:25px;
+                                    position:relative;
+                                    right:15px;
+                                }
+
+                                .tokenfield{
+                                    margin-top:10px;
+                                    margin-bottom:21px;
+                                    width: 195px!important;
+
+                                    .close{
+                                        display:block;
+                                    }
+                                }
+
+                                .is-visible{
+                                    margin-top:33px;
+                                    min-height:35px;
+                                    background:#DDD;
+                                    border:$propertyPanelBorder;
+                                    margin-bottom:-4px;
+                                }
+
+                                .token{
+                                    display:inline-block;
+                                    margin:5px;
+                                    padding:2px;
+                                    margin-right:0;
+                                    margin-bottom:0;
+                                    margin-top:0;
+                                    border-radius:3px;
+                                    color:#666;
+                                    text-align:center;
+                                    .close{ display:none;}
+                                }
+                            }
+
+                            .palette-container{
+                                margin-top:10px;
+                                padding-top:0;
+                            }
+
+                            .palette-container.loading-graphics {
+                                background-position: 85px 100px;
+                            }
+
+                            .palette-container .graphic-palette{
+
+                                display:inline-block;
+                                width:204px;
+                                margin-top:-1px;
+                                left:-2px;
+                                .graphic-swatch-list{
+                                    padding:0;
+                                    padding-left:2px;
+                                    padding-top:2px;
+                                    width:204px;
+                                }
+
+                                .graphic-swatch{
+                                    box-sizing: content-box;
+                                    width:41px;
+                                    height:41px;
+                                    margin-right:7px;
+                                    margin-bottom:7px;
+                                    padding:0;
+                                    padding-top:3px;
+                                    overflow: hidden;
+                                }
+                            }
+                        }
+
+                        .paging-controls-container{
+                            position:relative;
+                            background-color:#efefef;
+                            .paging-controls{
+                                display:inline-block;
+                                margin-left:9px;
+                                margin-right:0;
+                                padding-top:0;
+                                border-top:none;
+
+                                button{
+                                    display:inline-block!important;
+                                    margin-right:7px;
+                                    padding:0;
+
+                                    i{ display:block;}
+                                }
+
+                                i{ display:none; }
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            .scrollable-property-panel-container{
+                padding-left:0;
+
+                @media (max-height: 500px) {
+                    height:250px;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                }
+
+                .touch-buttons-panel {
+                    margin-top:7px;
+                    width:204px;
+
+                    button {
+                        display: inline-block!important;
+                        margin-right: 7px;
+                        margin-bottom: 7px;
+                        padding:0;
+
+                        i{display:block;}
+                    }
+                }
+
+                .property-module.colour{
+                    margin:0;
+                    padding:0;
+                    width:204px;
+                    top:-10px;
+                    ul{
+                        li{
+                            margin-right:2px;
+                        }
+                    }
+
+                    .property-bd{
+                        position:relative;
+                        top:0;
+                        .property-bd-inner{
+                            display:inline-block;
+
+                            .edit-border{
+                                width:254px;
+                                left: -11px;
+                                display:inline-block;
+                                padding-left: 17px;
+                                padding-bottom: 0;
+
+                                button{
+                                    position:relative;
+                                    display:inline-block;
+                                    left:-21px;
+                                    width:41px;
+                                    height:41px;
+                                    margin-right:7px;
+
+                                    &.removeBorder {
+                                        margin-top: 9px;
+                                    }
+                                }
+
+                                .background-stroke-tools {
+                                    margin-bottom: 10px;
+
+                                    .rs-toggle-switch {
+                                        .btn {
+                                            top: 0;
+                                            margin-right: 0;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .colour-palette{
+
+                                width: #{$propertyPanelWidthTouch}px;
+                                left:-10px;
+                                height:57px;
+
+                                li{
+                                    width:41px;
+                                    height:41px;
+                                    margin-right:7px;
+                                    margin-bottom:7px;
+                                    position:relative;
+                                }
+
+                                .rumble-colour-palette-item-wrapper{
+                                   top:-20px;
+                                }
+
+                                .palette-navigation-item-wrapper{
+                                    top:4px;
+                                    span{
+                                        width:41px;
+                                        height:41px;
+                                        display:block;
+                                    }
+                                }
+
+                                .more-icon{
+                                    position:relative;
+                                    top:1px;
+                                    width:41px;
+                                    height:41px;
+                                }
+                            }
+                        }
+                    }
+
+                    .touch-control-button{
+                        display: inline-block;
+                        margin-right: 7px;
+                        margin-bottom: 7px;
+                        padding:0;
+                        i{ display:block; }
+                    }
+
+                    .removeBorder{
+                        i{ display:block;}
+
+                        .remove-border-button{
+                            display:none!important;
+                        }
+
+                        .remove-border-icon{
+                            display:none;
+                        }
+
+                        padding:0;
+
+                        .remove-border-text{
+                            font-size:7px;
+                            height:20px;
+                            width:41px;
+                            top:10px;
+                            position:relative;
+                            display:none;
+                            background-color:$fontBlue;
+                        }
+                    }
+                }
+
+                .property-module.graphics{
+                    .title{
+                      margin-bottom:10px;
+                    }
+
+                    .property-bd.graphics{
+                        width:204px;
+                        .graphic-palette{
+                            position:relative;
+                            .graphic-swatch-list{
+                                left:-4px;
+                                padding-bottom:0;
+                                padding-left:2px;
+                                .graphic-swatch{
+                                    box-sizing: content-box;
+                                    padding:3px 3px;
+                                    width:36px;
+                                    height:34px;
+                                    margin-right:7px;
+                                    margin-top:7px;
+
+                                    &[name="seeMoreGraphics"] {
+                                        padding-left: 2px;
+                                        margin-right: 0;
+                                        padding: 0;
+                                        width:37px;
+                                        height:37px;
+                                    }
+
+                                    .more-icon{
+                                        display:block;
+                                        margin-left:1px;
+                                        margin-top:1px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .upload-label{
+                            position:absolute;
+                            left:153px;
+                            top:80px;
+                            display: block;
+
+                            i{ display:block; }
+                        }
+
+                        .sprite-touch-btn-load-graphic{
+                            display:block;
+                        }
+
+                        .upload-graphic{
+                            display:block;
+                            opacity:0;
+                        }
+                    }
+                }
+
+                .property-panel .panels-container .more-icon,
+                .removeBorder,
+                .touch-control-button {
+                    width: 41px;
+                    height: 41px;
+                }
+            }
+
+            .tokenfield .close {
+                display: none;
+            }
+        }
+    }
+}

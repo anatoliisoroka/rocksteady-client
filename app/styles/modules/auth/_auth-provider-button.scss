@@ -1,0 +1,54 @@
+$google-colour: #dd4b3a;
+$facebook-colour: #5172a7;
+$microsoft-colour: #805eff;
+
+$main-colour: white;
+
+$button-width: 222px;
+
+.auth-provider-button {
+    color: $main-colour;
+    width: $button-width;
+    padding: 0;
+    margin: 0 auto;
+    border: none;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+
+    .auth-provider-button-icon {
+        flex: 0 1;
+        padding: 0 8px;
+
+        div.rs-icon {
+            padding: 3px;
+
+            svg {
+                polygon, rect, path, circle {
+                    fill: $main-colour;
+                }
+            }
+        }
+    }
+
+    .auth-provider-button-text {
+        flex: 1 0;
+        border-left: 1px solid #5d5d5d;
+        padding: 10px;
+    }
+
+    &.google {
+        background-color: $google-colour;
+    }
+
+    &.facebook {
+        background-color: $facebook-colour;
+    }
+
+    &.microsoft {
+        background-color: $microsoft-colour;
+    }
+}
+
+
+

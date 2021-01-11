@@ -1,0 +1,332 @@
+.skin-motocal{
+    .checkout{
+        &.navbar-header .right-interview{
+            display: none;
+        }
+        .edit-button{
+            text-transform: uppercase;
+            background: grey;
+            color: $white;
+            font-size: $checkoutFontSizeSmall;
+            font-weight: bold;
+            letter-spacing: 2px;
+
+            .edit-logo{
+                float:left;
+                position: relative;
+                top:3px;
+                display:block;
+                margin-right: 4px;
+            }
+        }
+
+        .apply-discount-label {
+            text-align: right;
+            font-size: small;
+            padding: 0;
+
+            a {
+                cursor: pointer;
+                text-align: right;
+            }
+        }
+
+        .back-to-kit-container{ display: none; }
+        .checkout-container{
+            font-family: $interfaceFontFamily;
+            padding:0 30px;
+
+            .center { padding-left: 14px; }
+
+            .checkout-deck{
+
+                h1{
+                    padding:0;
+                    margin-bottom: $checkoutHeadingMarginBottom;
+                    font-size: $checkoutHeadingFontSize;
+                    font-weight: bold;
+                    color: grey;
+                }
+
+                h2{
+                    font-size: $checkoutSubHeadingFontSize;
+                    font-weight: bold;
+                    color:grey;
+                    margin-bottom:$checkoutSubHeadingMarginBottom;
+                }
+
+                .components-container{
+                    @media (max-width: $screen-sm) {
+                        display: none;
+                    }
+
+                    margin:0;
+                    .edit-button{
+                        float: right;
+                        right:-1px;
+                        position: relative;
+                        bottom: 50px;
+                    }
+                }
+
+                .components-scroll{
+                    overflow-y: scroll;
+                    padding-bottom: 100px;
+                    .components-wrapper{
+                        .component{
+                            &.quantity0 {
+                                .canvas-wrapper,
+                                .ctrl-quality {
+                                    opacity: .3
+                                };
+                            }
+
+                            border: $checkoutBorder;
+                            .component{}
+                            .controls{
+                                .ctrl-quality{
+                                    .btn-group{
+                                        button{
+
+                                            font-size: 13px;
+                                            color: #464646;
+                                            min-width: 195px;
+
+                                            strong, span{
+                                                float: left;
+                                            }
+
+                                            .decal-name{
+                                                padding: 0 5px;
+                                            }
+
+                                            .caret{
+                                                position: relative;
+                                                top: 8px;
+                                                float: right;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .ctrl-quantity{
+
+                                    float:right;
+                                    input{
+                                        font-size: 13px;
+                                    }
+
+                                    .input-group{
+
+                                        button{
+                                            font-size: 13px;
+                                            color: $white;
+                                            font-weight: bold;
+                                            background-repeat: no-repeat;
+                                            background-size: 80%;
+                                            background-position:center;
+                                        }
+
+                                        .bootstrap-touchspin-prefix{
+                                            font-weight: bold;
+                                            position: relative;
+                                            left: 1px;
+                                        }
+
+                                        .bootstrap-touchspin-down{
+                                            background-image: url(../images/icn-minus-small.png);
+                                        }
+
+                                        .bootstrap-touchspin-up{
+                                            background-image: url(../images/icn-plus-small.png);
+                                        }
+
+                                        .input-group-addon{
+                                            font-size: 13px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .shipping-billing-container{
+                    .checkout-shipping-details{
+                        margin-top: 24px;
+
+                        #shipping-address{
+                            color: $fontBlue;
+                            font-size:$checkoutInputFontSize;
+                            font-family:$interfaceFontFamily;
+
+                            input{
+                                line-height:1;
+                            }
+
+                            @media (max-width: $screen-sm) {
+                                .combobox-menu {
+                                    right: auto;
+                                }
+                            }
+                        }
+
+                        .has-error{
+                            input{
+                                background: #f9f2f4;
+                                @include placeholder {
+                                    color: #B07675;
+                                }
+
+                            }
+                        }
+                    }
+
+                    label.has-error{
+                        border-radius: 5px;
+                        border: 1px solid #b94a48;
+                        padding-right: 16px;
+                        background: #f9f2f4;
+                        padding-top:0;
+                        margin-bottom:3px;
+                        color: #b94a48;
+                    }
+
+                    .terms{
+                        width: 100%;
+                        height:40px;
+
+                        .terms-link{
+                            display:inline-block;
+                            padding:10px 2px;
+                            input {
+                                width: 10px;
+                                height: 10px;
+                                margin: 3px;
+                                margin-right:6px;
+                                margin-left:0;
+                                position:relative;
+                                vertical-align: middle;
+                                top:-2px;
+                            }
+
+                            a{ padding-right:3px;}
+                        }
+                    }
+
+                    .combobox{  margin-bottom: 10px; }
+                    .estimate, .time-estimate{
+                        margin:0;
+                        top:0;
+                        font-weight: regular;
+                    }
+
+                    .estimate{
+                        font-size:20px;
+                        margin-bottom: 10px;
+
+                        .combobox .combobox-menu li span{
+                            margin-right: 0;
+                            max-width: 15em;
+                        }
+                    }
+
+                    .shipping-details-bottom{
+                        width: 98%;
+                        border-bottom: $checkoutBorder;
+                        margin-bottom: 10px;
+                    }
+                }
+
+                .price-and-button{
+                    position:relative;
+                    margin-bottom: $footerHeight + 120px;
+
+                    .order-price-totals-table {
+                        width: 100%;
+
+                        td, th{
+                            vertical-align: top;
+                            padding: 5px 0;
+                        }
+
+                        tr.total {
+                            border-top: 1px solid black;
+                        }
+
+                        tr.discount-input {
+                            .input-group{
+                                width: 100%;
+                                font-weight: normal;
+                                input {
+                                    height: 33px;
+                                    z-index: 4;
+                                }
+                            }
+                        }
+
+                        .discount, .shipping {
+                            td {
+                                position: relative;
+                            }
+
+                            th, td {
+                                padding-bottom: 0;
+                            }
+
+                            a.remove-discount-button {
+                                cursor: pointer;
+                                .glyphicon {
+                                    top: 2px;
+                                }
+                            }
+                        }
+
+                        .discount-quantity-message td {
+                            padding: 0 0 10px 0;
+                            font-size: $checkoutFontSizeSmall;
+                            text-align: left;
+                        }
+                    }
+
+                    .price, .price strong{
+                        font-size: 16px;
+                        margin: 5px 0;
+                        margin-top: 0;
+
+                        .price-cell{
+                            font-weight: bold;
+                            margin-left: 0.5em;
+
+                            &.flash {
+                                @include animation(price-blinker steps(1) .333s infinite);
+                            }
+                        }
+                    }
+
+                    .place-order-button {
+                        font-size: 16px;
+                        right: 0;
+                        top: 5px;
+
+                        span{
+                            margin-right: 5px;
+                        }
+
+                        button{
+                            white-space: inherit;
+                            text-transform: uppercase;
+                            font-size:16px;
+                            letter-spacing: 1px;
+                            padding: 10px 20px;
+
+                            @media (max-width: $screen-sm) {
+                                position: relative;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

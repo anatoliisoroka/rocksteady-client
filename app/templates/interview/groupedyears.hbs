@@ -1,0 +1,29 @@
+<div class="interview-step-carousel" data-interview-section="groupedyear">
+    <h4>{{t 'interview.groupedyear_title'}}</h4>
+
+    {{#if targetKits}}
+        <div class="block-elements">
+            {{#each targetKit in targetKits}}
+                <div class="selectable element generic-icon"
+                     title="{{targetKit.name}}"
+                     data-searchfor="{{targetKit.name}}"
+                     data-groupedyear-name="{{targetKit.name}}"
+                    {{action "chooseGroupedYear" targetKit}}>
+                    <div class="impact small">
+                        {{groupedyear targetKit}}
+                    </div>
+                </div>
+            {{/each}}
+
+            <div class="selectable generic-icon element"
+                 title="Other"
+                 data-searchfor="Other"
+                 data-groupedyear-name="None"
+                {{action "skipGroupedYear"}}>
+                <div class="impact small">{{t 'interview.carousel_item_other'}}</div>
+            </div>
+        </div>
+    {{else}}
+        <div class="saving-throbber"></div>
+    {{/if}}
+</div>

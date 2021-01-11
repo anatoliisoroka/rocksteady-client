@@ -1,0 +1,39 @@
+<div class="modal fade confirm-theme-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-hidden="true" {{action 'cancel' target=view}}>&times;
+                </button>
+                <h4 class="modal-title">{{model.name}}</h4>
+            </div>
+            <div class="modal-body">
+                {{#if error}}
+                    <p class="alert alert-danger">{{t 'themes.confirm.apply_error'}}</p>
+                {{else}}
+                    <div class="img-wrapper">
+                        <img class="img-responsive" src="{{allPositionsPreviewUrl}}">
+                    </div>
+                    <p>{{t 'themes.confirm.body'}}</p>
+                {{/if}}
+            </div>
+
+            <div class="modal-footer">
+                {{#if error}}
+                    <button type="button"
+                            class="btn btn-default"
+                            data-dismiss="modal" {{action 'cancel' target=view}}>{{t 'application.close'}}</button>
+                {{else}}
+                    <button type="button"
+                            class="btn btn-default" {{action 'cancel' target=view}}
+                            data-dismiss="modal">{{t 'application.cancel'}}</button>
+                    <button type="button" class="btn btn-primary" {{action 'confirmThemeSelection'}}>
+                        {{t 'themes.confirm.button'}}</button>
+                {{/if}}
+            </div>
+
+        </div>
+    </div>
+</div>

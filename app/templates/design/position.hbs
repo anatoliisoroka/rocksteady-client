@@ -1,0 +1,65 @@
+<div class="position-tooltip-container">
+
+    <div class="position-tooltip-backdrop">
+    </div>
+
+    <div class="position-tooltip">
+        <div class="position-tooltip-box">
+            <div class="rs-popover-title-container">
+              <h2 class="rs-popover-title">{{model.name}}</h2>
+            </div>
+            <div class="rs-popover-content">
+
+                {{#if isPositionActive }}
+                <button {{action 'transitionToEditor' target=view}} class="btn edit-btn edit-enabled" title="{{t 'selector.popover_edit_component'}}">
+                <i class="glyphicon-pencil glyphicon rs-popover-icon"></i>
+                {{t 'selector.popover_edit'}}
+                </button>
+                {{else}}
+                <button {{action 'addPosition' target=view}} disabled={{isAddPositionDisabled}} class="btn edit-btn edit-enabled" title="{{t 'selector.popover_add_component'}}">
+                <i class="glyphicon-plus glyphicon rs-popover-icon"></i>
+                {{t 'selector.popover_add'}}
+                </button>
+                {{/if}}
+
+                {{#if hasAlternativeShapes}}
+                    <button {{action 'showAlternativeDialog' target=view}} class="btn alts-btn alts-enabled" title="{{t 'selector.popover_alternative_component'}}">
+                    {{#if isTargetCategoryKit}}
+                        <img src="branding/images/selector/ruler_scissors_icon.svg" />
+                    {{else}}
+                        <img src="branding/images/selector/ruler_icon.svg" />
+                    {{/if}}
+                    </button>
+                {{else}}
+                <button disabled class="btn alts-btn disabled-btn">
+                <i class="glyphicon-folder-open glyphicon rs-popover-icon"></i>
+                </button>
+                {{/if}}
+
+                {{#if isPositionActive }}
+                <button {{action 'removePosition' target=view}} class="btn remove-btn remove-enabled" title="{{t 'selector.popover_remove_component'}}">
+                <i class="glyphicon-minus glyphicon rs-popover-icon"></i>
+                </button>
+                {{else}}
+                <button disabled class="btn remove-btn disabled-btn">
+                <i class="glyphicon-minus glyphicon rs-popover-icon"></i>
+                </button>
+                {{/if}}
+
+                {{#if controllers.application.config.APP.features.mirror_features}}
+                    {{#if canMirrorFeatures}}
+                    <button class="btn mirror-features-btn" {{action 'mirrorFeatures' target=view}} title="{{t 'selector.popover_mirror_features' position=oppositePosition.name}}">
+                    <i class="glyphicon-transfer glyphicon rs-popover-icon"></i>
+                    </button>
+                    {{else}}
+                    <button disabled class="btn mirror-features-btn disabled-btn">
+                    <i class="glyphicon-transfer glyphicon rs-popover-icon"></i>
+                    </button>
+                    {{/if}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{outlet}}

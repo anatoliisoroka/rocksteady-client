@@ -1,0 +1,95 @@
+@import "theme-variables";
+
+.side-menu.filter-menu {
+
+    .filter-nav {
+
+        .filter-list-toggle {
+            width: 100%;
+            background: none;
+            border: none;
+            border-bottom: 1px solid $sub-colour-2;
+            border-radius: 0;
+            text-align: left;
+            cursor: pointer;
+            padding: 5px;
+            text-transform: capitalize;
+
+            &.collapsed {
+                .icon-plus-thin {
+                    display: inline-block;
+                }
+                .icon-minus-thin {
+                    display: none;
+                }
+            }
+
+            .rs-icon {
+                float: right;
+                padding: 0;
+                height: 17px;
+                width: 17px;
+            }
+
+            .icon-plus-thin {
+                display: none;
+            }
+
+            .icon-minus-thin {
+                display: inline-block;
+            }
+        }
+
+        .filter-nav-list {
+            list-style: none;
+            margin: 10px 0 0 0;
+            padding: 0;
+            width: 100%;
+
+            li {
+                text-indent: 0;
+                color: lightgrey;
+                transition: color 300ms;
+
+                label {
+                    cursor: not-allowed;
+
+                    .rs-custom-checkbox {
+                        transition: border-color 300ms;
+                        border-color: #ebedee;
+                    }
+                }
+
+                &.active {
+                    color: #6D6E71;
+
+                    label {
+                        cursor: pointer;
+
+                        .rs-custom-checkbox {
+                            //background: white;
+                            border-color: #c6c8c9;
+                        }
+                    }
+                }
+
+                .rs-checkbox-small {
+                    width: 100%;
+                    padding: 7px;
+
+                    .rs-custom-checkbox {
+                        float: right;
+                    }
+                }
+
+                a.show-more-link {
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+}
+
+/* Desktop */
+//@media (min-width: $screen-sm-min) {
+//}

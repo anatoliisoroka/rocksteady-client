@@ -1,0 +1,246 @@
+$priceAndButtonWidth: 20em;
+$componentControlWidth: 14em;
+$checkout-screen-height: 600px;
+$checkout-screen-medium: 750px;
+
+.checkout{
+    .hero-logo {
+        margin-left: 140px;
+        position: fixed;
+    }
+
+    .has-tabs{
+        .edit-button{
+            display: none;
+        }
+    }
+
+    .checkout-container {
+        .components-scroll{
+            background-color: white;
+            height: 88%;
+            overflow: auto;
+            clear: both;
+            &.shepherd-target.shepherd-enabled{
+                position: relative;
+            }
+        }
+
+        .checkout-header-section {
+        }
+
+        .navbar-header {
+            position: fixed;
+            left:0;
+            padding-left: 0px;
+
+            .center {
+                /*padding-left: 442px;*/
+            }
+        }
+
+        overflow: auto;
+        position: absolute;
+        top: $headerHeight;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        .checkout-deck {
+            margin: 0 1em 1em 1em;
+            padding: 1em 0;
+            box-sizing: border-box;
+        }
+
+        .components-wrapper {
+            h2 {
+                display: none;
+            }
+
+            max-height: none;
+            padding-right: 0;
+            margin-bottom: 30px;
+        }
+
+        .component {
+            position: relative;
+            margin-bottom: 10px;
+            background-image: url(../images/background-grid-small.png);
+
+            .canvas-wrapper {
+                height: 200px;
+                width: 100%;
+                padding-right: $componentControlWidth;
+            }
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .shipping-billing-container, .components-container {
+            position: relative;
+            top: 0;
+            left: 0;
+            @include transition-property(left);
+            @include transition-duration(1s);
+        }
+
+        .shipping-billing-container {
+            margin-bottom: 50px;
+            padding-left: 30px;
+            margin-top: $headerHeight + /*39px + */20px;
+            top: 0;
+            right: 0;
+            left: auto;
+            overflow: scroll;
+            height: 100%;
+
+            position: fixed;
+
+            @media (max-width: $screen-sm) {
+                position: static;
+                padding: 0;
+            }
+        }
+
+        .checkout-deck {
+            position: relative;
+        }
+
+        .controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .price-and-button {
+            font-size: 1em;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            float: none;
+            text-align: right;
+
+            .terms-link {
+                display: inline-block;
+                margin-right: 2em;
+                vertical-align: bottom;
+                margin-bottom: 0;
+                font-size: 0.85em;
+            }
+        }
+
+        .price {
+            font-size: 200%;
+            margin: 0.5em 0;
+        }
+    }
+
+    .ctrl-quality{
+        button {
+            min-width: $componentControlWidth;
+        }
+
+        .dropdown-menu {
+            width: 25em;
+
+
+        }
+
+        h4 {
+            font-size: 16px;
+            font-family: $interfaceFontFamily;
+            font-weight: bold;
+            color: #464646;
+            margin-left: 16px;
+            margin-right: -16px;
+            margin-top: 16px;
+            padding-left: 0;
+            text-transform: none;
+        }
+    }
+
+    .ctrl-quantity {
+        width: $componentControlWidth;
+        margin-top: 1em;
+
+        input {
+            height: auto;
+        }
+    }
+
+    .checkout-shipping-details {
+
+        #checkout-combobox{
+
+            span[data-name="Country"]{
+
+                width: 48.5%;
+                font-size: 0.9em;
+            }
+        }
+
+        h2{
+            margin-bottom: 15px !important;
+        }
+
+        font-size: 14px;
+
+        .region-button, .region-button > div {
+            margin-top: 0;
+        }
+
+        input {
+
+            margin-bottom: 10px;
+            width: 98%;
+            height: 30px;
+            font-size: 16px;
+        }
+
+        .half-width, .postcode {
+            width: 48.5%;
+            display: inline-block;
+        }
+
+        .estimate{
+            margin-top: 1em;
+        }
+
+        div.country{
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+
+    body.checkout-billing-iframe-contents {
+
+        input {
+            margin-bottom: 0.3em;
+            width: 10em;
+        }
+
+        input:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.modal.terms-and-conditions {
+    .modal-body {
+        p.p1 {margin: 0.0px 0.0px 6.0px 0.0px; text-align: justify; font: 11.0px Helvetica; min-height: 13.0px}
+        p.p2 {margin: 0.0px 0.0px 6.0px 0.0px; text-align: justify; font: 11.0px Arial}
+        p.p3 {margin: 0.0px 0.0px 12.0px 0.0px; text-align: justify; font: 11.0px Arial}
+        p.p4 {margin: 0.0px 0.0px 12.0px 36.0px; text-align: justify; font: 11.0px Arial}
+        p.p5 {margin: 0.0px 0.0px 20.0px 0.0px; text-align: justify; font: 11.0px Arial}
+        li.li3 {margin: 0.0px 0.0px 12.0px 0.0px; text-align: justify; font: 11.0px Arial}
+        span.s1 {font: 11.0px Helvetica}
+        span.Apple-tab-span {white-space:pre}
+        /*ol.ol1 {list-style-type: decimal}*/
+        ol {list-style-type: none; padding-left: 0.5em;}
+
+        max-height: 400px;
+        overflow-y: scroll;
+    }
+}

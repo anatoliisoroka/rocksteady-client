@@ -1,0 +1,250 @@
+.skin-motocal{
+    .interview{
+        .interviewsteps-container{
+            transition: top .5s;
+            margin-bottom: $progressBarHeight + $interviewLargeMargin;
+
+            &.disableScroll {
+                margin: 0;
+                height: 100%;
+                overflow: hidden;
+            }
+        }
+
+        .interview-step {
+            padding-top: 36px;
+
+            form {
+                margin:0;
+                padding:0;
+            }
+
+            font-family: $interfaceFontFamily;
+
+            h4{
+
+                color: black;
+                font-weight: bold;
+                font-size: $interviewStepTitleFontSize;
+                margin-bottom:$interviewLargeMargin;
+            }
+
+            h5{
+                margin-top: $interviewTargetsMargin;
+                margin-bottom: $interviewTargetsMargin;
+                font-weight: bold;
+                font-size: $interviewTargetsFontSize;
+                color: $interviewSubHeadingColor;
+            }
+
+            label, .sub-heading {
+                margin-bottom: $interviewTargetsMargin;
+                color: $interviewSubHeadingColor;
+                font-size: $interviewTargetsFontSize;
+            }
+
+            .carousel-view, .rs-carousel-wrapper, .rs-carousel {
+                background-color: white;
+                height: 250px;
+
+                .rs-carousel-item {
+                    min-height: 230px;
+                }
+            }
+
+            @media (max-width: $screen-sm) {
+                .carousel-view {
+                    margin-left: -31px;
+                }
+            }
+
+            .interview-step-combobox {
+
+                .available-targets {
+                    margin:0;
+                    overflow-x: hidden;
+                    overflow-y: hidden;
+
+                    &.has-data-pending {
+                        background-image: url(../images/spinners/large-circular-throbber.gif);
+                        background-repeat: no-repeat;
+                        background-position: center left;
+
+                        ul {
+                            visibility: hidden;
+                        }
+                    }
+                }
+
+                ul {
+                    margin:0;
+                    padding-left: 0;
+
+                    li, a {
+                        margin: 0;
+                        color: black;
+                        font-size: $interviewTargetsFontSize;
+                        margin-bottom: $interviewTargetsMargin;
+                    }
+                }
+
+                input {
+
+                    color: grey;
+                    border-radius: $baseBorderRadius;
+                    font-size: $interviewTargetsFontSize;
+                    padding: 7px;
+                    margin:0;
+
+                    @media (min-width: $screen-sm-min) {
+                        max-width: 50%;
+                    }
+                }
+            }
+
+            &[name="PromptedFeatures"]{
+                height: auto;
+            }
+
+            .interview-step-promptedfeatures{
+                .combobox {
+                  .btn-group{
+                    display: block;
+                    .combobox-menu{
+                        transform: translateY(32px);
+                    }
+                  }
+                    input, button  {
+                      width: 100%;
+                    }
+                  display: block;
+                }
+
+                width: 50%;
+
+                @media (max-width: $screen-sm) {
+                    width: 90%;
+                }
+
+                h5 {
+                    font-size: 20px;
+                    margin: 36px 0;
+                }
+
+                .form-group{
+
+                    margin-top: 12px;
+
+                    label{
+                        text-transform: uppercase;
+                        font-size: 16px;
+                        margin-bottom:12px;
+                    }
+
+                    input{
+                        font-size: 15px;
+                        color: grey;
+                    }
+                }
+
+                .combobox{
+                    border-radius: $baseBorderRadius;
+                }
+            }
+        }
+
+        .block-elements .element, .rs-carousel-item{
+            &.generic-icon {
+                background-image: url(../images/generic-icon.png);
+                background-repeat: no-repeat;
+                background-position: 0 16px;
+            }
+
+            .impact{
+                font-size: 250%;
+                font-family: $interfaceFontFamily;
+                font-weight: bold;
+                color: black;
+                vertical-align: middle;
+                display: inline-block;
+                line-height: 1.5;
+
+                &.small {
+                    font-size: 170%;
+                    line-height: 1.5;
+                }
+
+                &.x-small {
+                    font-size: 130%;
+                    line-height: 1.5;
+                }
+            }
+        }
+
+      .block-elements .element{
+        &.generic-icon {
+          background-position: 0;
+          background-size: cover;
+          text-align: center;
+          line-height: 140px;
+          border: 5px solid white;
+        }
+      }
+
+        .rs-carousel-item{
+            border: 1px solid transparent;
+            height: 230px;
+
+            > h5 {
+                border-style: none none solid none;
+            }
+        }
+
+        .button-container{
+
+            float:right;
+
+            .build-kit{
+                margin-top: 36px;
+                float:right;
+                width:140px;
+                display:inline-block;
+                padding:0;
+                height:68px;
+                color:white;
+                font-size:21px;
+                line-height:1em;
+                letter-spacing:2px;
+                position:relative;
+                border-radius:0;
+                border:none;
+                text-transform:uppercase;
+                white-space:normal;
+                text-align:left;
+                background-color: grey;
+
+                .build-kit-text{
+                    position:relative;
+                    top:12px;
+                    width:50px;
+                }
+
+                .build-icon{
+                    padding:0;
+                    float:left;
+                    content:'';
+                    display:block;
+                }
+
+                &::after{
+                    color: black;
+                    content: 'Submit';
+                    position: absolute;
+                    top: 22px;
+                    left: 25px;
+                }
+            }
+
+        }
+    }
+}

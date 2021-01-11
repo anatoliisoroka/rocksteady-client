@@ -1,0 +1,39 @@
+<div id="loading-design-xs">
+    <div class="brand-header-bar"><h1>Motocal</h1></div>
+
+    <div class="logo-container">
+        <a data-placement="top hero-logo"
+           class="hero-logo"></a>
+    </div>
+
+    <nav class="navbar-header">
+        <div class="center">
+        </div>
+        <div class="right-interview">
+        </div>
+    </nav>
+
+    <div class="content">
+        <h3 class="text-center">{{view.modelDescription}}</h3>
+
+        <div class="imgs-container text-center">
+            <div class="img product-line hidden"></div>
+            <div class="img manufacturer hidden"></div>
+            <div class="img ruleSet hidden"></div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{progress}}"
+                     aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+        </div>
+
+        <div class="waiting-message-container">
+            <h5 class="text-center waiting-message">
+                {{view.changeWaitingMessage}}
+            </h5>
+        </div>
+    </div>
+</div>

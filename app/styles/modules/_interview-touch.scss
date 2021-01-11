@@ -1,0 +1,45 @@
+html.touch{
+    .skin-motocal{
+        .interview{
+            .interviewsteps-container{
+                .interview-step{
+                    h4{
+                        margin-bottom: $interviewLargeMarginTouch;
+                    }
+
+                    h5{
+                        margin-bottom: 15px;
+                    }
+
+                    label, .sub-heading {
+                        margin-bottom: 7px;
+                    }
+
+                    input{
+                        font-family: $interfaceFontFamily;
+                        font-weight: normal;
+                        font-size: 16px;
+                    }
+                }
+
+                .interview-step-promptedfeatures{
+                    .combobox{
+                        .dropdown{
+                            button{
+                                font-size: 16px;
+                                float: right;
+                            }
+                        }
+                    }
+                }
+                
+                .button-container{
+
+                    .build-kit {
+                        margin-top:0;
+                    }
+                }
+            }
+        }
+    }
+}

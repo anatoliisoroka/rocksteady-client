@@ -1,0 +1,254 @@
+$sub-colour: #EFEFEF;
+$sub-colour-2: #D1D3D4;
+$sub-colour-3: #6D6E71;
+$star-highlight-color: #fbcc34;
+$eye-highlight-color: #62c462;
+$flame-color: #ef4136;
+$info-inner-fill: white;
+
+/* All icons */
+div.rs-icon {
+    display: inline-block;
+    padding: 5px;
+    vertical-align: middle;
+    height: 25px;
+    width: 25px;
+
+    &.icon-background {
+        background: $sub-colour;
+        border-radius: 3px;
+    }
+
+    svg {
+        display: block;
+        margin: 0 auto;
+        max-height: 100%;
+        max-width: 100%;
+
+        polygon, rect, path, circle {
+            fill: $sub-colour-3;
+        }
+    }
+
+}
+
+/* Arrows */
+div.icon-arrow {
+    cursor: pointer;
+
+    &.disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+
+        &.icon-background {
+            background: lighten($sub-colour, 5%);
+        }
+
+        svg {
+            polygon {
+                fill: lighten($sub-colour-3, 20%)
+            }
+        }
+    }
+}
+
+//TODO Refactor
+div.icon-arrow-left-solid {
+    $arrow-size: 12px;
+    display: inline-block;
+
+    &:after {
+        content: '';
+        display: block;
+        box-sizing: border-box;
+        height: 0;
+        width: 0;
+        border: $arrow-size/1.7 solid transparent;
+        border-right: $arrow-size solid white;
+        border-left: none;
+    }
+}
+
+/* Gallery controls */
+div.icon-grid-view, div.icon-full-screen {
+    cursor: pointer;
+}
+
+div.icon-star {
+    cursor: pointer;
+
+    &.highlighted {
+        svg {
+            polygon {
+                fill: $star-highlight-color;
+            }
+        }
+    }
+}
+
+div.icon-eye {
+
+    &.icon-eye-open {
+        padding: 7px 5px;
+        width: 32px;
+    }
+
+    &.highlighted {
+        svg {
+            path {
+                fill: $eye-highlight-color;
+            }
+        }
+    }
+}
+
+div.icon-fire {
+    svg {
+        path {
+            fill: $flame-color;
+        }
+    }
+}
+
+div.icon-info {
+    cursor: pointer;
+
+    svg {
+        path, rect {
+            fill: $info-inner-fill;
+        }
+    }
+}
+
+div.icon-remove {
+    cursor: pointer;
+    padding: 0;
+    height: auto;
+    font-size: 18px;
+    vertical-align: middle;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+
+    span {
+        position: relative;
+        top: -2px;
+        left: 0;
+    }
+}
+
+div.icon-plus-thin {
+    cursor: pointer;
+}
+
+div.icon-minus-thin, div.icon-minus-thick {
+    cursor: pointer;
+
+    svg {
+        width: 100%;
+    }
+}
+
+div.icon-search-thin {
+    cursor: pointer;
+}
+
+div.icon-user-edit {
+    cursor: pointer;
+}
+
+div.icon-submit-design {
+    cursor: pointer;
+}
+
+div.icon-new-badge {
+    cursor: pointer;
+}
+
+div.icon-rosette-badge {
+    cursor: pointer;
+
+    svg {
+        path {
+            fill: #f7941d;
+        }
+    }
+}
+
+//div.icon-arrow-box {
+//
+//}
+
+.save-icon, .fb-share-icon, .submit-design-icon,
+.find-designer-icon, .view-3d-icon {
+    height: 100%;
+    width: 100%;
+
+    &:after {
+        position: relative;
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-size: cover;
+    }
+
+}
+
+/* TODO: Older icons to be migrated */
+.save-icon {
+    &::after {
+        background: rgba(255, 255, 255, 0) url(../images/icons/save-icon.svg) no-repeat 0 0;
+    }
+}
+
+.fb-share-icon {
+    &::after {
+        background: rgba(255, 255, 255, 0) url(../images/icons/fb-share-icon.svg) no-repeat 0 0;
+    }
+}
+
+.submit-design-icon {
+    top: 2px;
+    &::after {
+        left: -1px;
+        background: rgba(255, 255, 255, 0) url(../images/icons/submit-design-icon.svg) no-repeat 0 0;
+    }
+}
+
+.find-designer-icon {
+     &::after {
+         left: 1px;
+         background: rgba(255, 255, 255, 0) url(../images/icons/find-designer-icon.svg) no-repeat 0 0;
+     }
+ }
+
+.view-3d-icon {
+    &::after {
+        left: 1px;
+        background: rgba(255, 255, 255, 0) url(../images/icons/view-3d-icon.svg) no-repeat 0 0;
+    }
+}
+
+@mixin triangle($size, $color, $direction) {
+    $larger-size: $size * 2;
+
+    width: 0;
+    height: 0;
+    border: $size solid transparent;
+
+    @if $direction == 'down' {
+        border-top: $larger-size solid $color;
+    }
+    @if $direction == 'up' {
+        border-bottom: $larger-size solid $color;
+    }
+    @if $direction == 'left' {
+        border-right: $larger-size solid $color;
+    }
+    @if $direction == 'right' {
+        border-left: $larger-size solid $color;
+    }
+}

@@ -1,0 +1,2125 @@
+/* ------------------- */
+/* Application Globals */
+/* ------------------- */
+
+body {
+    background-color: #FFFFFF;
+}
+
+/* button default state */
+button.btn.btn-primary {
+    background-color: #1b4383;
+    border-color: #2e6da4;
+}
+
+/* button hover state */
+button.btn.btn-primary:hover {
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+/* button active state */
+button.btn.btn-primary:active {
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+/*********************************/
+
+/* disabled button default state */
+button.btn.btn-primary.disabled,
+button.btn.btn-primary[disabled] {
+    background-color: #1b4383;
+    border-color: #2e6da4;
+}
+
+/* disabled button hover state */
+button.btn.btn-primary.disabled:hover,
+button.btn.btn-primary[disabled]:hover {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+/* Button Success */
+button.btn.btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+button.btn.btn-success:hover {
+    color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+/* Global error modal */
+.error {
+    font-family: courier, sans-serif;
+    font-weight: bold;
+    color: red;
+}
+
+/* Global error modal fallback/catastrophic text */
+#error-modal .modal-body {
+    color: #333333;
+}
+
+/* Default button colors */
+.btn-primary {
+    color: #FFFFFF;
+    background-color: #1b4383;
+    border-color: #2e6da4;
+}
+
+.btn-default, .options-menu-button {
+    color: #333333;
+    background-color: #FFFFFF;
+    border-color: #CCCCCC;
+}
+
+.btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary.focus {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+/* Help button */
+.help-button {
+    color: #1b4383;
+}
+
+/* Fonts */
+/* font-family: "interface", Arial, Helvetica, sans-serif; */
+/* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif */
+
+/* Links */
+a {
+    color: #337ab7;
+}
+
+a:hover, a:focus {
+    color: #23527c;
+}
+
+/* Tooltips globals */
+.tooltip-inner {
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top-color: #000000;
+}
+
+/* Sub section spinner */
+#circle-loading .cssload-whirlpool,
+#circle-loading .cssload-whirlpool::before,
+#circle-loading .cssload-whirlpool::after {
+    border: 1px solid #1b4383;
+    border-left-color: #e81512;
+}
+
+/* Modals background */
+.rs-modal .rs-modal-dialog .rs-modal-content,
+.modal .modal-dialog .modal-content {
+    background-color: #FFFFFF;
+}
+
+/* Modals heading */
+.skin-motocal .modal-dialog .modal-content .modal-title {
+    color: #252525;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+/* Modals body */
+div.modal > .modal-dialog > .modal-content > .modal-body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Modals footer button */
+.skin-motocal .modal-footer button.btn {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+/* Small loading spinner */
+.saving-throbber,
+.skin-motocal .interview .interview-step .interview-step-combobox .available-targets.has-data-pending {
+    background: url(images/spinners/large-circular-throbber.gif) no-repeat left 25px;
+    min-height: 100px;
+}
+
+/* Prompted features loading spinner */
+.interview form [name="PromptedFeatures"] form.has-data-pending {
+    background: url(images/spinners/large-circular-throbber.gif) no-repeat center center;
+    height: 100px;
+}
+
+/* Touch / mobile loading design progress bar */
+div#loading-design-xs-container .progress > .progress-bar {
+    background-color: #337ab7;
+}
+
+/* Global Placeholder Colours */
+.skin-motocal input::placeholder { /* Modern */
+    color: #999999;
+}
+
+.skin-motocal input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #999999;
+}
+
+.skin-motocal input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #999999;
+    opacity: 1;
+}
+
+.skin-motocal input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #999999;
+    opacity: 1;
+}
+
+.skin-motocal input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #999999;
+}
+
+.skin-motocal input::-ms-input-placeholder { /* Microsoft Edge */
+    color: #999999;
+}
+
+/* -------------- */
+/* Toast messages */
+/* -------------- */
+
+/* Toast success */
+.toast-success {
+    background-color: #51A351;
+}
+
+/* Toast warning */
+.toast-warning {
+    background-color: #F89406;
+}
+
+/* Toast error */
+.toast-error {
+    background-color: #BD362F;
+}
+
+/* -------------------- */
+/* Small screen message */
+/* -------------------- */
+
+/* Small screen message logo */
+#viewport-too-small .motocal-logo {
+    background-image: url("images/small-screen-modal/brand-logo-327x70.png");
+    width: 327px;
+    height: 70px;
+}
+
+/* ------ */
+/* Header */
+/* ------ */
+
+/* Header */
+.skin-motocal .navbar-header {
+    border-color: #CCCCCC;
+}
+
+/* Header background (general) */
+.skin-motocal .brand-header-bar {
+    background-image: url(images/header/top-bg.png);
+}
+
+/* Header background in editor */
+.skin-motocal .navbar-header.editor {
+    background-image: url(images/header/top-bg-2.png);
+}
+
+/* Hero logo */
+.skin-motocal .logo-container .hero-logo {
+    background-image: url("images/header/brand-logo-header.png");
+}
+
+/* Hero logo small screen */
+@media (max-width: 480px) {
+    .skin-motocal .logo-container .hero-logo {
+        margin-left: 10px;
+        background-image: url("images/header/brand-logo-header-sm.png");
+    }
+}
+
+/* Title */
+.skin-motocal .navbar-header .center .title {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    color: #464646;
+}
+
+/* Competition country */
+.skin-motocal .navbar-header .right-interview .combobox .dropdown .dropdown-toggle,
+.skin-motocal .navbar-header .right-interview .combobox .dropdown .dropdown-toggle span.combobox-label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Back to selector button text color, font, transform */
+.feature .back-to-kit-container a.back-to-kit .back-text {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+/* Touch Back to selector button text color, font, transform */
+html.touch .feature .back-to-kit-container a.back-to-kit .back-text {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+/* Edit button */
+.skin-motocal .checkout .edit-button {
+    background: #1b4383;
+    color: #FFFFFF;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+.skin-motocal .checkout .edit-button .edit-logo {
+    background: url("images/header/icn-edit-small.png") 0 0;
+    width: 13px;
+    height: 13px;
+}
+
+/* Save indicator text */
+.navbar-header .saving-spinner-text {
+    color: #000000;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Save indicator spinner */
+#nprogress-spinner .spinner .spinner-icon {
+    border-top-color: #1b4383;
+    border-left-color: #1b4383;
+}
+
+/* Save indicator spinner touch/mobile (saving) */
+@media (max-width: 480px) {
+    html.touch .skin-motocal .navbar-header.selector .saving-spinner.is-saving {
+        background-image: url("images/spinners/saving-throbber-branded.gif");
+    }
+}
+
+/* Save indicator spinner touch/mobile (saved) */
+.header-price-buttons .saving-spinner .glyphicon-ok {
+    color: #000000;
+}
+
+/* --------------------------------------- */
+/* Design New Kit modal / Start new design */
+/* --------------------------------------- */
+
+/* Design new kit modal input */
+.start-new-design input {
+    color: #555555;
+}
+
+/*.start-new-design .has-success input {*/
+/*}*/
+/*.start-new-design .has-error input {*/
+/*}*/
+
+/* Design new kit modal icon */
+@media (min-width: 480px) {
+    .start-new-design .modal-dialog.modal-warning .modal-body::before {
+        color: #EEEEEE;
+    }
+
+    /* Exclamation icon */
+    .start-new-design .modal-dialog.modal-warning .modal-body::before {
+        content: "\e101";
+    }
+}
+
+/* Design new kit modal submit button */
+button.start-a-new-design i {
+    background: url("images/design-new-kit/star.png") 0;
+}
+
+/* ------ */
+/* Footer */
+/* ------ */
+
+/* Progress bar */
+.skin-motocal .rs-progressbar {
+    background-color: #EBEBEB;
+    border-color: #CCCCCC;
+}
+
+/* Progress bar's text color, font */
+.skin-motocal .rs-progressbar ol li span,
+html.touch .skin-motocal .rs-progressbar ol li span {
+    color: #1b4383;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+.skin-motocal .rs-progressbar ol li.rs-stage-active span {
+    color: #FFFFFF;
+}
+
+.skin-motocal .rs-progressbar ol li.rs-stage-active,
+html.touch .skin-motocal .rs-progressbar ol li.rs-stage-active {
+    background: #1b4383;
+}
+
+.skin-motocal .rs-progressbar ol li.rs-stage-active:after {
+    border-left-color: #1b4383;
+}
+
+.skin-motocal .rs-progressbar ol li.rs-stage-active span:after {
+    border-color: #1b4383;
+    border-left-color: transparent;
+}
+
+/* Background color of inactive breadcrumbs */
+@media screen and (min-height: 800px) {
+    .skin-motocal .rs-progressbar ol li {
+        background: #FFFFFF;
+    }
+
+    .skin-motocal .rs-progressbar ol li:after {
+        border-left-color: #FFFFFF;
+    }
+
+    .skin-motocal .rs-progressbar ol li span:after {
+        border: 25px solid #FFFFFF;
+        border-left-color: transparent;
+    }
+}
+
+/* ---------------------------------- */
+/* Selector materials rating modal    */
+/* Checkout materials rating dropdown */
+/* ---------------------------------- */
+
+/* Rating label */
+.material-rating .rating li {
+    color: #464646;
+}
+
+/* Rating bar color */
+.material-rating .rating li svg line {
+    stroke: #e9242b;
+}
+
+/* Material names */
+.material-rating h4.heading {
+    color: #464646;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* --------- */
+/* Interview */
+/* --------- */
+
+/* Header text */
+.skin-motocal .interview .interview-step h4 {
+    color: #1b4383;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Target Search Box */
+.skin-motocal .interview .interview-step .interview-step-combobox input::placeholder {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    color: #808080;
+}
+
+.skin-motocal .interview .interview-step .interview-step-combobox input:-ms-input-placeholder {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    color: #808080;
+}
+
+.skin-motocal .interview .interview-step .interview-step-combobox input::-webkit-input-placeholder {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    color: #808080;
+}
+
+.skin-motocal .interview .interview-step .interview-step-combobox input::-moz-placeholder {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    color: #808080;
+}
+
+/* Target Search Box Border*/
+.skin-motocal .interview .interview-step .interview-step-combobox input {
+    border-style: solid;
+    border-top-color: #9a9a9a;
+    border-left-color: #9a9a9a;
+    border-bottom-color: #eeeeee;
+    border-right-color: #eeeeee;
+}
+
+/* Target Category Skip */
+.skin-motocal .interview .block-elements .element[title="Skip"] div.impact {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Target list */
+.skin-motocal .interview .interview-step .interview-step-combobox ul li, .skin-motocal .interview .interview-step .interview-step-combobox ul a {
+    color: #1b4383;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Targets results header */
+.skin-motocal .interview .interview-step h5 {
+    color: #808080;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Targets scroll message */
+.interview form .interview-step-combobox .available-targets.has-many-available-models .scroll-for-more {
+    color: #D1D1D1;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+.interview form .interview-step-combobox .available-targets.has-many-available-models .down-arrow {
+    background: url('images/interview/down-arrow.png') 0;
+}
+
+/* Select box */
+.skin-motocal .interview .block-elements .element .impact.small, .skin-motocal .interview .rs-carousel-item .impact.small {
+    color: #1b4383;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+/* Grouped year image */
+.skin-motocal .interview .block-elements .element.generic-icon {
+    background-image: url('images/interview/generic-icon.png');
+}
+
+.skin-motocal .interview .block-elements .element {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Nationality selector list items colour */
+.interview .right-interview .dropdown-menu > li > a {
+    color: #333333;
+}
+
+/* --------------------------------------- */
+/* Prompted features / Discovery Questions */
+/* --------------------------------------- */
+
+/* No Features Message */
+p.no-features-message {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    color: #333333;
+}
+
+.interview form.form.has-data-pending {
+    background: url(images/spinners/large-circular-throbber.gif) no-repeat center center;
+    height: 100px;
+}
+
+/* Form input */
+.skin-motocal .interview .interview-step .interview-step-promptedfeatures .form-group input,
+html.touch .skin-motocal .interview .interviewsteps-container .interview-step input {
+    color: #1b4383;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Form input label */
+.skin-motocal .interview .interview-step label {
+    color: #808080;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Submit form button */
+.skin-motocal .interview .button-container .build-kit::after {
+    content: '';
+}
+
+.skin-motocal .interview .button-container .build-kit .build-icon {
+    background: url("images/discovery-questions/btn-build-kit.png") 0 0;
+    width: 142px;
+    height: 69px;
+}
+
+.skin-motocal .interview .button-container .build-kit:hover .build-icon {
+    background-image: url("images/discovery-questions/btn-build-kit-hover.png");
+}
+
+/* --------- */
+/* User Tour */
+/* --------- */
+
+/* Backdrop */
+body.skin-motocal.shepherd-active::after {
+    background-color: rgba(27, 67, 131, 0.8);
+}
+
+/* Header text main */
+body.skin-motocal .shepherd-element.shepherd-theme-arrows .shepherd-content header h3 {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    color: #555555;
+    font-weight: bold;
+}
+
+/* Header */
+body.skin-motocal .shepherd-element.shepherd-theme-arrows .shepherd-content header {
+    background: #EEEEEE;
+}
+
+/* Header top accent */
+body.skin-motocal .shepherd-element.shepherd-theme-arrows .shepherd-content header::before {
+    background-color: #ea262a;
+}
+
+/* Header icon */
+body.skin-motocal .shepherd-title .glyphicon {
+    color: #555555;
+}
+
+/* Close button top right */
+.shepherd-element.shepherd-theme-arrows .shepherd-content header a.shepherd-cancel-link {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Body text */
+body.skin-motocal .shepherd-element.shepherd-theme-arrows .shepherd-content .shepherd-text {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    color: #333333;
+    background: #FFFFFF;
+}
+
+/* Footer */
+.shepherd-element.shepherd-theme-arrows .shepherd-content footer {
+    background: #FFFFFF;
+}
+
+/* Close button bottom right */
+body.skin-motocal .shepherd-element.shepherd-theme-arrows .shepherd-content footer .shepherd-buttons li .shepherd-button {
+    background-color: #1b4383;
+    color: #FFFFFF;
+}
+
+/* ------------------------------------------------------- */
+/* Colour clash modal Selector / Colour clash modal Editor */
+/* ------------------------------------------------------- */
+
+/* Description text color, font */
+.colour-clash-message .colour-clash-message-body,
+.colour-clash-message .colour-clash-message-body strong {
+    color: #555555;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Ignore text color, font */
+.colour-clash-message .colour-clash-message-footer .colour-clash-message-checkbox,
+.colour-clash-message .colour-clash-message-footer .colour-clash-message-checkbox strong {
+    color: #555555;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Heading text color, font */
+.colour-clash-message .colour-clash-message-heading h3 {
+    color: #303030;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Color name text color, font */
+.colour-clash-message .colour-clash-message-body li .colour-clash-colour-name {
+    color: #303030;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Heading background */
+.colour-clash-message .colour-clash-message-heading {
+    background-color: #ececec;
+}
+
+/* Footer background */
+.colour-clash-message .colour-clash-message-footer {
+    background-color: #ececec;
+}
+
+/* -------- */
+/* Selector */
+/* -------- */
+
+/* Font of "Decals", "Theme" and "Material" buttons */
+.kit-options > button,
+.kit-options > button > svg path,
+.kit-options > button > svg circle,
+.kit-options > button > svg rect {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #555555;
+    fill: #555555;
+}
+
+/* Space between "Decals", "Theme" and "Material" buttons */
+.kit-options {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Theme alert badge colours and fonts */
+.kit-options button .badge.theme-badge {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    background-color: #ea252e;
+    color: #FFFFFF;
+}
+
+/* Settings menu icon */
+.settings-menu-button-icon::after {
+    background: rgba(255, 255, 255, 0) url(images/selector/settings-icon.svg) no-repeat 0 0;
+}
+
+/* User menu icon */
+.user-menu-button-icon::after {
+    background: rgba(255, 255, 255, 0) url(images/selector/user-icon.svg) no-repeat 0 0;
+}
+
+/* Settings and user menu dropdown items */
+.options-modal-body .options-modal-list .options-modal-list-item,
+.options-dropdown-wrapper .options-dropdown .options-dropdown-item {
+    background-color: #FFFFFF;
+    color: #333333;
+    border-color: #DDDDDD;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Setting and user menu buttons background */
+.options-menu-button {
+    background-color: #FFFFFF;
+}
+
+.options-menu-button:hover {
+    background-color: #e6e6e6;
+}
+
+.options-menu-button:active {
+    background-color: #e6e6e6;
+}
+
+/* Auto-add matching decal background */
+.modal .canvas-wrapper canvas {
+    background-image: url("images/background-grid-small-branded.png");
+}
+
+/* ----------------------------------- */
+/* Position tooltip / Position popover */
+/* ----------------------------------- */
+
+/* Edit button & Mirror features button */
+.skin-motocal .rs-popover-content .edit-enabled:not(.disabled-btn),
+.skin-motocal .rs-popover-content .mirror-features-btn:not(.disabled-btn) {
+    color: #FFFFFF;
+    background-color: #62c462;
+    background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+    background-image: linear-gradient(to bottom, #62c462, #51a351);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Alts buttons */
+.skin-motocal .rs-popover-content .alts-enabled:not(.disabled-btn) {
+    background-color: #08c;
+    background-image: -webkit-linear-gradient(top, #08c, #04c);
+    background-image: linear-gradient(to bottom, #08c, #04c);
+}
+
+/* Remove button */
+.skin-motocal .rs-popover-content .remove-enabled:not(.disabled-btn) {
+    background-color: #ee5f5b;
+    background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+}
+
+/* Space between buttons */
+.position-tooltip-container .rs-popover-content {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Title */
+.rs-popover-title {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+/* -------------- */
+/* Decal Selector */
+/* -------------- */
+
+.quick-decal-selector h4 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* --------------------------------------------- */
+/* Mirror Modal / Copy modal / Mirror copy modal */
+/* --------------------------------------------- */
+
+/* Warning */
+.mirror-position-modal .alert-warning {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* --------------------------------- */
+/* Alternative Shapes Selector Modal */
+/* --------------------------------- */
+
+/* Position title */
+.skin-motocal .alternative-shapes .rs-carousel-item h5 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    color: #000000;
+}
+
+/* Selectable shape default background */
+.skin-motocal .alternative-shapes .rs-carousel-item.selectable h5 {
+    background-color: #FFFFFF;
+}
+
+/* Shape hover */
+.skin-motocal .alternative-shapes .rs-carousel-item.selectable:hover h5 {
+    background-color: #b4d235;
+    color: #000000;
+}
+
+/* Active shape */
+.skin-motocal .alternative-shapes .rs-carousel-item.is-active h5 {
+    background-color: #1b4383;
+    color: #FFFFFF;
+}
+
+/* Space between carousel items */
+.rs-carousel-wrapper .rs-carousel .rs-carousel-inner {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Close button */
+.modal-header button.close {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Shape id font */
+.rs-carousel-wrapper .rs-carousel .rs-carousel-inner .shape-id {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    color: #333333;
+}
+
+/* Alternative shapes background image */
+.skin-motocal .alternative-shapes .rs-carousel-item.selectable canvas {
+    background-image: url("images/background-grid-small-branded.png");
+}
+
+/* Carousel right icon */
+.sprite-right-icon {
+    background: url(images/selector/right-icon.png) 0 0;
+    width: 46px;
+    height: 46px;
+}
+
+/* Carousel left icon */
+.sprite-left-icon {
+    background: url(images/selector/left-icon.png) 0 0;
+    width: 46px;
+    height: 46px;
+}
+
+/* Carousel loading spinner */
+.rs-carousel-wrapper.has-data-pending {
+    background: url(images/spinners/large-circular-throbber.gif) no-repeat top left;
+}
+
+/* ----------------------------------------------------------- */
+/* Alternative Shapes Selector Modal > Confirm Shape Selection */
+/* ----------------------------------------------------------- */
+
+/* Non-perforated decal title font */
+#alternatives-advice-modal .modal-header .modal-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Non-perforated decal font */
+#alternatives-advice-modal, #alternatives-advice-modal button {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Autoselect Matching decal font */
+div.alternatives-autoselect, div.alternatives-autoselect button {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Autoselect Title */
+div.alternatives-autoselect .modal-header h4.modal-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ------------- */
+/* Settings Menu */
+/* ------------- */
+
+/* Coming soon modal title */
+.coming-soon-modal-header .coming-soon-modal-title {
+    color: #555555;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Coming soon title */
+.coming-soon-modal-body .coming-soon-modal-body-title {
+    color: #ea252e;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Coming soon subtitle */
+.coming-soon-modal-body .coming-soon-modal-body-subtitle {
+    color: #164687;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Coming soon modal text */
+.coming-soon-modal-body .coming-soon-modal-body-text {
+    color: #555555;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Coming soon modal label */
+.coming-soon-modal-body .coming-soon-modal-body-form {
+    color: #777777;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Coming soon modal input */
+.coming-soon-modal-body .coming-soon-modal-body-form input.form-control {
+    color: #555555;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Coming soon modal error tooltip */
+.coming-soon-modal-body .tooltip {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Submit design modal title */
+.submit-design-modal .submit-design-header .submit-design-title {
+    color: #555555;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Submit design text heading */
+.submit-design-modal .submit-design-body-wrapper .submit-design-body .submit-design-info .submit-design-body-title {
+    color: #164687;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Submit design modal text */
+.submit-design-modal .submit-design-body-wrapper .submit-design-body .submit-design-info .submit-design-text,
+.submit-design-success,
+.submit-design-error,
+.designer-section {
+    color: #555555;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Submit design modal form label */
+.submit-design-modal .submit-design-body-wrapper .submit-design-body .submit-design-form-wrapper .submit-design-form .submit-design-form-group-wrapper {
+    color: #777777;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Submit design modal form input colour */
+.submit-design-modal .submit-design-body-wrapper .submit-design-body .submit-design-form-wrapper .submit-design-form .submit-design-form-group-wrapper .submit-design-form-group .form-control {
+    color: #555555;
+}
+
+/* Submit design success modal designer text 1 */
+.submit-design-body .designer-section .designer-section-title {
+    color: #ea252e;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Submit design success modal designer text 2 */
+.submit-design-body .designer-section .designer-section-sub-title {
+    color: #164687;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+/* Submit design error modal email link */
+.submit-design-body-wrapper .submit-design-text a {
+    color: #337ab7;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* --------------- */
+/* Checkout button */
+/* --------------- */
+
+/* This button is styled based on the cart icon colour to brand this fully we would need the new icon SVG */
+
+/* Button Text */
+.skin-motocal .navbar-header .right-selector.header-price-buttons .rs-checkout .header-price-inline,
+.skin-motocal .navbar-header .right-selector.header-price-buttons .rs-checkout,
+.checkout-dropdown-toggle .caret {
+    color: #FFFFFF;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Currency dropdown text */
+.navbar-header .checkout-dropdown-menu {
+    color: #000000;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* --------------------------- */
+/* Colour clash modal selector */
+/* --------------------------- */
+
+/* -------------------------------- */
+/* Facebook share your desing modal */
+/* -------------------------------- */
+
+/* Share design modal title text */
+.share-design .modal-title {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Share design modal body text */
+.share-design .modal-body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ------ */
+/* Editor */
+/* ------ */
+
+/* Editor background image */
+.skin-motocal .feature .editor-container {
+    background-image: url(images/editor/background-grid.png);
+}
+
+/* Feature preview background image */
+.skin-motocal .property-panel-container .property-panel .panels-container .feature-preview {
+    background-image: url(images/background-grid-small-branded.png);
+}
+
+/* Toolbox 'Disable grid' icon color */
+.editor-bottom-toolbox-container .glyphicon-unchecked {
+    color: #333333;
+}
+
+/* Toolbox 'Disable grid' button background */
+.editor-bottom-toolbox-container button[name="disableEditorGrid"] {
+    background-color: #FFFFFF;
+}
+
+/* Toolbox 'Enable grid' icon color */
+.editor-bottom-toolbox-container .glyphicon-th {
+    color: #333333;
+}
+
+/* Toolbox 'Enable grid' button background */
+.editor-bottom-toolbox-container button[name="enableEditorGrid"] {
+    background-color: #FFFFFF;
+}
+
+/* Toolbox 'Zoom out' icon color */
+.editor-bottom-toolbox-container .glyphicon-zoom-out {
+    color: #333333;
+}
+
+/* Toolbox 'Zoom out' button background */
+.editor-bottom-toolbox-container > div:nth-child(2) > div:nth-child(2) > button:nth-child(1) {
+    background-color: #FFFFFF;
+}
+
+/* Toolbox 'Zoom in' icon color */
+.editor-bottom-toolbox-container .glyphicon-zoom-in {
+    color: #333333;
+}
+
+/* Toolbox 'Zoom in' button background */
+.editor-bottom-toolbox-container > div:nth-child(2) > div:nth-child(2) > button:nth-child(2) {
+    background-color: #FFFFFF;
+}
+
+/* Panel background */
+.skin-motocal .property-panel-container .property-panel > .panels-container.features > li.subpanel.slidein,
+.skin-motocal .property-panel-container .property-panel .subpanel .subpanel-headerbar,
+.property-panel-container .panels-container .subpanel .subpanel-content .palette-container .all-elements-container,
+.property-panel-container .panels-container .subpanel .subpanel-content .fixed-header-container .top-padding-helper {
+    background: #EFEFEF;
+}
+
+/* Back to selector button background */
+.skin-motocal .feature .back-to-kit-container {
+    background: #1b4383;
+}
+
+/* Back to selector button icon */
+.sprite-icn-back-to-kit {
+    background: url(images/editor/icn-back-to-kit.png) 0 0;
+}
+
+/* "EDITING" header title */
+.skin-motocal .navbar-header.editor .center h1.title > strong {
+    font-weight: bold;
+}
+
+/* Add text icon */
+.sprite-tab-text-new {
+    background: url(images/editor/tab-text-new.png) 0 0;
+}
+
+:not(.touch) .skin-motocal .property-panel-container .property-panel .feature-toolbar .toolbar-list .add-text-feature {
+    height: 38px;
+    width: 38px;
+}
+
+/* Add graphic icon */
+.sprite-tab-graphic-new {
+    background: url(images/editor/tab-graphic-new.png) 0 0;
+}
+
+/* Proper spacing between feature toolbar elements (tabs, swatches, ...) */
+.skin-motocal .property-panel-container {
+    font-family: interface, Arial, Helvetica, sans-serif;
+}
+
+:not(.touch) .skin-motocal .property-panel-container .property-panel .feature-toolbar .toolbar-list .add-graphic-feature {
+    height: 38px;
+    width: 38px;
+}
+
+/* Removed items icon */
+.sprite-tab-removed {
+    background: url(images/editor/tab-removed.png) 0 0;
+}
+
+:not(.touch) .skin-motocal .property-panel-container .property-panel .feature-toolbar .toolbar-list .show-removed-features {
+    height: 38px;
+    width: 38px;
+}
+
+/* Removed items icon active */
+.sprite-tab-removed-on {
+    background: url(images/editor/tab-removed-on.png) 0 0;
+}
+
+.skin-motocal .property-panel-container .property-panel .feature-toolbar .toolbar-list .show-removed-features-on {
+    height: 42px;
+    width: 41px;
+}
+
+/* Clone feature icon background */
+.property-panel-container .panels-container .feature-preview .clone-feature {
+    background-color: #1b4383;
+}
+
+/* EDIT TEXT button, adjust +/- buttons */
+.skin-motocal .property-panel-container .property-panel .panels-container button {
+    background: #1b4383;
+    color: #FFFFFF;
+}
+
+/* Adjust slider left color */
+.slider-container .noUi-target .noUi-base {
+    background: #0088CC;
+}
+
+/* Adjust slider right color */
+.slider-container .noUi-target .noUi-background {
+    background: #DDDDDD;
+}
+
+/* Range value background, text color and font */
+.slider-container .rangeValue {
+    background: #AAAAAA;
+    color: #FFFFFF;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Panel fill tab text color, font, weight */
+.skin-motocal .property-panel-container .property-panel .panels-container .property-module.colour ul.colour-palette-nav li:nth-of-type(1) a.palette-toggle {
+    color: #646464;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+/* Panel border tab text color, font, weight */
+.skin-motocal .property-panel-container .property-panel .panels-container .property-module.colour ul.colour-palette-nav li:not(:nth-of-type(1)) a.palette-toggle {
+    color: #646464;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+/* Remove border button font */
+.skin-motocal .property-panel-container .property-panel .panels-container .property-module.colour .property-bd .property-bd-inner button.removeBorder span.remove-border-text {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+/* Panel edit text ok button */
+.skin-motocal .property-panel-container .property-panel .panels-container > .feature-panel > .edit-text-feature > button {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Panel edit text button */
+.skin-motocal .property-panel-container .property-panel .panels-container .feature-preview .edit-feature-text button {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+/* Graphic library back button */
+.skin-motocal .property-panel-container .property-panel .subpanel .subpanel-headerbar .subpanel-back button .back-text {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+/* Graphic library shapes button */
+.sprite-touch-btn-shapes {
+    background: url(images/editor/touch-btn-shapes.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Graphic library "Go to first page" button's background */
+.skin-motocal .property-panel-container .property-panel .panels-container button[data-name="gotoFirstPage"] {
+    background: #1b4383;
+}
+
+/* Graphic library "Go to previous page" button's background */
+.skin-motocal .property-panel-container .property-panel .panels-container button[data-name="gotoPreviousPage"] {
+    background: #1b4383;
+}
+
+/* Graphic library "Go to next page" button's background */
+.skin-motocal .property-panel-container .property-panel .panels-container button[data-name="gotoNextPage"] {
+    background: #1b4383;
+}
+
+/* Graphic library "Go to last page" button's background */
+.skin-motocal .property-panel-container .property-panel .panels-container button[data-name="gotoLastPage"] {
+    background: #1b4383;
+}
+
+/* Video tutorials link font */
+.shepherd-element.shepherd-theme-arrows .shepherd-content > .shepherd-text a {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* See more button */
+.sprite-btn-more {
+    background: url(images/editor/btn-more.png) 0 0;
+}
+
+/* Send to back button */
+.sprite-btn-send-to-bottom {
+    background: url(images/editor/btn-send-to-bottom.png) 0 0;
+}
+
+/* Send backwards button */
+.sprite-btn-send-down {
+    background: url(images/editor/btn-send-down.png) 0 0;
+}
+
+/* Bring forwards button */
+.sprite-btn-send-up {
+    background: url(images/editor/btn-send-up.png) 0 0;
+}
+
+/* Bring to front button */
+.sprite-btn-send-to-top {
+    background: url(images/editor/btn-send-to-top.png) 0 0;
+}
+
+/* Flip vertically button */
+.sprite-btn-flip-vertical {
+    background: url(images/editor/btn-flip-vertical.png) 0 0;
+}
+
+/* Flip horizontally button */
+.sprite-btn-flip-horizontal {
+    background: url(images/editor/btn-flip-horizontal.png) 0 0;
+}
+
+/* Left align button */
+.sprite-btn-align-left {
+    background: url(images/editor/btn-align-left.png) 0 0;
+    width: 20px;
+    height: 21px;
+}
+
+/* Right align button */
+.sprite-btn-align-right {
+    background: url(images/editor/btn-align-right.png) 0 0;
+    width: 20px;
+    height: 21px;
+}
+
+/* Centrally align button */
+.sprite-btn-align-center {
+    background: url(images/editor/btn-align-center.png) 0 0;
+    width: 20px;
+    height: 21px;
+}
+
+/* Border thickness icon */
+.sprite-icon-border-thickness {
+    height: 10px;
+    background: url(images/editor/icon-border-thickness.png) no-repeat 0 0;
+}
+
+/* Edit text textarea text color, font, weight */
+.skin-motocal .property-panel-container .property-panel .panels-container .edit-text-feature textarea.text-feature-input {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+/* Edit text FONT heading */
+.skin-motocal .property-panel-container .property-panel .panels-container .scrollable-property-panel-container .property-module.font .property-bd h5.title {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Panel ADJUST heading */
+.skin-motocal .property-panel-container .property-panel .panels-container .scrollable-property-panel-container .property-module.size h5.title {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Panel COLOUR heading */
+.property-panel-container .panels-container .scrollable-property-panel-container .property-module.colour .colour-palette-nav-container h5.title {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Panel REPLACE WITH heading */
+.skin-motocal .property-panel-container .property-panel .panels-container .scrollable-property-panel-container .property-bd.graphics h5.title:nth-child(2) {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Panel OR UPLOAD GRAPHIC heading */
+.skin-motocal .property-panel-container .property-panel .panels-container .scrollable-property-panel-container .property-bd.graphics h5.title:nth-child(1) {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Empty bin text color, font */
+.skin-motocal .removedFeatures .title-bar.no-removed-features p {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* REMOVED ITEMS heading */
+.skin-motocal .property-panel-container .property-panel .panels-container .removedFeatures > .title-bar > h5.title {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Graphics library search tags text color, font */
+.skin-motocal .property-panel-container .property-panel .paged-composite-graphics-container #graphicFilter input.token-input {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Graphics library selected tags button */
+:not(.touch) .skin-motocal .property-panel-container .property-panel .paged-composite-graphics-container #graphicFilter .token {
+    background: #EDEDED;
+}
+
+/* Graphics library selected tags text color, font */
+.tokenfield .token span.token-label {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+.skin-motocal .property-panel-container .property-panel .paged-composite-graphics-container #graphicFilter ul#favourite-tags {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Graphics library smart tags color, text color, font, weight */
+.skin-motocal .property-panel-container .property-panel .paged-composite-graphics-container #graphicFilter ul#favourite-tags li {
+    background: #1b4383;
+    color: #FFFFFF;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+/* Graphics library page info text color, font */
+.skin-motocal .property-panel-container .property-panel p.page-x-of-y {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Graphics library no results text color, font */
+.skin-motocal .property-panel-container .property-panel .is-graphic-subpanel .no-results {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Fonts library SEE ALL FONTS... font */
+.panels-container > li.subpanel > .subpanel-content .palette-container.fonts > .all-elements-container > .btn.btn-primary {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Fonts library REGULATION FONTS, RECOMMENDED FONTS heading */
+.skin-motocal .property-panel-container .property-panel .subpanel .subpanel-content .palette-container.fonts > h5 {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Fonts library search text color, font */
+.property-panel-container .panels-container .subpanel .subpanel-content .fixed-header-container.fonts .filter-container input {
+    color: #333333;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Colours library REGULATION COLOURS, RECOMMENDED COLOURS heading */
+.skin-motocal .property-panel-container .property-panel .subpanel .subpanel-content .palette-container.colours > h5 {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Colours library search text color, font */
+.property-panel-container .panels-container .subpanel .subpanel-content .fixed-header-container.colours .filter-container input {
+    color: #333333;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Colours library SEE ALL COLOURS... font */
+.panels-container > li.subpanel > .subpanel-content .palette-container.colours > .all-elements-container > .btn.btn-primary {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Active EDIT feature tab */
+.property-panel-container .feature-toolbar .toolbar-list .selected a {
+    background: #FFFFFF;
+    color: #1b4383;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Not active EDIT feature tab */
+.property-panel-container .feature-toolbar .toolbar-list li:first-child:not(.selected) {
+    background: #1b4383;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Not active EDIT feature tab text */
+.property-panel-container .feature-toolbar .toolbar-list li:first-child:not(.selected) a {
+    color: #FFFFFF;
+}
+
+/* Border color of hovered font button on property panel */
+.skin-motocal .property-panel-container .property-panel .panels-container .scrollable-property-panel-container .property-module.font .font-swatch-list .font-swatch:hover:not([name="seeMoreFonts"]) {
+    border: 2px solid #1b4383;
+}
+
+/* Border color of hovered font button on property panel (recommended fonts) */
+.skin-motocal .property-panel-container .property-panel .font-swatch:hover {
+    border: 2px solid #1b4383;
+}
+
+/* Border color of hovered color button on property panel (recommended colours) */
+.skin-motocal .property-panel-container .property-panel .colour-palette li.rumble-colour-palette-item-wrapper:hover {
+    border: 2px solid #1b4383 !important;
+}
+
+/* Border color of hovered graphic button on property panel */
+.skin-motocal .property-panel-container .property-panel .panels-container .graphic-swatch-list .graphic-swatch:hover:not([name="seeMoreGraphics"]) {
+    outline: 2px solid #1b4383;
+}
+
+/* Background color of inactive tab */
+.property-panel-container .panels-container .scrollable-property-panel-container .property-module.colour .colour-palette-nav-container .colour-palette-nav li a.inactive {
+    background: #ccc;
+}
+
+/* Loading graphics (small loading spinner) */
+.skin-motocal .property-panel-container .property-panel .paged-composite-graphics-container .palette-container.loading-graphics {
+    background: url(images/spinners/large-circular-throbber.gif) no-repeat 115px 50px;
+    height: 200px;
+}
+
+/* Image upload loading spinner */
+.upload-image-modal .upload-image-preview .upload-image-canvas-container.is-applying-changes .spinner {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(images/spinners/large-circular-throbber.gif) no-repeat 50% 75px;
+}
+
+/* Colour clash modal (image upload) */
+
+/* Uploaded image modal left font, transform */
+div#info-edit-uploaded-graphic .modal-content > .modal-body > .alert.alert-warning > .row > div:nth-of-type(1) > strong {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* Uploaded image modal center font */
+div#info-edit-uploaded-graphic .modal-content > .modal-body > .alert.alert-warning > .row > div:nth-of-type(2) {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Best practice link font */
+div#info-edit-uploaded-graphic .modal-content > .modal-body > .alert.alert-warning > .row > div:nth-of-type(3) > a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* I UNDERSTAND COLOUR DIFFERENCES text color, font, transform */
+.upload-image-modal #info-edit-uploaded-graphic .btn-group-understand label.btn.checkbox {
+    color: #333333;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+/* Reset button text color, font */
+.upload-image-modal .reset-graphic-container button.btn.reset-graphic {
+    color: #333333;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* TOUCH devices */
+
+/* Graphics library selected tags button */
+.touch .skin-motocal .property-panel-container .property-panel .paged-composite-graphics-container #graphicFilter .token {
+    background: #EDEDED;
+}
+
+/* Scale button (decrease size) */
+.sprite-touch-btn-size-smaller {
+    background: url(images/editor/touch-btn-size-smaller.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Scale button (increase size) */
+.sprite-touch-btn-size-bigger {
+    background: url(images/editor/touch-btn-size-bigger.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Rotate CCW button */
+.sprite-touch-btn-rotate-CCW {
+    background: url(images/editor/touch-btn-rotate-CCW.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Rotate CW button */
+.sprite-touch-btn-rotate-CW {
+    background: url(images/editor/touch-btn-rotate-CW.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Send to back button */
+.sprite-touch-btn-layer-bottom {
+    background: url(images/editor/touch-btn-layer-bottom.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Send backwards button */
+.sprite-touch-btn-layer-down {
+    background: url(images/editor/touch-btn-layer-down.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Bring forwards button */
+.sprite-touch-btn-layer-up {
+    background: url(images/editor/touch-btn-layer-up.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Bring to front button*/
+.sprite-touch-btn-layer-top {
+    background: url(images/editor/touch-btn-layer-top.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* More button */
+.sprite-touch-btn-more {
+    background: url(images/editor/touch-btn-more.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Upload graphic button */
+.sprite-touch-btn-load-graphic {
+    background: url(images/editor/touch-btn-load-graphic.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Decrease letter spacing button */
+.sprite-touch-btn-letterspace-less {
+    background: url(images/editor/touch-btn-letterspace-less.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Increase letter spacing button */
+.sprite-touch-btn-letterspace-more {
+    background: url(images/editor/touch-btn-letterspace-more.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Decrease line spacing button */
+.sprite-touch-btn-linespace-less {
+    background: url(images/editor/touch-btn-linespace-less.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Increase line spacing button */
+.sprite-touch-btn-linespace-more {
+    background: url(images/editor/touch-btn-linespace-more.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Align text left button */
+.sprite-touch-btn-align-L {
+    background: url(images/editor/touch-btn-align-L.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Align text right button */
+.sprite-touch-btn-align-R {
+    background: url(images/editor/touch-btn-align-R.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Align text center button */
+.sprite-touch-btn-align-center {
+    background: url(images/editor/touch-btn-align-center.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Align text left button (inactive) */
+.sprite-touch-btn-align-L-off {
+    background: url(images/editor/touch-btn-align-L-off.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Align text right button (inactive) */
+.sprite-touch-btn-align-R-off {
+    background: url(images/editor/touch-btn-align-R-off.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Align text center button (inactive) */
+.sprite-touch-btn-align-center-off {
+    background: url(images/editor/touch-btn-align-center-off.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Edit text button */
+.sprite-touch-btn-edit-text {
+    background: url(images/editor/touch-btn-edit-text.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Thinner border button */
+.sprite-touch-btn-border-thinner {
+    background: url(images/editor/touch-btn-border-thinner.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Thicker border button */
+.sprite-touch-btn-border-thicker {
+    background: url(images/editor/touch-btn-border-thicker.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Remove border button */
+.sprite-touch-btn-border-remove {
+    background: url(images/editor/touch-btn-border-remove.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Add new text feature tab */
+.sprite-touch-tab-text-new {
+    background: url(images/editor/touch-tab-text-new.png) 0 0;
+    width: 41px;
+    height: 42px;
+}
+
+/* Add new icon feature tab */
+.sprite-touch-tab-graphic-new {
+    background: url(images/editor/touch-tab-graphic-new.png) 0 0;
+    width: 41px;
+    height: 42px;
+}
+
+/* Removed items tab */
+.sprite-touch-tab-trash {
+    background: url(images/editor/touch-tab-trash.png) 0 0;
+    width: 41px;
+    height: 42px;
+}
+
+/* Removed items tab (active) */
+.sprite-touch-tab-trash-on {
+    background: url(images/editor/touch-tab-trash-on.png) 0 0;
+    width: 41px;
+    height: 42px;
+}
+
+/* Graphics library next page */
+.sprite-touch-btn-page-next {
+    background: url(images/editor/touch-btn-page-next.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Graphics library previous page */
+.sprite-touch-btn-page-prev {
+    background: url(images/editor/touch-btn-page-prev.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Graphics library first page */
+.sprite-touch-btn-page-first {
+    background: url(images/editor/touch-btn-page-first.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* Graphics library last page */
+.sprite-touch-btn-page-last {
+    background: url(images/editor/touch-btn-page-last.png) 0 0;
+    width: 41px;
+    height: 41px;
+}
+
+/* -------------------------------- */
+/* Materials modal / Material modal */
+/* -------------------------------- */
+
+/* Materials selected icon */
+.material-selector .glyphicon-ok:before {
+    color: #3c763d;
+}
+
+.material-selector .glyphicon-ok:before {
+    content: "\e013";
+}
+
+/* Materials modal link */
+.material-selector a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ------ */
+/* Themes */
+/* ------ */
+
+/* Font Family */
+body div.design.themes {
+    font-family: interface, Arial, Helvetica, sans-serif;
+}
+
+/* Header - Top band */
+div.themes .theme-selector .navbar-header::before {
+    background: #ea252e;
+}
+
+/* Header - Back to Selector Button */
+div.themes .navbar-header .theme-header-back-to-selector {
+    color: #FFFFFF;
+    background-color: #1b4383;
+    border-color: #2e6da4;
+}
+
+/* Header - Back to Selector Arrow */
+div.themes .navbar-header .theme-header-back-to-selector .icon-arrow-left-solid::after {
+    border-right-color: #FFFFFF;
+}
+
+/* Header - Title */
+div.themes .theme-selector .navbar-header .theme-header-title {
+    color: #555555;
+}
+
+/* Sub-nav - Theme Count */
+div.themes .theme-selector .side-menu-main-content .themes-pagination .themes-count {
+    color: #303030;
+}
+
+/* Sub-nav - Pagination */
+div.themes .pagination-pages-selection .page-number {
+    color: #D1D3D4;
+}
+
+div.themes .pagination-pages-selection .page-number.active {
+    color: #6D6E71;
+}
+
+/* Sub-nav - Tag Text */
+div.themes .theme-selector .side-menu-main-content .theme-tag-list-wrapper .theme-tag-list .theme-tag {
+    background: #EFEFEF;
+    color: #6D6E71;
+}
+
+/* Sub-nav - Tag Icon */
+div.themes .theme-selector .side-menu-main-content .theme-tag-list-wrapper .theme-tag-list .theme-tag .icon-remove {
+    color: #D1D3D4;
+}
+
+/* Side-menu */
+div.themes .theme-selector .themes-side-nav {
+    background: #EFEFEF;
+    border-left-color: #D1D3D4;
+}
+
+/* Side-menu - Icon Separator */
+div.themes .theme-selector .themes-side-nav .side-menu-icon {
+    border-bottom-color: #D1D3D4;
+}
+
+/* Side-menu - Icon */
+div.themes .theme-selector .themes-side-nav .side-menu-icon .rs-icon svg polygon,
+div.themes .theme-selector .themes-side-nav .side-menu-icon .rs-icon svg rect,
+div.themes .theme-selector .themes-side-nav .side-menu-icon .rs-icon svg path,
+div.themes .theme-selector .themes-side-nav .side-menu-icon .rs-icon svg circle {
+    fill: #303030;
+}
+
+/* Filter-menu */
+div.themes .side-menu.filter-menu {
+    background: #EFEFEF;
+    border-left-color: #D1D3D4;
+}
+
+/* Filter-menu - Close Icon */
+div.themes .side-menu.filter-menu .side-menu-top-container .icon-arrow svg > polygon {
+    fill: #303030;
+}
+
+/* Filter-menu - Theme Count */
+div.themes .side-menu.filter-menu .side-menu-top-container .themes-count {
+    color: #6D6E71;
+}
+
+/* Filter-menu - Sort Order Dropdown */
+div.themes .side-menu.filter-menu .filter-nav .filter-dropdown {
+    background: white;
+}
+
+/* Filter-menu - Sort Order Dropdown Icon */
+div.themes .side-menu.filter-menu .filter-nav .filter-dropdown .dropdown-toggle .caret {
+    color: #303030;
+}
+
+/* Filter-menu - Sort Order Dropdown Text */
+div.themes .side-menu.filter-menu .filter-nav .filter-dropdown .dropdown-toggle {
+    color: #6D6E71;
+    border-color: #D1D3D4;
+}
+
+/* Filter-menu - Sort Order Dropdown Items */
+div.themes .side-menu.filter-menu .filter-nav .filter-dropdown .dropdown-menu {
+    border-color: #D1D3D4;
+    background: #FFFFFF;
+}
+
+div.themes .side-menu.filter-menu .filter-nav .filter-dropdown .dropdown-menu li.sort-field:hover {
+    background-color: #f5f5f5;
+}
+
+/* Filter-menu - Sort Order Dropdown Item Text */
+div.themes .side-menu.filter-menu .filter-nav .filter-dropdown .dropdown-menu li.sort-field .sort-field-name {
+    color: #6D6E71;
+}
+
+/* Filter-menu - Sort Order Dropdown Item Icon */
+div.themes .side-menu.filter-menu .filter-nav .filter-dropdown .dropdown-menu li.sort-field .filter-menu-dropdown-icon .rs-icon svg > path {
+    fill: #303030;
+}
+
+/* Filter-menu - Filter Text */
+div.themes .side-menu.filter-menu {
+    color: #6D6E71;
+}
+
+/* Filter-menu - Filter Checkbox */
+div.themes .side-menu.filter-menu .rs-checkbox-small .rs-custom-checkbox {
+    border-color: #D1D3D4;
+    background: #FFFFFF;
+}
+
+div.themes .side-menu.filter-menu .rs-checkbox-small .rs-custom-checkbox::after {
+    border-color: #D1D3D4;
+    background: #FFFFFF;
+}
+
+div.themes .side-menu.filter-menu .rs-checkbox-small input:checked ~ .rs-custom-checkbox::after {
+    background: #164687;
+    border-color: #164687;
+}
+
+/* Filter-menu - Category Dropdown */
+div.themes .side-menu.filter-menu .filter-nav .filter-list-toggle {
+    border-bottom-color: #D1D3D4;
+}
+
+/* Filter-menu - Category Dropdown Icon */
+div.themes .side-menu.filter-menu .filter-list-toggle div.rs-icon svg polygon,
+div.themes .side-menu.filter-menu .filter-list-toggle div.rs-icon svg rect,
+div.themes .side-menu.filter-menu .filter-list-toggle div.rs-icon svg path,
+div.themes .side-menu.filter-menu .filter-list-toggle div.rs-icon svg circle {
+    fill: #6D6E71;
+}
+
+/* Filter-menu - Category Dropdown See More */
+div.themes .side-menu.filter-menu .show-more-link {
+    color: #337ab7;
+}
+
+/* Filter-menu - Clear Filters Button */
+/* See .btn-primary */
+
+/* Theme Overview */
+div.themes .theme-selector .theme-overview-container .theme-preview-image-container {
+    background-color: #FFFFFF;
+    border-color: #D1D3D4;
+}
+
+
+/* Theme Name */
+div.themes .theme-selector .theme-overview-container .theme-name {
+    color: #555555;
+}
+
+/* Theme Preview Image Name */
+div.themes .theme-selector .theme-overview-container .theme-preview-image-container .image-name {
+    color: #6D6E71;
+}
+
+/* Theme Apply Button */
+/* See .btn-success */
+
+/* No Themes */
+
+/* No Themes - Image Message */
+.themes .theme-selector .side-menu-main-content.no-themes .image-wrapper .themes-coming-soon-image-message {
+    color: #6D6E71;
+}
+
+/* No Themes - Paragraphs */
+.themes .theme-selector .side-menu-main-content.no-themes p {
+    color: #6D6E71;
+}
+
+/* No Themes - Button */
+/* See .btn-secondary */
+
+/* -------- */
+/* Checkout */
+/* -------- */
+
+/* Main heading text */
+.skin-motocal .checkout .checkout-container .checkout-deck h1 {
+    color: #1b4383;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Subheading text */
+.skin-motocal .checkout .checkout-container .checkout-deck h2 {
+    color: #808080;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Material rating items are global as they appear in selector also */
+
+/* Material dropdown */
+.skin-motocal .checkout .checkout-container .checkout-deck .components-scroll .components-wrapper .component .controls .ctrl-quality .btn-group button {
+    color: #464646;
+}
+
+/* Material and Quantity dropdown */
+.checkout .checkout-container .controls {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Material quantity text */
+.skin-motocal .checkout .checkout-container .checkout-deck .components-scroll .components-wrapper .component .controls .ctrl-quantity .input-group .input-group-addon {
+    color: #555555;
+}
+
+/* Material quantity number */
+.skin-motocal .checkout .checkout-container .checkout-deck .components-scroll .components-wrapper .component .controls .ctrl-quantity input {
+    color: #1b4383;
+}
+
+/* Material quantity "PLUS" button */
+.skin-motocal .checkout .checkout-container .checkout-deck .components-scroll .components-wrapper .component .controls .ctrl-quantity .input-group .bootstrap-touchspin-up {
+    background-image: url(images/checkout/icn-plus-small.png);
+}
+
+/* Material quantity "MINUS" button */
+.skin-motocal .checkout .checkout-container .checkout-deck .components-scroll .components-wrapper .component .controls .ctrl-quantity .input-group .bootstrap-touchspin-down {
+    background-image: url(images/checkout/icn-minus-small.png);
+}
+
+/* Position background image */
+.checkout .checkout-container .component {
+    background-image: url("images/background-grid-small-branded.png")
+}
+
+/* Color of country dropdown menu items "Terms & Conditions" "Apply Discount Code" shipping options dropdown menu items */
+.skin-motocal .checkout .checkout-container .checkout-deck .shipping-billing-container .time-estimate, .skin-motocal .checkout .checkout-container .checkout-deck .shipping-billing-container a {
+    color: #1b4383;
+}
+
+/* Color of 'X' placed next to the discount amount */
+.skin-motocal .checkout .checkout-container .checkout-deck .shipping-billing-container a.remove-discount-button > span {
+    color: #1b4383;
+}
+
+/* Shipping details form */
+.checkout-shipping-details span:not(.has-error) input.form-control:not(:focus) {
+    border-color: #CCCCCC;
+}
+
+/* Shipping details form text */
+.skin-motocal .checkout .checkout-container .checkout-deck .shipping-billing-container .checkout-shipping-details #shipping-address .form-control {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+    color: #555555;
+}
+
+/* Billing form loading spinner */
+.billing-modal form#billing-form {
+    background: url(images/spinners/large-circular-throbber.gif) no-repeat center 50px;
+    height: 100px;
+}
+
+/* Terms and Conditions Shipping Option */
+.terms, .estimate, .shipping-details-bottom {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+.terms {
+    color: #333333;
+}
+
+/* Shipping option dropdown */
+.estimate strong.combobox-value {
+    color: #333333;
+}
+
+/* Discount code input */
+.skin-motocal .checkout .checkout-container .checkout-deck .price-and-button .order-price-totals-table tr.discount-input .input-group input {
+    color: #555555;
+}
+
+/* Payment summary table headings */
+.skin-motocal .checkout .checkout-container .checkout-deck .price-and-button .price strong,
+.skin-motocal .checkout .checkout-container .checkout-deck .price-and-button .order-price-totals-table .discount-quantity-message td {
+    color: #333333;
+}
+
+/* Payments summary table */
+.order-price-totals-table {
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Payment summary table values "Order Total" "Shipping" "Total to Pay" */
+.skin-motocal .checkout .checkout-container .checkout-deck .price-and-button .price .price-cell, .skin-motocal .checkout .checkout-container .checkout-deck .price-and-button .price strong .price-cell {
+    color: #1b4383;
+}
+
+/* Place order button */
+.skin-motocal .checkout .checkout-container .checkout-deck .price-and-button .place-order-button button {
+    border: 1px solid #57b35e;
+    background: #57b35e;
+    color: #FFFFFF;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Progress bar, that appears after hitting "Place Order" button */
+.checkout .checkout-container #placeorder-progress-bar .progress-bar {
+    background-color: #164687;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+
+/* Terms and conditions */
+.skin-motocal .modal.terms-and-conditions .modal-dialog .modal-content .modal-body p,
+.skin-motocal .modal.terms-and-conditions .modal-dialog .modal-content .modal-body li,
+.skin-motocal .modal.terms-and-conditions .modal-dialog .modal-content .modal-body span,
+.skin-motocal .modal.terms-and-conditions .modal-dialog .modal-content .modal-body ol {
+    color: #333333;
+    font-family: Arial, sans-serif;
+}
+
+/* ---------------- */
+/* Purchased screen */
+/* ---------------- */
+
+/* Text */
+.purchased-screen {
+    color: #333333;
+    font-family: "interface", Arial, Helvetica, sans-serif;
+}
+
+/* Payment received icon */
+.sprite-payment-received {
+    background: url(images/checkout/payment-received.png) 0 0;
+}
+
+/* Payment received text */
+.skin-motocal .purchased-screen .header-img-and-text h4.modal-title {
+    color: #4CAF50;
+}
+

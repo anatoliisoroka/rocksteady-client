@@ -1,0 +1,98 @@
+.material-selector {
+    .material-rating {
+        max-height: 250px;
+        overflow-y: auto;
+    }
+    .modal-body{
+        padding-bottom: 0;
+    }
+}
+
+.material-rating {
+    line-height: 1;
+    .row {
+        display: inline-block;
+        width: 100%;
+        margin-left: 0px;
+        line-height: 1.25;
+        cursor: pointer;
+
+        &:link {
+            color: black;
+        }
+
+        &:hover, &:focus {
+            color: $dropdown-link-hover-color;
+            background-color: $dropdown-link-hover-bg;
+        }
+
+        &:nth-child(odd) {
+            background-color: #f5f5f5;
+        }
+
+        &:nth-child(even) {
+            background-color: transparent;
+        }
+
+        &.selected{
+            background-color: $state-success-bg;
+            border-left: 0;
+            border-right: 0;
+        }
+    }
+
+    .rating {
+        margin-top: 16px;
+        padding: 0;
+    }
+
+    .rating li {
+        width: 45%;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 10px;
+        font-weight: bold;
+        color: #464646;
+        text-transform: uppercase;
+        font-family: $interfaceFontFamily;
+        letter-spacing: 40;
+
+        div {
+            /*border: 1px solid #CCC;*/
+            width: 50px;
+            height: 5px;
+            box-sizing: border-box;
+            background-color: #A5A5A5;
+        }
+
+        svg {
+            height: 5px;
+            width: 50px;
+            display: block;
+
+            line {
+                stroke: grey;
+                stroke-width: 10;
+            }
+        }
+
+        &.rating-1 svg {
+            width: 10px;
+        }
+
+        &.rating-2 svg {
+            width: 20px;
+        }
+
+        &.rating-3 svg {
+            width: 30px;
+        }
+
+        &.rating-4 svg {
+            width: 40px;
+        }
+
+    }
+}

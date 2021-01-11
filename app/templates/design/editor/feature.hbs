@@ -1,0 +1,85 @@
+<div class="property-panel-container">
+  <div class="property-panel unselectable loading">
+
+    <div class="feature-toolbar">
+    {{view "design/editor/toolbarList" controller=controllers.design/editor}}
+    </div>
+
+    <div class="panels-container features">
+
+        {{#if controllers.design/editor.removedFeaturesPanelOn }}
+        {{view "design/editor/removedFeatures" }}
+        {{/if}}
+
+        {{#unless model.deleted}}
+          {{#if model.active}}
+
+            {{#if controller.activeProperty }}
+            {{view "design/editor/subpanel/subpanelContainer" controller=controller }}
+            {{/if}}
+
+            <div class="feature-panel {{if controller.hasActiveProperty 'has-active-property'}}">
+              <div class="property-module feature-preview">
+
+                {{#if controller.isTouch}}
+                {{view "design/editor/featurePreview" canvasWidth=144 canvasHeight=89 location="featurePreview"}}
+                {{else}}
+                {{view "design/editor/featurePreview" canvasWidth=280 canvasHeight=130 location="featurePreview"}}
+                {{/if}}
+
+                {{#if controller.featureIsText}}
+                  {{view "design/editor/editFeatureText"}}
+                {{/if}}
+
+                {{#unless controller.featureIsComponentShape}}
+                  {{view "design/editor/removeFeature"}}
+
+                  {{#if controller.canCloneFeature}}
+                    {{view "design/editor/cloneFeature"}}
+                  {{/if}}
+                {{/unless}}
+              </div>
+
+              {{#if controller.isEditTextAreaVisible}}
+                  {{#if controller.featureIsText}}
+                      {{#click-outside
+                          outsideClick='cancelTextEdit'
+                          except-selector='.edit-text-feature'
+                      }}
+                          <div class="edit-text-feature">
+                              {{textarea value=model.text class="text-feature-input"}}
+                              <div>
+                                  <button {{action 'cancelTextEdit'}}>
+                                      {{t 'application.cancel'}}
+                                  </button>
+                                  <button {{action 'confirmTextEdit'}}>
+                                      {{t 'application.ok'}}
+                                  </button>
+                              </div>
+                          </div>
+                      {{/click-outside}}
+                  {{/if}}
+              {{/if}}
+
+              <div class="scrollable-property-panel-container {{if feature.isEditTextAreaVisible 'is-edit-text-area-visible'}}">
+                {{#if controller.featureIsComponentShape}}
+                  {{render "design/editor/panelComponentShape" model}}
+                {{/if}}
+                {{#if controller.featureIsIcon}}
+                  {{render "design/editor/panelIcon" model}}
+                {{/if}}
+                {{#if controller.featureIsText}}
+                  {{render "design/editor/panelText" model}}
+                {{/if}}
+              </div>
+            </div>
+
+          {{/if}}
+        {{/unless}}
+
+    </div>
+
+  </div>
+</div>
+
+{{outlet}}

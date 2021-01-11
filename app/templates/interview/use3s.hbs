@@ -1,0 +1,29 @@
+<div class="interview-step-carousel" data-interview-section="use3">
+    <h4>{{t 'interview.use3_title'}}</h4>
+
+    {{#if sortedUse3s}}
+        <div class="block-elements">
+
+            {{#each use in sortedUse3s}}
+                <div class="selectable element generic-icon"
+                     title="{{use.name}}"
+                     data-searchfor="{{use.name}}"
+                     data-use3-name="{{use.name}}"
+                     data-use3-id="{{use.id}}"
+                    {{action "chooseUse3" use}}>
+                    <div class="impact small">{{use.name}} </div>
+                </div>
+            {{/each}}
+
+            <div class="selectable element generic-icon"
+                 title="None"
+                 data-searchfor="None"
+                 data-use3-name="None"
+                {{action "skipUse3"}}>
+                <div class="impact small">{{t 'interview.carousel_not_in_list'}}</div>
+            </div>
+        </div>
+    {{else}}
+        <div class="saving-throbber"></div>
+    {{/if}}
+</div>

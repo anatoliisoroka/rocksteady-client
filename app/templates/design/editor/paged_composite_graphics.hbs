@@ -1,0 +1,54 @@
+<div class="paged-composite-graphics-container {{if loadingGraphics 'loading-graphics'}}" data-total-items="{{totalItems}}">
+
+    <form id="graphicFilter">
+
+        {{#if loadingGraphics}}
+            <div class="disable-graphic-filter"></div>
+        {{/if}}
+
+        {{ view "design/editor/graphicPalette/graphicSearch" content=controller}}
+
+        {{#if isTouch}}
+        <button name="clearTags" {{action "clearTags" target=view}}><span class="sprite-touch-btn-filter-clear"></span></button>
+        {{/if}}
+
+        {{#unless isTouch}}
+        <ul id="favourite-tags">
+          {{#each tag in favouriteTags}}
+          <li class="favourite-tags-item tag-background" {{action "addTag" tag target=view}} name="{{tag.tag}}">{{tag.tag}}</li>
+          {{/each}}
+        </ul>
+        {{/unless}}
+
+    </form>
+
+    <div class="palette-container {{if loadingGraphics 'loading-graphics'}}">
+        {{#if loadingGraphics}}
+        {{else}}
+        {{ view "design/editor/graphicPalette/graphicPalette" content=content location="subPanel"}}
+        {{/if}}
+    </div>
+</div>
+
+{{#if loadingGraphics}}
+{{else if content}}
+    <div class="paging-controls-container {{if hasMoreThanOnePage 'has-more-than-one-page'}}">
+
+        <div class="paging-controls">
+            <button {{action "gotoFirstPage"}} disabled={{cannotGotoFirstPage}} class="btn btn-sm" data-name="gotoFirstPage"><i class="{{if isTouch 'sprite-touch-btn-page-first' 'glyphicon-fast-backward'}} glyphicon"></i></button>
+            <button {{action "gotoPreviousPage"}} disabled={{cannotGotoPreviousPage}} class="btn btn-sm" data-name="gotoPreviousPage"><i class="{{if isTouch 'sprite-touch-btn-page-prev' 'glyphicon-step-backward'}} glyphicon"></i></button>
+            <button {{action "gotoNextPage"}} disabled={{cannotGotoNextPage}} class="btn btn-sm" data-name="gotoNextPage"><i class="{{if isTouch 'sprite-touch-btn-page-next' 'glyphicon-step-forward'}} glyphicon"></i></button>
+            <button {{action "gotoLastPage"}} disabled={{cannotGotoLastPage}} class="btn btn-sm" data-name="gotoLastPage"><i class="{{if isTouch 'sprite-touch-btn-page-last' 'glyphicon-fast-forward'}} glyphicon"></i></button>
+        </div>
+
+        <p class="page-x-of-y">{{t 'editor.page_of' from=curPagePlusOne to=totalPages}}</p>
+
+    </div>
+{{else}}
+    <p class="no-results text-center">
+        {{t 'editor.no_results'}}
+    </p>
+    <p class="no-results-touch text-center">
+        {{t 'editor.no_results_touch'}}
+    </p>
+{{/if}}

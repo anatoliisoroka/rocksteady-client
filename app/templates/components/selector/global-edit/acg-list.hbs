@@ -1,0 +1,27 @@
+{{#each accentColourGroup in accentColourGroups}}
+    <div class="accent-colour-group {{if accentColourGroup.deleted 'disabled'}}" {{action 'editAccentColourGroup' accentColourGroup}}>
+        <div class="acg-list-colour">
+            {{selector/global-edit/colour-square colourId=accentColourGroup.id}}
+        </div>
+        <div class="acg-list-name">
+            {{accentColourGroup.name}}
+        </div>
+        <div class="acg-list-edit-button">
+            {{icon/pencil-edit}}
+        </div>
+
+        {{!--
+        {{#if accentColourGroup.deleted}}
+            <div class="acg-list-add-button"
+                {{action 'addAccentColourGroup' accentColourGroup bubbles=false}}>
+                {{icon/plus-thick}}
+            </div>
+        {{else}}
+            <div class="acg-list-remove-button{{if accentColourGroup.canDelete ' disabled'}}"
+                {{action 'deleteAccentColourGroup' accentColourGroup bubbles=false}}>
+                {{icon/minus-thick}}
+            </div>
+        {{/if}}
+        --}}
+    </div>
+{{/each}}

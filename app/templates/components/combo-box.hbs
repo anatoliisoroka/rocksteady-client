@@ -1,0 +1,26 @@
+<span class="btn-group dropdown"
+    data-name="{{name}}"
+    data-value="{{content.name}}"
+    data-value-nationality="{{content.nationality}}"
+    >
+    <button class="btn btn-sm btn-default dropdown-toggle"  type="button" data-toggle="dropdown" href="#">
+        {{#if view.glyphicon}}
+        <span class="glyphicon {{view.glyphicon}}"></span>
+        {{/if}}
+        <span class="combobox-label">
+        {{#if view.label}}
+        {{view.label}}:
+        {{/if}}
+        <strong class="combobox-value">{{value}}</strong>
+        </span>
+        {{#if view.content.imageUrl}}
+        <img src="{{view.content.imageUrl}}"/>
+        {{/if}}
+        <span class="caret"></span>
+    </button>
+    <!--TODO: move below input .. to more appropriate view and separate styles  (it appears in header if competition is chosen)-->
+    {{input type="text" value=filter placeholder=placeholder class="form-control combobox-input"}}
+    <ul class="dropdown-menu combobox-menu pull-right" role="menu">
+        {{yield}}
+    </ul>
+</span>

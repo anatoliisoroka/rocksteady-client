@@ -1,0 +1,11 @@
+<label class="rs-checkbox-small" {{action 'toggle'}}>
+    {{#if positionLeft}}
+        <span class="rs-checkbox-label">{{label}}</span>
+    {{/if}}
+    {{input classBinding=':needsclick' type='checkbox' name=name checked=isChecked}}
+    <div class="rs-custom-checkbox">
+    </div>
+    {{#if positionRight}}
+        <span class="rs-checkbox-label">{{label}}</span>
+    {{/if}}
+</label>

@@ -1,0 +1,38 @@
+{{#if view.showContentDelay}}
+<div class="interview-step-carousel" data-interview-section="manufacturer">
+    {{#if view.showContent}}
+    <h4>{{t 'interview.manufacturer_title'}}</h4>
+    {{/if}}
+
+    {{#if manufacturers.isFulfilled}}
+    {{#if manufacturers.length}}
+        <div class="block-elements">
+            {{#each manufacturer in manufacturers}}
+                <div class="selectable element"
+                     title="{{manufacturer.name}}"
+                     data-searchfor="{{manufacturer.name}}"
+                     data-manufacturer-name="{{manufacturer.name}}"
+                     data-value="{{manufacturer.name}}"
+                    {{action "chooseManufacturer" manufacturer}}>
+                    <div class="img-container">
+                        <img src="{{manufacturer.imageUrl}}">
+                    </div>
+                </div>
+            {{/each}}
+
+            <div class="selectable generic-icon element"
+                 title="Skip"
+                 data-searchfor="Skip"
+                 data-manufacturer-name="None"
+                {{action "skipManufacturer"}}>
+                <div class="impact">{{t 'interview.carousel_item_skip'}}</div>
+            </div>
+        </div>
+    {{/if}}
+    {{else}}
+        {{#if view.showContent}}
+        <div class="saving-throbber"></div>
+        {{/if}}
+    {{/if}}
+</div>
+{{/if}}

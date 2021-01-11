@@ -1,0 +1,8 @@
+<h5 class="title">{{t 'editor.icon_upload_title'}}:</h5>
+{{#if isTouch}}
+<label class="upload-label sprite-touch-btn-load-graphic">
+{{view "design/editor/graphicPalette/graphicUpload" class="upload-graphic"}}
+</label>
+{{else}}
+{{view "design/editor/graphicPalette/graphicUpload" class="upload-graphic"}}
+{{/if}}

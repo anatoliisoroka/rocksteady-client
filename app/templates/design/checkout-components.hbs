@@ -1,0 +1,64 @@
+<div class="components-scroll">
+  <div class="components-wrapper">
+    <div class="components-inner">
+
+        <h2>{{t 'checkout.components_title'}}</h2>
+
+        {{#each item in controllers.design.model.activeShapes itemController="design/componentShape"}}
+
+            <div class="component quantity{{item.component.quantity}}" title="{{item.component.position.name}}">
+
+            <div class="canvas-wrapper">
+                {{view "design/fabricComponentCanvas" content=item.model virtualContainerSizeCue=item.shape}}
+            </div>
+
+            <form class="controls" name="{{item.component.position.name}}">
+              <div class="ctrl-quality">
+                <!-- Single button -->
+                <div class="btn-group">
+                    <button type="button" name="material" class="btn btn-default dropdown-toggle" data-toggle="dropdown" disabled={{item.hasZeroQuantity}}>
+                    <strong>{{t 'checkout.material'}} </strong><span class="decal-name">{{item.component.activeDecal.name}}</span> <span class="caret"></span>
+                  </button>
+                  <div class="dropdown-menu pull-right container material-rating" role="menu">
+
+                    {{#each decal in item.component.decals}}
+                    <a href="#" class="row {{if decal.selected 'selected'}}" {{action 'selectQuality' item.component decal}} name="{{decal.name}}">
+                        <h4 class="col-xs-4 heading">
+                          {{decal.name}}
+                            {{#if decal.selected}}
+                                <span class="h4">
+                                <i class="glyphicon glyphicon-ok text-success"></i>
+                            </span>
+                            {{/if}}
+                        </h4>
+
+                        <ul class="col-xs-6 rating">
+                          {{#each property in decal.properties}}
+                          <li class="{{property.ratingClass}} {{property.colourClass}}" data-name="{{property.name}}">
+                              <div>
+                            <svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="50" y2="0" preserveAspectRatio="none"/></svg>
+                              </div>
+                              {{property.name}}
+                                </li>
+                          {{/each}}
+                        </ul>
+                        <span class="col-xs-2">
+
+                        </span>
+                      </a>
+                          {{/each}}
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="ctrl-quantity">
+                  {{validated-input-quantity name="component-quantity" max=view.maxQuantity min=view.minQuantity value=item.component.quantity message=view.warningText placeholder="" type="text" input-class="form-control"}}
+              </div>
+            </form>
+          </div>
+
+       {{/each}}
+    </div>
+  </div>
+</div>

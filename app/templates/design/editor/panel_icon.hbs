@@ -1,0 +1,69 @@
+{{#if isTouch}}
+
+<div class="touch-buttons-panel">
+
+{{#sticky-button dir="decrement" value=model.scale min="0.1" max="shape" precision="1" step="0.1" infiniteMax="true" class="size-smaller"}}<i class="sprite-touch-btn-size-smaller"></i>{{/sticky-button}}
+{{#sticky-button dir="increment" value=model.scale min="0.1" max="shape" precision="1" step="0.1" infiniteMax="true" userAddedGraphicMax=userAddedGraphicMax hitMaximumAction="showMaximumScaleWarning" class="size-bigger"}}<i class="sprite-touch-btn-size-bigger"></i>{{/sticky-button}}
+
+{{#sticky-button dir="decrement" value=model.angle min="-180" max="180" precision="0" step="1" class="rotate-ccw"}}<i class="sprite-touch-btn-rotate-CCW"></i>{{/sticky-button}}
+{{#sticky-button dir="increment" value=model.angle min="-180" max="180" precision="0" step="1" class="rotate-cw"}}<i class="sprite-touch-btn-rotate-CW"></i>{{/sticky-button}}
+
+<button class="touch-control-button layer-bottom" {{action "featureToBack"}}><i class="sprite-touch-btn-layer-bottom"></i></button>
+<button class="touch-control-button layer-down" {{action "featureBackwards"}}><i class="sprite-touch-btn-layer-down"></i></button>
+<button class="touch-control-button layer-up" {{action "featureForwards"}}><i class="sprite-touch-btn-layer-up"></i></button>
+<button class="touch-control-button layer-top" {{action "featureToFront"}}><i class="sprite-touch-btn-layer-top"></i></button>
+
+</div>
+
+{{else}}
+
+<div class="property-module size">
+  <h5 class="title">{{t 'editor.icon_adjust_title'}}</h5>
+  <div class="property-bd">
+      {{#if controller.model.isUserAddedGraphic}}
+          {{#view "design/editor/sliderLayout" labelName=(t 'editor.slider_label_scale') decrementTitle=(t 'editor.tooltip_decrease_scale') incrementTitle=(t 'editor.tooltip_increase_scale')}}
+              {{view "design/editor/noUiSlider" rangeDecimalPoints=2 value=model.scale prop='scale' min="0.1" max="shape" step="0.02" infiniteMax="true" stickyThrottle="5" userAddedGraphicMax=userAddedGraphicMax hitMaximumAction="showMaximumScaleWarning" scaleRangeObserver="true"}}
+          {{/view}}
+      {{else}}
+          {{#if controller.model.iconObject.isBitmap}}
+              {{#view "design/editor/sliderLayout" labelName=(t 'editor.slider_label_scale') decrementTitle=(t 'editor.tooltip_decrease_scale') incrementTitle=(t 'editor.tooltip_increase_scale')}}
+                  {{view "design/editor/noUiSlider" rangeDecimalPoints=2 value=model.scale prop='scale' min="0.01" max="shape" step="0.01" infiniteMax="true" stickyThrottle="1" userAddedGraphicMax=userAddedGraphicMax hitMaximumAction="showMaximumScaleWarning" scaleRangeObserver="true"}}
+              {{/view}}
+          {{else}}
+              {{#view "design/editor/sliderLayout" labelName=(t 'editor.slider_label_scale') decrementTitle=(t 'editor.tooltip_decrease_scale') incrementTitle=(t 'editor.tooltip_increase_scale')}}
+                  {{view "design/editor/noUiSlider" value=model.scale prop='scale' min="0.1" max="shape" step="0.1" infiniteMax="true" stickyThrottle="5" userAddedGraphicMax=userAddedGraphicMax hitMaximumAction="showMaximumScaleWarning" scaleRangeObserver="true"}}
+              {{/view}}
+          {{/if}}
+      {{/if}}
+
+    {{#view "design/editor/sliderLayout" labelName=(t 'editor.slider_label_angle') decrementTitle=(t 'editor.tooltip_rotate_anticlockwise') incrementTitle=(t 'editor.tooltip_rotate_clockwise')}}
+      {{view "design/editor/noUiSlider" value=model.angle prop='angle' min="-180" max="180" step="1" }}
+    {{/view}}
+
+    {{#if controllers.application.config.APP.features.feature_opacity}}
+    {{#view "design/editor/sliderLayout" labelName=(t 'editor.slider_label_opacity')}}
+      {{view "design/editor/noUiSlider" value=model.opacity prop='opacity' min="10" max="100" step="1" }}
+    {{/view}}
+    {{/if}}
+  </div>
+</div>
+
+<div class="order-tools">
+    {{#if controllers.application.config.APP.features.icon_flip}}
+    <ul class="flip-icons">
+        <li data-name="flipVertically"><a href="#" {{action "flipVertical"}}><span class="btn-flip-vertical sprite-btn-flip-vertical" title="{{t 'editor.flip_vertically'}}"></span></a></li>
+        <li data-name="flipHorizontally"><a href="#" {{action "flipHorizontal"}}> <span class="btn-flip-horizontal sprite-btn-flip-horizontal" title="{{t 'editor.flip_horizontally'}}"></span></a></li>
+    </ul>
+    {{view "design/editor/zIndexModule" rightAlign=true}}
+    {{else}}
+    {{view "design/editor/zIndexModule" rightAlign=false}}
+    {{/if}}
+</div>
+
+{{/if}}
+
+{{#if controller.iconIsMonocolour}}
+    {{view "design/editor/colourPalette/colourPalettes"}}
+{{/if}}
+
+{{view "design/editor/graphicPalette/graphicPalettes"}}

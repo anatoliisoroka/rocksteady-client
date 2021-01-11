@@ -1,0 +1,48 @@
+<div class="filter-list-toggle collapsed"
+     data-toggle="collapse"
+     data-target="#{{index}}-filters"
+     aria-expanded="false"
+     aria-controls="colour-filters">
+    {{name}}
+    {{icon/plus-thin}}
+    {{icon/minus-thin}}
+</div>
+<div class="collapse" id="{{index}}-filters">
+    <ul class="filter-nav-list">
+        {{#each filter in initiallyVisibleFilters}}
+                <li class="{{if filter.visible 'active'}}">
+                    {{rs-checkbox-small
+                        name=filter.name
+                        label=filter.name
+                        title=filter.name
+                        enabled=filter.visible
+                        position='left'
+                        isChecked=filter.active
+                    }}
+                </li>
+        {{/each}}
+
+        {{#if hasMoreFilters}}
+            <li>
+                <a href="" class="show-more-link" {{action 'showAllFilters'}}>
+                    {{t 'themes.filter_menu.show_more_tags' category=allFilters.name}}
+                </a>
+            </li>
+        {{/if}}
+
+        {{#if showAll}}
+            {{#each filter in remainingFilters}}
+                    <li class="{{if filter.visible 'active'}}">
+                        {{rs-checkbox-small
+                            name=filter.name
+                            label=filter.name
+                            title=filter.name
+                            enabled=filter.visible
+                            position='left'
+                            isChecked=filter.active
+                        }}
+                    </li>
+            {{/each}}
+        {{/if}}
+    </ul>
+</div>

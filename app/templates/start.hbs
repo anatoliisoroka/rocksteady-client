@@ -1,0 +1,17 @@
+<div style="margin-top: 100px; text-align: center; margin-left: auto; margin-right: auto;">
+
+    <div class="motocal-logo sprite-motocal-logo-327x70" style="display:block; margin-left:auto;margin-right:auto;"> </div>
+
+    {{input value=naturalText placeholder=placeholderText class="interview-natural-text-input"}}
+
+    <div class="natural-text-search-results">
+        {{#each result in results}}
+            <a class="natural-text-search-result" {{action 'chooseResult' result}}>
+                <img src="{{result.image}}" height="40"/>
+                <p>{{result.name}}</p>
+            </a>
+        {{/each}}
+    </div>
+
+</div>
+

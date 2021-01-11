@@ -1,0 +1,166 @@
+// Rocksteady Specific Buttons
+// --------------------------------------------------
+
+
+.btn {
+  border-radius: 2px;
+}
+
+// Button Sizes
+// --------------------------------------------------
+
+// Small
+.btn-medium {
+  padding: 0px 9px;
+  font-size: 13px;
+  line-height: 28px;
+}
+.btn-medium [class^="icon-"] {
+  margin-top: -1px;
+}
+
+
+// Button Colours
+// --------------------------------------------------
+
+
+// Set text color
+.btn-modal, .btn-modal:hover {
+  color: $white;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+}
+.btn-modal.active {
+  color: rgba(255,255,255,.75);
+}
+
+// Set the backgrounds
+.btn {
+  border-color: #ccc;
+  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+}
+.btn-modal {
+  /*@include buttonBackground($btnModalBackgroundHighlight, $btnModalBackground);*/
+  /*border-color: $btnModalBorder;*/
+  @include button-variant($btnModalBackgroundHighlight, $btnModalBackground, $btnModalBorder);
+  box-shadow: #{inset 1px 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)};
+}
+
+nav .dropdown .btn {
+  /*@include button-variant($btnModalBackgroundHighlight, $btnModalBackground, $btnModalBorder);*/
+}
+
+.btn-buildkit {
+  @include button-variant(white, $motocalBlue, $btn-default-border);
+  color: white;
+}
+
+
+.popover-trigger {
+  margin: 100px;
+}
+
+// Buttons
+.btn.left{
+  float:left;
+}
+.btn.right{
+  float:right;
+}
+
+// Button Types
+// --------------------------------------------------
+.btn-ios {
+    background: $btnBackground;
+    border: solid $btnBorder;
+    border-width: 1px 1px 1px 0;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: normal;
+    height: 31px;
+    line-height: 29px;
+    margin: 0 2px 0px 20px;
+    padding: 0 10px 0 6px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px $white;
+    z-index: 8999;
+    border-radius: 0 5px 5px 0;
+    &:after{
+      background: inherit;
+      border: solid $btnBorder;
+      border-width: 0 0 1px 1px;
+      content: '';
+      display: block;
+      height: 23px;
+      left: -12px;
+      position: absolute;
+      top: 3px;
+      width: 22px;
+      border-radius: 0 5px 2px 4px;
+      @include transform(rotate(45deg));
+    }
+    span {
+      position: relative;
+      z-index: 9001;
+    }
+    &:hover,
+    &:focus,
+    &:hover:before,
+    &:focus:before {
+      background: lighten($btnToolbarSecondary, 5%);
+    }
+    &:active,
+    &:active:before {
+      background: lighten($btnToolbarSecondary, 10%);
+    }
+
+}
+
+
+.header-price-buttons {
+
+    > * {
+        vertical-align: top;
+    }
+
+    .rs-price-form{
+        display:inline;
+    }
+
+    .rs-checkout{
+
+        font-weight: 900;
+        /*margin-bottom: 4px;*/
+        border-radius: 4px;
+    }
+
+    .header-price-inline {
+        font-size: 120%;
+        display: inline-block;
+        margin-top: -10px;
+        line-height: 30px;
+    }
+}
+
+.dropdown-menu li a {
+    cursor: pointer;
+}
+
+.btn-group-understand{
+    .btn.checkbox{
+        margin-top: 0;
+        height: 33px;
+        padding-top: 7px;
+        padding-left: 30px;
+        text-transform: uppercase;
+    }
+}
+
+.shepherd-content .btn-group-understand {
+    float: right;
+
+    .btn.checkbox {
+        height: 36px;
+    }
+}
+
